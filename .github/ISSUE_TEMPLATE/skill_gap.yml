@@ -1,0 +1,63 @@
+name: Skill gap
+description: A report-styles skill gave wrong or insufficient guidance.
+title: "[skill gap] "
+labels: [skill-gap]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this when Claude, using one of these skills, produced a page that looks wrong, breaks an IBCS rule,
+        shows different numbers in different styles, or got stuck. The prompt and the result are the most useful
+        parts. Do not paste secrets, ids, host names or real business data; use placeholders.
+  - type: dropdown
+    id: skill
+    attributes:
+      label: Skill
+      options:
+        - report-styles
+        - style-ibcs
+        - style-showcase
+        - style-soft
+        - style-graphic
+        - not sure
+    validations:
+      required: true
+  - type: dropdown
+    id: target
+    attributes:
+      label: Where
+      options:
+        - Web app (React)
+        - Microsoft Fabric App
+        - Power BI
+        - other
+  - type: textarea
+    id: prompt
+    attributes:
+      label: Prompt used
+      description: What you asked, as close to verbatim as you can share.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened
+      description: What Claude did or answered, and why it is wrong or not enough.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+      description: The right result. Cite the IBCS rule id (e.g. CH 4.1) if you know it.
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Drag images here. Blur real figures and names.
+  - type: input
+    id: version
+    attributes:
+      label: Plugin version and Claude Code version

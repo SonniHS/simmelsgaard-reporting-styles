@@ -1,0 +1,41 @@
+name: Bug report
+description: A bug in a component, script, generated theme or test.
+title: "[bug] "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For wrong guidance from a skill, use the Skill gap form instead. Do not paste secrets, ids, host names or
+        real business data; use placeholders.
+  - type: input
+    id: where
+    attributes:
+      label: File or component
+      description: e.g. `parts/ibcs.tsx`, `build_styles.py`, `soft-pbi-theme-dark.json`, `check-previews.mjs`.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: The input (a minimal KeyFiguresInput or token change), the command, the style, theme and width.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: Versions
+      description: Plugin version, Node.js, browser, Power BI Desktop (as relevant).

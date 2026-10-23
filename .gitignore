@@ -1,0 +1,14 @@
+.remember/
+node_modules/
+__pycache__/
+.pytest_cache/
+.venv/
+.DS_Store
+*.mlxq.bak
+*.env
+.env
+.claude/settings.local.json
+# Local-only leak denylist (private names the scan must catch; never commit)
+tests/private-denylist.txt
+# Local-only agent instructions
+CLAUDE.local.md

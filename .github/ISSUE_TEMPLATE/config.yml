@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security vulnerability
+    url: https://github.com/SonniHS/simmelsgaard-reporting-styles/security/advisories/new
+    about: Report security problems privately, not in a public issue.
+  - name: A problem with the IBCS notation itself (the ibcs plugin)
+    url: https://github.com/SonniHS/simmelsgaard-reporting-skills/issues
+    about: Notation, Deneb templates and the IBCS linter live in simmelsgaard-reporting-skills.

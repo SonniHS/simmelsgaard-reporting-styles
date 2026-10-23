@@ -13,9 +13,9 @@ over HTTP (the browser check does this itself) or open the built app from your d
 the smaller px per unit. That is the rule (IBCS CH 4.1), not a bug. Give the charts different units only if they
 really are different measures; otherwise accept the shorter chart or show fewer items in the structure card.
 
-**The IBCS structure card has no ΔPY column.** When the card is too narrow for the bars, the values and both
-variance columns, the absolute ΔPY column is dropped (it stays in the KPI tiles) and ΔPY% stays. The column headers
-in the chart say which is shown.
+**The IBCS structure card has no ΔPY column.** When the card is too narrow, the names first move onto their own line
+above the bars; only when even that leaves the bars too little room is the absolute ΔPY column dropped (it stays in
+the KPI tiles). ΔPY% always stays, and the column headers in the chart say which is shown.
 
 **A "Data check" note appears above the key message.** The parts in your input do not add up to the KPI you named
 in `totals`. Fix the source data; the page states the mismatch instead of hiding it.

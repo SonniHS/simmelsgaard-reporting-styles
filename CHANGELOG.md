@@ -5,10 +5,18 @@ All notable changes to this marketplace and its plugin. The format follows
 
 ## [Unreleased]
 
-### Planned
-- IBCS structure card: keep the absolute ΔPY column on narrower cards (tighter label sizing before dropping it).
-- Soft on a phone: a taller shared plot height when the cards stack, so a short time chart stays readable at the
-  shared scale.
+## [1.1.0] - 2026-10-23
+
+### Added
+- IBCS Power BI assets for light too (`ibcs-pbi-theme-light.json`, `-light-cvd`, `ibcs-light.overrides.json`), in the
+  web style's screen-tuned colours: every style now has all four themes and both overrides files in this repository.
+
+### Changed
+- IBCS structure card: when the names leave too little room, they move onto their own line above the bars before
+  any column is dropped, so the absolute ΔPY column stays on narrower cards. On phones the names always sit above
+  the bars, and long names are no longer shortened.
+- Soft structure card on phones: names above the bars, so the bars use the full width and, at the shared scale
+  (CH 4.1), the time chart above gets a readable height.
 
 ## [1.0.0] - 2026-10-23
 

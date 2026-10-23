@@ -6,16 +6,25 @@
   },
   "metadata": {
     "description": "Presentation styles for IBCS®-based business reports: IBCS, Showcase, Soft and Graphic, in light and dark, with the same numbers and one page layout in every style.",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
-  "allowCrossMarketplaceDependenciesOn": ["simmelsgaard-reporting-skills"],
+  "allowCrossMarketplaceDependenciesOn": [
+    "simmelsgaard-reporting-skills"
+  ],
   "plugins": [
     {
       "name": "report-styles",
       "source": "./plugins/report-styles",
       "description": "Four report styles (IBCS, Showcase, Soft, Graphic) in light and dark: a style and theme switch, one shared page layout, a reconcile test, tokens with contrast guardrails, React reference components, Power BI themes and Deneb overrides.",
       "category": "data-visualization",
-      "tags": ["ibcs", "report-styles", "design-tokens", "dark-mode", "power-bi", "react"]
+      "tags": [
+        "ibcs",
+        "report-styles",
+        "design-tokens",
+        "dark-mode",
+        "power-bi",
+        "react"
+      ]
     }
   ]
 }

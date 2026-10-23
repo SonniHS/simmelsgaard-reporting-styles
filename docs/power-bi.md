@@ -10,7 +10,7 @@ workflow.
 
 | Style | Files (in `plugins/report-styles/skills/style-<id>/assets/power-bi/`) |
 |---|---|
-| IBCS | `ibcs-pbi-theme-dark.json`, `-dark-cvd.json` (light: the ibcs-power-bi plugin's `ibcs-pbi-theme.json`) |
+| IBCS | `ibcs-pbi-theme-light.json`, `-light-cvd`, `-dark`, `-dark-cvd` |
 | Showcase | `showcase-pbi-theme-light.json`, `-light-cvd`, `-dark`, `-dark-cvd` |
 | Soft | `soft-pbi-theme-light.json`, `-light-cvd`, `-dark`, `-dark-cvd` |
 | Graphic | `graphic-pbi-theme-light.json`, `-light-cvd`, `-dark`, `-dark-cvd` |

@@ -223,8 +223,7 @@ class GeneratedAssets(unittest.TestCase):
         for sid in STYLES:
             a = SKILLS / f"style-{sid}" / "assets"
             self.assertTrue((a / f"{sid}.tokens.json").is_file())
-            modes = ["dark"] if sid == "ibcs" else ["light", "dark"]   # IBCS light is the ibcs-power-bi plugin's
-            for mode in modes:
+            for mode in ("light", "dark"):
                 for cvd in ("", "-cvd"):
                     self.assertTrue((a / "power-bi" / f"{sid}-pbi-theme-{mode}{cvd}.json").is_file(), f"{sid} {mode}{cvd} theme")
                 self.assertTrue((a / "deneb" / f"{sid}-{mode}.overrides.json").is_file(), f"{sid} {mode} overrides")

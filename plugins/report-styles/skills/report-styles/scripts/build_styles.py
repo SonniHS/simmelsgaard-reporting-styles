@@ -18,7 +18,7 @@ Generated, never edited by hand:
   ../style-<id>/assets/<id>.tokens.json                              DTCG export of the style
   ../style-<id>/assets/power-bi/<id>-pbi-theme-<mode>[-cvd].json     Power BI report themes
   ../style-<id>/assets/deneb/<id>-<mode>.overrides.json              overrides for ibcs-deneb's sync_tokens.py
-The IBCS light theme and Deneb tokens are the ibcs-power-bi plugin's own; this script adds IBCS dark only.
+Every style gets all four themes and both overrides files, IBCS included, so the Power BI assets are complete here.
 """
 from __future__ import annotations
 
@@ -327,8 +327,6 @@ def outputs(styles: dict) -> dict[Path, str]:
         assets = SKILLS / f"style-{sid}" / "assets"
         out[assets / f"{sid}.tokens.json"] = dump(dtcg(s))
         for mode in MODES:
-            if sid == "ibcs" and mode == "light":
-                continue  # the ibcs-power-bi plugin's theme and the ibcs-deneb defaults are IBCS light
             for cvd in (False, True):
                 out[assets / "power-bi" / f"{sid}-pbi-theme-{mode}{'-cvd' if cvd else ''}.json"] = dump(pbi_theme(s, mode, cvd))
             out[assets / "deneb" / f"{sid}-{mode}.overrides.json"] = dump(deneb_overrides(s, mode))

@@ -1,0 +1,13 @@
+/* Self-hosted fonts (OFL-1.1, from the @fontsource packages): the bundler copies the files next to the CSS, so a report
+   page makes no third-party request on load. Only the faces and weights the style tokens use. latin subsets only. */
+@import "@fontsource/inter/latin-400.css";
+@import "@fontsource/inter/latin-500.css";
+@import "@fontsource/inter/latin-600.css";
+@import "@fontsource/nunito/latin-700.css";
+@import "@fontsource/nunito/latin-800.css";
+@import "@fontsource/nunito-sans/latin-400.css";
+@import "@fontsource/nunito-sans/latin-700.css";
+@import "@fontsource/source-sans-3/latin-400.css";
+@import "@fontsource/source-sans-3/latin-600.css";
+@import "@fontsource/source-sans-3/latin-700.css";
+@import "@fontsource/source-serif-4/latin-600.css";

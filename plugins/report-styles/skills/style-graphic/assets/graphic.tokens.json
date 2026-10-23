@@ -1,0 +1,404 @@
+{
+  "$description": "Graphic · for Communication: A newspaper data page: the key message as a serif headline, a ruled strip of four figures, a line chart with two annotations, a ruled table with inline bars. Generated from report-styles/assets/tokens/graphic.json; do not edit.",
+  "color": {
+    "light": {
+      "surface": {
+        "page": {
+          "$value": "#FBFAF7",
+          "$type": "color"
+        },
+        "panel": {
+          "$value": "transparent",
+          "$type": "color"
+        },
+        "tile": {
+          "$value": "transparent",
+          "$type": "color"
+        },
+        "edge": {
+          "$value": "#D8D3C9",
+          "$type": "color"
+        },
+        "backdrop": {
+          "$value": "none",
+          "$type": "color"
+        }
+      },
+      "text": {
+        "primary": {
+          "$value": "#1C1B19",
+          "$type": "color"
+        },
+        "secondary": {
+          "$value": "#5C5850",
+          "$type": "color"
+        },
+        "onAccent": {
+          "$value": "#FFFFFF",
+          "$type": "color"
+        }
+      },
+      "impact": {
+        "good": {
+          "$value": "#2C7D4E",
+          "$type": "color"
+        },
+        "bad": {
+          "$value": "#B8322A",
+          "$type": "color"
+        },
+        "neutral": {
+          "$value": "#2F5FA8",
+          "$type": "color"
+        },
+        "cvd": {
+          "good": {
+            "$value": "#0F7A8A",
+            "$type": "color"
+          },
+          "bad": {
+            "$value": "#B8322A",
+            "$type": "color"
+          },
+          "neutral": {
+            "$value": "#2F5FA8",
+            "$type": "color"
+          }
+        }
+      },
+      "scenario": {
+        "ac": {
+          "$value": "#1C1B19",
+          "$type": "color"
+        },
+        "py": {
+          "$value": "#ABA597",
+          "$type": "color"
+        },
+        "pl": {
+          "$value": "#1C1B19",
+          "$type": "color"
+        },
+        "fc": {
+          "$value": "#1C1B19",
+          "$type": "color"
+        }
+      },
+      "accent": {
+        "primary": {
+          "$value": "#27466F",
+          "$type": "color"
+        },
+        "highlight": {
+          "$value": "#B9781A",
+          "$type": "color"
+        }
+      },
+      "chart": {
+        "axis": {
+          "$value": "#1C1B19",
+          "$type": "color"
+        },
+        "grid": {
+          "$value": "#E7E3DA",
+          "$type": "color"
+        },
+        "label": {
+          "$value": "#1C1B19",
+          "$type": "color"
+        }
+      }
+    },
+    "dark": {
+      "surface": {
+        "page": {
+          "$value": "#151513",
+          "$type": "color"
+        },
+        "panel": {
+          "$value": "transparent",
+          "$type": "color"
+        },
+        "tile": {
+          "$value": "transparent",
+          "$type": "color"
+        },
+        "edge": {
+          "$value": "#3A3833",
+          "$type": "color"
+        },
+        "backdrop": {
+          "$value": "none",
+          "$type": "color"
+        }
+      },
+      "text": {
+        "primary": {
+          "$value": "#ECE9E2",
+          "$type": "color"
+        },
+        "secondary": {
+          "$value": "#A9A398",
+          "$type": "color"
+        },
+        "onAccent": {
+          "$value": "#151513",
+          "$type": "color"
+        }
+      },
+      "impact": {
+        "good": {
+          "$value": "#62BE86",
+          "$type": "color"
+        },
+        "bad": {
+          "$value": "#EE7468",
+          "$type": "color"
+        },
+        "neutral": {
+          "$value": "#7AA5EE",
+          "$type": "color"
+        },
+        "cvd": {
+          "good": {
+            "$value": "#4DC1CE",
+            "$type": "color"
+          },
+          "bad": {
+            "$value": "#EE7468",
+            "$type": "color"
+          },
+          "neutral": {
+            "$value": "#7AA5EE",
+            "$type": "color"
+          }
+        }
+      },
+      "scenario": {
+        "ac": {
+          "$value": "#ECE9E2",
+          "$type": "color"
+        },
+        "py": {
+          "$value": "#6E6A62",
+          "$type": "color"
+        },
+        "pl": {
+          "$value": "#ECE9E2",
+          "$type": "color"
+        },
+        "fc": {
+          "$value": "#ECE9E2",
+          "$type": "color"
+        }
+      },
+      "accent": {
+        "primary": {
+          "$value": "#A9C0E8",
+          "$type": "color"
+        },
+        "highlight": {
+          "$value": "#E2A445",
+          "$type": "color"
+        }
+      },
+      "chart": {
+        "axis": {
+          "$value": "#ECE9E2",
+          "$type": "color"
+        },
+        "grid": {
+          "$value": "#2A2926",
+          "$type": "color"
+        },
+        "label": {
+          "$value": "#ECE9E2",
+          "$type": "color"
+        }
+      }
+    }
+  },
+  "typography": {
+    "family": {
+      "text": {
+        "$value": "\"Source Sans 3\", system-ui, sans-serif",
+        "$type": "fontFamily"
+      },
+      "display": {
+        "$value": "\"Source Serif 4\", Georgia, serif",
+        "$type": "fontFamily"
+      },
+      "figures": {
+        "$value": "\"Source Sans 3\", system-ui, sans-serif",
+        "$type": "fontFamily"
+      }
+    },
+    "weight": {
+      "regular": {
+        "$value": 400,
+        "$type": "fontWeight"
+      },
+      "emphasis": {
+        "$value": 600,
+        "$type": "fontWeight"
+      },
+      "display": {
+        "$value": 600,
+        "$type": "fontWeight"
+      }
+    },
+    "size": {
+      "message": {
+        "$value": "32px",
+        "$type": "dimension"
+      },
+      "title": {
+        "$value": "16px",
+        "$type": "dimension"
+      },
+      "body": {
+        "$value": "15px",
+        "$type": "dimension"
+      },
+      "label": {
+        "$value": "13px",
+        "$type": "dimension"
+      },
+      "footnote": {
+        "$value": "12px",
+        "$type": "dimension"
+      },
+      "figure": {
+        "$value": "34px",
+        "$type": "dimension"
+      },
+      "hero": {
+        "$value": "34px",
+        "$type": "dimension"
+      }
+    }
+  },
+  "radius": {
+    "hero": {
+      "$value": "0px",
+      "$type": "dimension"
+    },
+    "panel": {
+      "$value": "0px",
+      "$type": "dimension"
+    },
+    "tile": {
+      "$value": "0px",
+      "$type": "dimension"
+    },
+    "control": {
+      "$value": "2px",
+      "$type": "dimension"
+    },
+    "mark": {
+      "$value": "0px",
+      "$type": "dimension"
+    }
+  },
+  "density": {
+    "gap": {
+      "$value": "28px",
+      "$type": "dimension"
+    },
+    "pad": {
+      "$value": "0px",
+      "$type": "dimension"
+    },
+    "maxVisuals": {
+      "$value": 3,
+      "$type": "number"
+    },
+    "tilesPerRow": {
+      "$value": 4,
+      "$type": "number"
+    },
+    "phoneScale": {
+      "$value": 0.8,
+      "$type": "number"
+    }
+  },
+  "motion": {
+    "duration": {
+      "$value": "0ms",
+      "$type": "duration"
+    },
+    "easing": {
+      "$value": "linear",
+      "$type": "string"
+    }
+  },
+  "$extensions": {
+    "report-styles": {
+      "meta": {
+        "id": "graphic",
+        "label": "Graphic",
+        "persona": "for Communication",
+        "summary": "A newspaper data page: the key message as a serif headline, a ruled strip of four figures, a line chart with two annotations, a ruled table with inline bars.",
+        "brandSlot": "color.*.accent.primary, typography.family.display"
+      },
+      "chart": {
+        "scenarioEncoding": "pattern",
+        "gridlines": "faint",
+        "timeSeries": "editorial-line",
+        "variance": "annotations",
+        "structure": "table-bars",
+        "kpi": "figure-strip",
+        "allowed": [],
+        "onRequest": [],
+        "banned": [
+          "pie",
+          "ring",
+          "gauge",
+          "funnel",
+          "radar",
+          "traffic-light",
+          "pseudo-3d",
+          "area-scaled-icons",
+          "truncated-axis",
+          "waffle",
+          "pictogram"
+        ],
+        "relaxes": [
+          {
+            "rule": "SI 1.2",
+            "what": "An off-white paper page (dark: warm black) with hairline rules instead of white cards.",
+            "why": "The editorial look of a newspaper data page; charts and tables sit directly on the page."
+          },
+          {
+            "rule": "SI 2.3",
+            "what": "A serif display face for the headline (the key message).",
+            "why": "Editorial voice; labels and figures stay in a plain sans with tabular figures."
+          },
+          {
+            "rule": "CO 1.1",
+            "what": "The key message as a 32 px headline; figures 34 px.",
+            "why": "Read on intranet pages and in town-hall slides.",
+            "condition": "A figure only where it carries something the headline lacks."
+          },
+          {
+            "rule": "SI 3.1",
+            "what": "Faint horizontal gridlines on the line chart, value labels only at the line ends and in the annotations.",
+            "why": "Newspaper convention for a 12-point line; the reader reads levels off the grid.",
+            "condition": "Gridlines or full data labels on a visual, never both."
+          },
+          {
+            "rule": "CO 1.3",
+            "what": "At most 3 visuals a page.",
+            "why": "One story per page; detail lives in the IBCS page."
+          },
+          {
+            "rule": "CH 4.1",
+            "what": "The line chart keeps its own value scale instead of one px per unit across the page.",
+            "why": "A line is read against its labelled gridlines, not by comparing lengths with the table's bars.",
+            "condition": "Gridlines start at zero and are labelled; the table's inline bars share one scale among themselves; any further bars or columns of the same unit share it too."
+          }
+        ]
+      }
+    }
+  }
+}

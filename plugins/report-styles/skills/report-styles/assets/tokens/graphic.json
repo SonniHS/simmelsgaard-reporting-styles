@@ -1,0 +1,188 @@
+{
+  "$comment": "Graphic style: the data page of a good newspaper, for communication. Serif headline that is the key message, hairline rules, gridlines with few labels, annotations tied to their points. Chosen over an annual-review direction.",
+  "meta": {
+    "id": "graphic",
+    "label": "Graphic",
+    "persona": "for Communication",
+    "summary": "A newspaper data page: the key message as a serif headline, a ruled strip of four figures, a line chart with two annotations, a ruled table with inline bars.",
+    "brandSlot": "color.*.accent.primary, typography.family.display"
+  },
+  "color": {
+    "light": {
+      "surface": {
+        "page": "#FBFAF7",
+        "panel": "transparent",
+        "tile": "transparent",
+        "edge": "#D8D3C9",
+        "backdrop": "none"
+      },
+      "text": {
+        "primary": "#1C1B19",
+        "secondary": "#5C5850",
+        "onAccent": "#FFFFFF"
+      },
+      "impact": {
+        "good": "#2C7D4E",
+        "bad": "#B8322A",
+        "neutral": "#2F5FA8",
+        "cvd": {
+          "good": "#0F7A8A",
+          "bad": "#B8322A",
+          "neutral": "#2F5FA8"
+        }
+      },
+      "scenario": {
+        "ac": "#1C1B19",
+        "py": "#ABA597",
+        "pl": "#1C1B19",
+        "fc": "#1C1B19"
+      },
+      "accent": {
+        "primary": "#27466F",
+        "highlight": "#B9781A"
+      },
+      "chart": {
+        "axis": "#1C1B19",
+        "grid": "#E7E3DA",
+        "label": "#1C1B19"
+      }
+    },
+    "dark": {
+      "surface": {
+        "page": "#151513",
+        "panel": "transparent",
+        "tile": "transparent",
+        "edge": "#3A3833",
+        "backdrop": "none"
+      },
+      "text": {
+        "primary": "#ECE9E2",
+        "secondary": "#A9A398",
+        "onAccent": "#151513"
+      },
+      "impact": {
+        "good": "#62BE86",
+        "bad": "#EE7468",
+        "neutral": "#7AA5EE",
+        "cvd": {
+          "good": "#4DC1CE",
+          "bad": "#EE7468",
+          "neutral": "#7AA5EE"
+        }
+      },
+      "scenario": {
+        "ac": "#ECE9E2",
+        "py": "#6E6A62",
+        "pl": "#ECE9E2",
+        "fc": "#ECE9E2"
+      },
+      "accent": {
+        "primary": "#A9C0E8",
+        "highlight": "#E2A445"
+      },
+      "chart": {
+        "axis": "#ECE9E2",
+        "grid": "#2A2926",
+        "label": "#ECE9E2"
+      }
+    }
+  },
+  "typography": {
+    "family": {
+      "text": "\"Source Sans 3\", system-ui, sans-serif",
+      "display": "\"Source Serif 4\", Georgia, serif",
+      "figures": "\"Source Sans 3\", system-ui, sans-serif"
+    },
+    "weight": {
+      "regular": 400,
+      "emphasis": 600,
+      "display": 600
+    },
+    "size": {
+      "message": 32,
+      "title": 16,
+      "body": 15,
+      "label": 13,
+      "footnote": 12,
+      "figure": 34,
+      "hero": 34
+    }
+  },
+  "radius": {
+    "hero": 0,
+    "panel": 0,
+    "tile": 0,
+    "control": 2,
+    "mark": 0
+  },
+  "density": {
+    "gap": 28,
+    "pad": 0,
+    "maxVisuals": 3,
+    "tilesPerRow": 4,
+    "phoneScale": 0.8
+  },
+  "motion": {
+    "enabled": false,
+    "durationMs": 0,
+    "easing": "linear"
+  },
+  "chart": {
+    "scenarioEncoding": "pattern",
+    "gridlines": "faint",
+    "timeSeries": "editorial-line",
+    "variance": "annotations",
+    "structure": "table-bars",
+    "kpi": "figure-strip",
+    "allowed": [],
+    "onRequest": [],
+    "banned": [
+      "pie",
+      "ring",
+      "gauge",
+      "funnel",
+      "radar",
+      "traffic-light",
+      "pseudo-3d",
+      "area-scaled-icons",
+      "truncated-axis",
+      "waffle",
+      "pictogram"
+    ],
+    "relaxes": [
+      {
+        "rule": "SI 1.2",
+        "what": "An off-white paper page (dark: warm black) with hairline rules instead of white cards.",
+        "why": "The editorial look of a newspaper data page; charts and tables sit directly on the page."
+      },
+      {
+        "rule": "SI 2.3",
+        "what": "A serif display face for the headline (the key message).",
+        "why": "Editorial voice; labels and figures stay in a plain sans with tabular figures."
+      },
+      {
+        "rule": "CO 1.1",
+        "what": "The key message as a 32 px headline; figures 34 px.",
+        "why": "Read on intranet pages and in town-hall slides.",
+        "condition": "A figure only where it carries something the headline lacks."
+      },
+      {
+        "rule": "SI 3.1",
+        "what": "Faint horizontal gridlines on the line chart, value labels only at the line ends and in the annotations.",
+        "why": "Newspaper convention for a 12-point line; the reader reads levels off the grid.",
+        "condition": "Gridlines or full data labels on a visual, never both."
+      },
+      {
+        "rule": "CO 1.3",
+        "what": "At most 3 visuals a page.",
+        "why": "One story per page; detail lives in the IBCS page."
+      },
+      {
+        "rule": "CH 4.1",
+        "what": "The line chart keeps its own value scale instead of one px per unit across the page.",
+        "why": "A line is read against its labelled gridlines, not by comparing lengths with the table's bars.",
+        "condition": "Gridlines start at zero and are labelled; the table's inline bars share one scale among themselves; any further bars or columns of the same unit share it too."
+      }
+    ]
+  }
+}

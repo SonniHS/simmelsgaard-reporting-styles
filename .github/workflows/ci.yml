@@ -1,0 +1,98 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    name: Repository tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # The consumer tests need the ibcs plugins; check them out next to this repo.
+      - uses: actions/checkout@v4
+        with:
+          repository: SonniHS/simmelsgaard-reporting-skills
+          path: simmelsgaard-reporting-skills
+
+      - name: Install test dependencies
+        run: python3 -m pip install pytest jsonschema
+
+      # Manifests, frontmatter, links, generated assets, the Deneb sync and lint consumers, and the leak scan.
+      # The private denylist is local-only, so its check is skipped here; the pattern scan runs.
+      - name: Run unit tests
+        env:
+          IBCS_SKILLS_REPO: ${{ github.workspace }}/simmelsgaard-reporting-skills
+        run: python3 -m pytest -q tests
+
+      - name: Check generated files are current (with the schema step)
+        run: python3 -I plugins/report-styles/skills/report-styles/scripts/build_styles.py --check
+
+  components:
+    name: Reference components
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: plugins/report-styles/skills/report-styles/assets/react-reference
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: plugins/report-styles/skills/report-styles/assets/react-reference/package-lock.json
+
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run previews
+
+      # The browser checks: reconcile, shared layout and geometry, fonts, themes, print, CVD, keyboard.
+      - run: npm i --no-save playwright@1.56.1 && npx playwright install --with-deps chromium
+      # the sample and the two fixtures (people data in quarters; large counts with negative variances)
+      - run: |
+          npm run check-previews
+          npm run check-previews -- --data people
+          npm run check-previews -- --data service
+        env:
+          REPORT_STYLES_BROWSER: chromium
+
+  validate:
+    name: Claude Code plugin validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Validate marketplace
+        run: claude plugin validate --strict .
+
+      - name: Validate each plugin
+        run: |
+          status=0
+          for plugin in plugins/*/; do
+            claude plugin validate --strict "$plugin" || status=1
+          done
+          exit $status

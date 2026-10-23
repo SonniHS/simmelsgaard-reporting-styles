@@ -1,0 +1,407 @@
+{
+  "$description": "Soft · for HR / People: Warm page, rounded cards, calm colours, generous spacing and larger text; IBCS notation kept in a softer ink. Light: off-white and white cards; dark: warm charcoal. Generated from report-styles/assets/tokens/soft.json; do not edit.",
+  "color": {
+    "light": {
+      "surface": {
+        "page": {
+          "$value": "#FBF7F2",
+          "$type": "color"
+        },
+        "panel": {
+          "$value": "#FFFFFF",
+          "$type": "color"
+        },
+        "tile": {
+          "$value": "#FFFFFF",
+          "$type": "color"
+        },
+        "edge": {
+          "$value": "#EDE6DC",
+          "$type": "color"
+        },
+        "backdrop": {
+          "$value": "none",
+          "$type": "color"
+        }
+      },
+      "text": {
+        "primary": {
+          "$value": "#2A2733",
+          "$type": "color"
+        },
+        "secondary": {
+          "$value": "#5F5A6B",
+          "$type": "color"
+        },
+        "onAccent": {
+          "$value": "#FFFFFF",
+          "$type": "color"
+        }
+      },
+      "impact": {
+        "good": {
+          "$value": "#389A62",
+          "$type": "color"
+        },
+        "bad": {
+          "$value": "#C0392B",
+          "$type": "color"
+        },
+        "neutral": {
+          "$value": "#3D6FC4",
+          "$type": "color"
+        },
+        "cvd": {
+          "good": {
+            "$value": "#1F8C9E",
+            "$type": "color"
+          },
+          "bad": {
+            "$value": "#C0392B",
+            "$type": "color"
+          },
+          "neutral": {
+            "$value": "#3D6FC4",
+            "$type": "color"
+          }
+        }
+      },
+      "scenario": {
+        "ac": {
+          "$value": "#4A4E69",
+          "$type": "color"
+        },
+        "py": {
+          "$value": "#C9C5D6",
+          "$type": "color"
+        },
+        "pl": {
+          "$value": "#4A4E69",
+          "$type": "color"
+        },
+        "fc": {
+          "$value": "#4A4E69",
+          "$type": "color"
+        }
+      },
+      "accent": {
+        "primary": {
+          "$value": "#7A68B8",
+          "$type": "color"
+        },
+        "highlight": {
+          "$value": "#D9973F",
+          "$type": "color"
+        }
+      },
+      "chart": {
+        "axis": {
+          "$value": "#B9B2C4",
+          "$type": "color"
+        },
+        "grid": {
+          "$value": "#F0EBE4",
+          "$type": "color"
+        },
+        "label": {
+          "$value": "#2A2733",
+          "$type": "color"
+        }
+      }
+    },
+    "dark": {
+      "surface": {
+        "page": {
+          "$value": "#1C1A21",
+          "$type": "color"
+        },
+        "panel": {
+          "$value": "#26232D",
+          "$type": "color"
+        },
+        "tile": {
+          "$value": "#26232D",
+          "$type": "color"
+        },
+        "edge": {
+          "$value": "#34303C",
+          "$type": "color"
+        },
+        "backdrop": {
+          "$value": "none",
+          "$type": "color"
+        }
+      },
+      "text": {
+        "primary": {
+          "$value": "#F1EDF5",
+          "$type": "color"
+        },
+        "secondary": {
+          "$value": "#B5AFC0",
+          "$type": "color"
+        },
+        "onAccent": {
+          "$value": "#1C1A21",
+          "$type": "color"
+        }
+      },
+      "impact": {
+        "good": {
+          "$value": "#63C68C",
+          "$type": "color"
+        },
+        "bad": {
+          "$value": "#F07A6E",
+          "$type": "color"
+        },
+        "neutral": {
+          "$value": "#7FA4EE",
+          "$type": "color"
+        },
+        "cvd": {
+          "good": {
+            "$value": "#4FC0D0",
+            "$type": "color"
+          },
+          "bad": {
+            "$value": "#F07A6E",
+            "$type": "color"
+          },
+          "neutral": {
+            "$value": "#7FA4EE",
+            "$type": "color"
+          }
+        }
+      },
+      "scenario": {
+        "ac": {
+          "$value": "#E4E0EE",
+          "$type": "color"
+        },
+        "py": {
+          "$value": "#6B6578",
+          "$type": "color"
+        },
+        "pl": {
+          "$value": "#E4E0EE",
+          "$type": "color"
+        },
+        "fc": {
+          "$value": "#E4E0EE",
+          "$type": "color"
+        }
+      },
+      "accent": {
+        "primary": {
+          "$value": "#B3A4E8",
+          "$type": "color"
+        },
+        "highlight": {
+          "$value": "#E8B163",
+          "$type": "color"
+        }
+      },
+      "chart": {
+        "axis": {
+          "$value": "#5C5668",
+          "$type": "color"
+        },
+        "grid": {
+          "$value": "#302C37",
+          "$type": "color"
+        },
+        "label": {
+          "$value": "#F1EDF5",
+          "$type": "color"
+        }
+      }
+    }
+  },
+  "typography": {
+    "family": {
+      "text": {
+        "$value": "\"Nunito Sans\", system-ui, sans-serif",
+        "$type": "fontFamily"
+      },
+      "display": {
+        "$value": "Nunito, \"Nunito Sans\", system-ui, sans-serif",
+        "$type": "fontFamily"
+      },
+      "figures": {
+        "$value": "\"Nunito Sans\", system-ui, sans-serif",
+        "$type": "fontFamily"
+      }
+    },
+    "weight": {
+      "regular": {
+        "$value": 400,
+        "$type": "fontWeight"
+      },
+      "emphasis": {
+        "$value": 700,
+        "$type": "fontWeight"
+      },
+      "display": {
+        "$value": 800,
+        "$type": "fontWeight"
+      }
+    },
+    "size": {
+      "message": {
+        "$value": "20px",
+        "$type": "dimension"
+      },
+      "title": {
+        "$value": "16px",
+        "$type": "dimension"
+      },
+      "body": {
+        "$value": "15px",
+        "$type": "dimension"
+      },
+      "label": {
+        "$value": "13px",
+        "$type": "dimension"
+      },
+      "footnote": {
+        "$value": "12px",
+        "$type": "dimension"
+      },
+      "figure": {
+        "$value": "30px",
+        "$type": "dimension"
+      },
+      "hero": {
+        "$value": "30px",
+        "$type": "dimension"
+      }
+    }
+  },
+  "radius": {
+    "hero": {
+      "$value": "24px",
+      "$type": "dimension"
+    },
+    "panel": {
+      "$value": "20px",
+      "$type": "dimension"
+    },
+    "tile": {
+      "$value": "18px",
+      "$type": "dimension"
+    },
+    "control": {
+      "$value": "12px",
+      "$type": "dimension"
+    },
+    "mark": {
+      "$value": "4px",
+      "$type": "dimension"
+    }
+  },
+  "density": {
+    "gap": {
+      "$value": "24px",
+      "$type": "dimension"
+    },
+    "pad": {
+      "$value": "28px",
+      "$type": "dimension"
+    },
+    "maxVisuals": {
+      "$value": 4,
+      "$type": "number"
+    },
+    "tilesPerRow": {
+      "$value": 4,
+      "$type": "number"
+    },
+    "phoneScale": {
+      "$value": 1.0,
+      "$type": "number"
+    }
+  },
+  "motion": {
+    "duration": {
+      "$value": "280ms",
+      "$type": "duration"
+    },
+    "easing": {
+      "$value": "ease-out",
+      "$type": "string"
+    }
+  },
+  "$extensions": {
+    "report-styles": {
+      "meta": {
+        "id": "soft",
+        "label": "Soft",
+        "persona": "for HR / People",
+        "summary": "Warm page, rounded cards, calm colours, generous spacing and larger text; IBCS notation kept in a softer ink. Light: off-white and white cards; dark: warm charcoal.",
+        "brandSlot": "color.*.accent.*, color.*.surface.page, typography.family.*"
+      },
+      "chart": {
+        "scenarioEncoding": "pattern",
+        "gridlines": "faint",
+        "timeSeries": "soft-columns",
+        "variance": "pins",
+        "structure": "soft-bars",
+        "kpi": "soft-tile",
+        "allowed": [],
+        "onRequest": [],
+        "banned": [
+          "pie",
+          "ring",
+          "gauge",
+          "funnel",
+          "radar",
+          "traffic-light",
+          "pseudo-3d",
+          "pictogram"
+        ],
+        "relaxes": [
+          {
+            "rule": "SI 1.2",
+            "what": "Warm off-white page behind white cards (dark: warm charcoal with slightly lighter cards).",
+            "why": "Calm, familiar look for non-finance readers; charts sit on white."
+          },
+          {
+            "rule": "SI 2.2",
+            "what": "AC in a soft blue-grey ink (#4A4E69 light, #E4E0EE dark) instead of a neutral dark grey.",
+            "why": "The calmer ink is the style; the tint is low-saturation, far from every impact hue, and AC stays clearly stronger than PY (checked).",
+            "condition": "Never a second colour for a second series; further scenarios keep their IBCS fills."
+          },
+          {
+            "rule": "SI 2.1",
+            "what": "Rounded cards (18–24 px) with one soft shadow; bar ends rounded 4 px.",
+            "why": "Chrome softness; a 4 px radius on a bar of 20+ px keeps the length readable.",
+            "condition": "No radius on bars thinner than 8 px."
+          },
+          {
+            "rule": "CO 1.1",
+            "what": "Larger text (body 15, labels 13 px).",
+            "why": "Readers outside finance, often on phones."
+          },
+          {
+            "rule": "CO 2.2",
+            "what": "Generous spacing; at most 4 visuals a page.",
+            "why": "Lower density is the point of the style; split a dense page into two. Lower density never means filler: every element carries a message."
+          },
+          {
+            "rule": "SI 3.1",
+            "what": "Faint horizontal gridlines where data labels are dropped for readability.",
+            "why": "Helps readers who do not read value labels first.",
+            "condition": "Gridlines or data labels on a visual, never both."
+          },
+          {
+            "rule": "SI 1.3",
+            "what": "A short fade on entry.",
+            "why": "Calm feel.",
+            "condition": "Off under prefers-reduced-motion; numbers are final from the first frame."
+          }
+        ]
+      }
+    }
+  }
+}

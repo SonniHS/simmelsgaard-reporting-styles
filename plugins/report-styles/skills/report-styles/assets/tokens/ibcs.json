@@ -1,0 +1,164 @@
+{
+  "$comment": "IBCS style: light = the screen-tuned IBCS light colours (impact #3F9C35 / #D42A20 / #1F6FD1: the IBCS hues, codes chosen for screens); dark = the IBCS dark derivation (scenario patterns and impact hue families preserved). Values follow the ibcs plugin's tokens.",
+  "meta": {
+    "id": "ibcs",
+    "label": "IBCS",
+    "persona": "for the CFO",
+    "summary": "Notation first: white paper, scenario patterns, dense pages, no decoration. The reference every other style reconciles to.",
+    "brandSlot": "color.*.accent.primary, typography.family.text"
+  },
+  "color": {
+    "light": {
+      "surface": {
+        "page": "#F4F5F7",
+        "panel": "#FFFFFF",
+        "tile": "#FFFFFF",
+        "edge": "#E3E5E8",
+        "backdrop": "none"
+      },
+      "text": {
+        "primary": "#000000",
+        "secondary": "#595959",
+        "onAccent": "#FFFFFF"
+      },
+      "impact": {
+        "good": "#3F9C35",
+        "bad": "#D42A20",
+        "neutral": "#1F6FD1",
+        "cvd": {
+          "good": "#008E96",
+          "bad": "#D42A20",
+          "neutral": "#1F6FD1"
+        }
+      },
+      "scenario": {
+        "ac": "#404040",
+        "py": "#A6A6A6",
+        "pl": "#404040",
+        "fc": "#404040"
+      },
+      "accent": {
+        "primary": "#404040",
+        "highlight": "#1F6FD1"
+      },
+      "chart": {
+        "axis": "#404040",
+        "grid": "transparent",
+        "label": "#000000"
+      }
+    },
+    "dark": {
+      "surface": {
+        "page": "#1E1E1E",
+        "panel": "#262626",
+        "tile": "#262626",
+        "edge": "#333333",
+        "backdrop": "none"
+      },
+      "text": {
+        "primary": "#EDEDED",
+        "secondary": "#A6A6A6",
+        "onAccent": "#1E1E1E"
+      },
+      "impact": {
+        "good": "#9CCB19",
+        "bad": "#FF4D4D",
+        "neutral": "#4D8DFF",
+        "cvd": {
+          "good": "#1FB5BE",
+          "bad": "#FF4D4D",
+          "neutral": "#4D8DFF"
+        }
+      },
+      "scenario": {
+        "ac": "#D9D9D9",
+        "py": "#7F7F7F",
+        "pl": "#D9D9D9",
+        "fc": "#D9D9D9"
+      },
+      "accent": {
+        "primary": "#D9D9D9",
+        "highlight": "#4D8DFF"
+      },
+      "chart": {
+        "axis": "#D9D9D9",
+        "grid": "transparent",
+        "label": "#EDEDED"
+      }
+    }
+  },
+  "typography": {
+    "family": {
+      "text": "system-ui, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+      "display": "system-ui, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+      "figures": "system-ui, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif"
+    },
+    "weight": {
+      "regular": 400,
+      "emphasis": 700,
+      "display": 700
+    },
+    "size": {
+      "message": 17,
+      "title": 14,
+      "body": 13,
+      "label": 12,
+      "footnote": 12,
+      "figure": 24,
+      "hero": 24
+    }
+  },
+  "radius": {
+    "hero": 8,
+    "panel": 8,
+    "tile": 8,
+    "control": 6,
+    "mark": 0
+  },
+  "density": {
+    "gap": 16,
+    "pad": 16,
+    "maxVisuals": 8,
+    "tilesPerRow": 4,
+    "phoneScale": 1.0
+  },
+  "motion": {
+    "enabled": false,
+    "durationMs": 0,
+    "easing": "linear"
+  },
+  "chart": {
+    "scenarioEncoding": "pattern",
+    "gridlines": "none",
+    "timeSeries": "columns",
+    "variance": "tiers",
+    "structure": "bars",
+    "kpi": "card",
+    "allowed": [],
+    "onRequest": [],
+    "banned": [
+      "pie",
+      "ring",
+      "gauge",
+      "funnel",
+      "radar",
+      "traffic-light",
+      "pseudo-3d",
+      "waffle",
+      "pictogram"
+    ],
+    "relaxes": [
+      {
+        "rule": "SI 2.1",
+        "what": "Cards with rounded corners and a light grey page, for UI chrome only; no frames inside charts or tables.",
+        "why": "App chrome only; notation inside charts and tables stays IBCS."
+      },
+      {
+        "rule": "SI 1.2",
+        "what": "A dark theme (charcoal page and cards) when the reader picks dark.",
+        "why": "Reader preference and dark app shells; the ibcs-dark derivation keeps the notation (AC solid, PY lighter, PL outlined, FC hatched) and the impact hue families.",
+        "condition": "Light is the default for print and for anything shared as a document."
+      }
+    ]
+  }
+}

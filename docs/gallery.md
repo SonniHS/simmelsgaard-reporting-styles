@@ -1,0 +1,44 @@
+# Gallery
+
+The same Key figures page (fictitious sample data) in every style and theme, at desktop (1280 px) and phone (390 px)
+width. The screenshots are made by the browser check (`check-previews.mjs`), which also verifies every number on them.
+
+## IBCS · for the CFO
+
+| Light | Dark |
+|---|---|
+| ![IBCS light](previews/ibcs-light-1280.png) | ![IBCS dark](previews/ibcs-dark-1280.png) |
+
+Phone: [light](previews/ibcs-light-390.png) · [dark](previews/ibcs-dark-390.png)
+
+## Showcase · for Marketing
+
+| Light | Dark |
+|---|---|
+| ![Showcase light](previews/showcase-light-1280.png) | ![Showcase dark](previews/showcase-dark-1280.png) |
+
+Phone: [light](previews/showcase-light-390.png) · [dark](previews/showcase-dark-390.png)
+
+## Soft · for HR / People
+
+| Light | Dark |
+|---|---|
+| ![Soft light](previews/soft-light-1280.png) | ![Soft dark](previews/soft-dark-1280.png) |
+
+Phone: [light](previews/soft-light-390.png) · [dark](previews/soft-dark-390.png)
+
+## Graphic · for Communication
+
+| Light | Dark |
+|---|---|
+| ![Graphic light](previews/graphic-light-1280.png) | ![Graphic dark](previews/graphic-dark-1280.png) |
+
+Phone: [light](previews/graphic-light-390.png) · [dark](previews/graphic-dark-390.png)
+
+## What to look for
+
+- The four KPI tiles, the time card and the structure card sit in the same places in every style.
+- Every number is the same in every style, with the same rounding.
+- North's −7.3 % is red in every style, a variance shown as 0.0 pp has no colour, and the new region's Δ% is N/A.
+- In IBCS and Soft, 10 mEUR is the same length in the month chart and in the region chart (same unit, same scale).
+- In dark mode the notation key at the bottom right still reads AC solid, PY lighter, PL outlined, FC hatched.

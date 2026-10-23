@@ -1,0 +1,34 @@
+{
+  "name": "report-styles-react-reference",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Reference React + SVG components for report styles (IBCS, Showcase, Soft, Graphic): one view model, one page skeleton, a style and theme switch. Copy src/report-styles into your app and extend.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "tokens": "python3 -I ../../scripts/build_styles.py",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "previews": "node scripts/build-previews.mjs",
+    "check-previews": "node scripts/check-previews.mjs"
+  },
+  "dependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@fontsource/inter": "5.2.6",
+    "@fontsource/nunito": "5.2.6",
+    "@fontsource/nunito-sans": "5.2.6",
+    "@fontsource/source-sans-3": "5.2.8",
+    "@fontsource/source-serif-4": "5.2.8",
+    "@types/node": "22.15.30",
+    "@types/react": "18.3.23",
+    "@types/react-dom": "18.3.7",
+    "@types/react-test-renderer": "18.3.1",
+    "esbuild": "0.25.5",
+    "react-test-renderer": "18.3.1",
+    "typescript": "5.9.3",
+    "vitest": "3.2.4"
+  }
+}

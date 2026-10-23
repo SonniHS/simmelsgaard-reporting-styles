@@ -1,0 +1,205 @@
+{
+  "$comment": "Showcase style: a neutral brand (quiet tiles, a line chart with a variance strip, a ranked dumbbell), designed as a premium finance product: solid surfaces, no glow, one radius, amber only for AC and the one highlight. Amber, navy and Inter are placeholders: put your brand here (meta.brandSlot).",
+  "meta": {
+    "id": "showcase",
+    "label": "Showcase",
+    "persona": "for Marketing",
+    "summary": "Product-grade surfaces, quiet tiles, tight type, a line chart with a ΔPY% strip and a ranked dumbbell in the shared layout. Amber marks AC and the one highlight, nothing else.",
+    "brandSlot": "color.*.scenario.ac, color.*.scenario.pl, color.*.scenario.fc, color.*.accent.highlight, color.*.surface.page, typography.family.*"
+  },
+  "color": {
+    "light": {
+      "surface": {
+        "page": "#F5F6F8",
+        "panel": "#FFFFFF",
+        "tile": "#FFFFFF",
+        "edge": "#E2E6EC",
+        "backdrop": "none"
+      },
+      "text": {
+        "primary": "#111827",
+        "secondary": "#4B5565",
+        "onAccent": "#FFFFFF"
+      },
+      "impact": {
+        "good": "#1D8A58",
+        "bad": "#C93C2C",
+        "neutral": "#2E6BD3",
+        "cvd": {
+          "good": "#0B8396",
+          "bad": "#C93C2C",
+          "neutral": "#2E6BD3"
+        }
+      },
+      "scenario": {
+        "ac": "#B7790A",
+        "py": "#B8BFCB",
+        "pl": "#B7790A",
+        "fc": "#B7790A"
+      },
+      "accent": {
+        "primary": "#111827",
+        "highlight": "#B7790A"
+      },
+      "chart": {
+        "axis": "#C9CFD8",
+        "grid": "#EEF0F3",
+        "label": "#111827"
+      }
+    },
+    "dark": {
+      "surface": {
+        "page": "#0E131C",
+        "panel": "#151B26",
+        "tile": "#151B26",
+        "edge": "#232B38",
+        "backdrop": "none"
+      },
+      "text": {
+        "primary": "#E8ECF2",
+        "secondary": "#9AA4B4",
+        "onAccent": "#0E131C"
+      },
+      "impact": {
+        "good": "#4FC28D",
+        "bad": "#F2786A",
+        "neutral": "#6EA6FA",
+        "cvd": {
+          "good": "#45C2D8",
+          "bad": "#F2786A",
+          "neutral": "#6EA6FA"
+        }
+      },
+      "scenario": {
+        "ac": "#E9B44C",
+        "py": "#566174",
+        "pl": "#E9B44C",
+        "fc": "#E9B44C"
+      },
+      "accent": {
+        "primary": "#E8ECF2",
+        "highlight": "#E9B44C"
+      },
+      "chart": {
+        "axis": "#3A4454",
+        "grid": "#1E2632",
+        "label": "#E8ECF2"
+      }
+    }
+  },
+  "typography": {
+    "family": {
+      "text": "Inter, system-ui, sans-serif",
+      "display": "Inter, system-ui, sans-serif",
+      "figures": "Inter, system-ui, sans-serif"
+    },
+    "weight": {
+      "regular": 400,
+      "emphasis": 600,
+      "display": 600
+    },
+    "size": {
+      "message": 20,
+      "title": 14,
+      "body": 13,
+      "label": 12,
+      "footnote": 12,
+      "figure": 26,
+      "hero": 32
+    }
+  },
+  "radius": {
+    "hero": 12,
+    "panel": 12,
+    "tile": 12,
+    "control": 8,
+    "mark": 2
+  },
+  "density": {
+    "gap": 16,
+    "pad": 20,
+    "maxVisuals": 5,
+    "tilesPerRow": 4,
+    "phoneScale": 0.92
+  },
+  "motion": {
+    "enabled": true,
+    "durationMs": 240,
+    "easing": "cubic-bezier(.2,.7,.2,1)"
+  },
+  "chart": {
+    "scenarioEncoding": "hue",
+    "gridlines": "faint",
+    "timeSeries": "river",
+    "variance": "strip",
+    "structure": "ranking",
+    "kpi": "tile",
+    "allowed": [
+      "bars-3d-opt-in"
+    ],
+    "onRequest": [
+      "ring"
+    ],
+    "banned": [
+      "pie",
+      "gauge",
+      "funnel",
+      "radar",
+      "traffic-light",
+      "waffle",
+      "pictogram"
+    ],
+    "relaxes": [
+      {
+        "rule": "SI 1.2",
+        "what": "Brand surfaces: a navy page in dark mode, a cool grey page with white panels in light mode.",
+        "why": "Product feel; impact and scenario colours are tuned per mode and contrast-checked."
+      },
+      {
+        "rule": "SI 2.1",
+        "what": "Solid panels and tiles with a hairline edge, one radius (12 px) everywhere.",
+        "why": "Chrome only; no glass, glow or gradient; chart marks carry no shade or 3D."
+      },
+      {
+        "rule": "SI 2.3",
+        "what": "The key message set large (20 px) in the text face; figures semibold.",
+        "why": "One bold element per page; body and labels plain with tabular figures."
+      },
+      {
+        "rule": "SI 3.1",
+        "what": "Faint horizontal gridlines on the line chart, values only at the line end and in the ΔPY% strip.",
+        "why": "A 12-point line reads against levels; labelling every point would crowd the hero chart.",
+        "condition": "Gridlines or full data labels on a visual, never both."
+      },
+      {
+        "rule": "SI 1.3",
+        "what": "One short entry fade per visual (240 ms).",
+        "why": "Presentation feel.",
+        "condition": "Off under prefers-reduced-motion; motion never encodes data and never delays the numbers (final from the first frame, no count-up)."
+      },
+      {
+        "rule": "UN 3.2",
+        "what": "Scenarios by hue (amber = AC, slate = PY/reference) instead of fill pattern.",
+        "why": "The line chart reads AC against one reference; hue plus labels is clearer than patterns there.",
+        "condition": "Hue separates AC from ONE reference only. Any further scenario keeps its IBCS fill (PL outlined, FC hatched or dashed), recognisable without labels; every scenario is labelled."
+      },
+      {
+        "rule": "SI 2.1",
+        "what": "Bars3D: pseudo-3D bars, opt-in per visual.",
+        "why": "Requested for some marketing pages; kept strictly opt-in.",
+        "condition": "Opt-in only; bar length stays linear from zero (CH 3.2: no volume comparison); never the default."
+      },
+      {
+        "rule": "EX 2.1",
+        "what": "A share ring is not used unless the report's owner asks for it; a Ranking is the default for structure.",
+        "why": "A ring is weak for comparison (CH 3.1); available only on explicit request."
+      },
+      {
+        "rule": "CH 4.1",
+        "what": "The line chart and the ranked dumbbell keep their own value scales instead of one px per unit across the page.",
+        "why": "A line is read against its labelled gridlines and a dumbbell by positions with every value printed, not by comparing lengths across charts.",
+        "condition": "Gridlines start at zero and are labelled; every dumbbell value is printed; any bars or columns of the same unit on the page share one scale."
+      }
+    ]
+  }
+}

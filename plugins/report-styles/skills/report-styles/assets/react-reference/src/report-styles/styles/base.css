@@ -1,0 +1,123 @@
+/* Base: the shared page skeleton and the roles every style uses, painted only through --rs-* tokens (tokens-<id>.css,
+   generated; colours scoped by [data-style][data-theme]). Style rules live in <id>.css. Tints are color-mix() of a token
+   over the surface, so they follow the theme without extra tokens. */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; }
+/* The skeleton's horizontal geometry is the same for every style, so tiles and cards sit in the same place:
+   page width, side padding and the grid gaps are fixed here and no style overrides them (check-previews.mjs checks it).
+   Styles keep their own vertical rhythm (density.gap) and inner padding. */
+:root { --rs-skeleton-max: 1344px; --rs-skeleton-side: 16px; --rs-skeleton-gap: 16px; }
+html[data-theme="dark"] { color-scheme: dark; }
+html[data-theme="light"] { color-scheme: light; }
+/* CVD: the generated colours sit on [data-style][data-theme]; this selector outranks them */
+html[data-cvd="on"][data-style][data-theme] {
+  --rs-color-impact-good: var(--rs-color-impact-cvd-good);
+  --rs-color-impact-bad: var(--rs-color-impact-cvd-bad);
+  --rs-color-impact-neutral: var(--rs-color-impact-cvd-neutral);
+}
+body {
+  min-height: 100vh;
+  background-color: var(--rs-color-surface-page);
+  background-image: var(--rs-color-surface-backdrop);
+  background-repeat: no-repeat;
+  color: var(--rs-color-text-primary);
+  font-family: var(--rs-typography-family-text);
+  font-size: var(--rs-typography-size-body);
+  line-height: 1.45;
+  overflow-x: hidden;
+}
+.rs-n { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tone-good { color: var(--rs-color-impact-good); }
+.tone-bad { color: var(--rs-color-impact-bad); }
+.tone-neutral { color: var(--rs-color-impact-neutral); }
+.tone-none { color: inherit; }
+.tone-value { color: inherit; }
+svg { display: block; overflow: visible; }
+svg text { font-family: var(--rs-typography-family-text); font-size: var(--rs-typography-size-label); fill: var(--rs-color-chart-label); font-variant-numeric: tabular-nums; }
+svg text.fig { font-family: var(--rs-typography-family-figures); font-weight: var(--rs-typography-weight-emphasis); }
+svg .t-dim { fill: var(--rs-color-text-secondary); }
+svg .f-good { fill: var(--rs-color-impact-good); } svg .s-good { stroke: var(--rs-color-impact-good); }
+svg .f-bad { fill: var(--rs-color-impact-bad); } svg .s-bad { stroke: var(--rs-color-impact-bad); }
+svg .f-neutral { fill: var(--rs-color-impact-neutral); } svg .s-neutral { stroke: var(--rs-color-impact-neutral); }
+svg .f-none { fill: var(--rs-color-text-secondary); } svg .s-none { stroke: var(--rs-color-text-secondary); }
+svg .f-ac { fill: var(--rs-color-scenario-ac); } svg .s-ac { stroke: var(--rs-color-scenario-ac); }
+svg .f-py { fill: var(--rs-color-scenario-py); } svg .s-py { stroke: var(--rs-color-scenario-py); }
+svg .s-pl { stroke: var(--rs-color-scenario-pl); } svg .s-fc { stroke: var(--rs-color-scenario-fc); }
+svg .f-page { fill: var(--rs-color-surface-page); } svg .s-page { stroke: var(--rs-color-surface-page); }
+svg .f-panel { fill: var(--rs-color-surface-panel); }
+svg .f-highlight { fill: var(--rs-color-accent-highlight); } svg .s-highlight { stroke: var(--rs-color-accent-highlight); }
+svg .axis { stroke: var(--rs-color-chart-axis); }
+svg .axis-py { stroke: var(--rs-color-scenario-py); }
+svg .grid { stroke: var(--rs-color-chart-grid); }
+svg .grid-strong { stroke: var(--rs-color-chart-axis); }
+svg .leader { stroke: var(--rs-color-text-secondary); stroke-width: 1; }
+svg text.tone-good, svg text .tone-good { fill: var(--rs-color-impact-good); }
+svg text.tone-bad, svg text .tone-bad { fill: var(--rs-color-impact-bad); }
+svg text.tone-neutral, svg text .tone-neutral { fill: var(--rs-color-impact-neutral); }
+svg text.tone-none { fill: var(--rs-color-text-secondary); }
+
+/* top bar: brand, style switch, theme switch, CVD. App chrome, the same in every style (system font, fixed size),
+   so the switches stay in one place when the style changes */
+.rs-top {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: 13px;
+  display: flex; align-items: center; justify-content: space-between; gap: 10px 12px; flex-wrap: wrap;
+  max-width: var(--rs-skeleton-max); margin: 0 auto; padding: 12px var(--rs-skeleton-side);
+}
+.rs-brand { font-weight: 600; display: flex; align-items: center; gap: 8px; }
+.rs-mark { width: 18px; height: 18px; border-radius: var(--rs-radius-control); background: var(--rs-color-accent-primary); }
+.rs-dim { color: var(--rs-color-text-secondary); font-weight: var(--rs-typography-weight-regular); }
+.rs-tools { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.rs-seg { display: inline-flex; border: 1px solid var(--rs-color-surface-edge); border-radius: var(--rs-radius-control); overflow: hidden; background: var(--rs-color-surface-page); }
+.rs-seg button { font: inherit; font-size: 12px; color: inherit; background: none; border: 0; padding: 6px 12px; cursor: pointer; }
+.rs-seg button[aria-checked="true"] { background: var(--rs-color-accent-primary); color: var(--rs-color-text-on-accent); font-weight: 600; }
+.rs-switch-phone { display: none; font: inherit; font-size: 12px; padding: 6px 8px; border-radius: var(--rs-radius-control); max-width: 100%;
+  color: var(--rs-color-text-primary); background: var(--rs-color-surface-page); border: 1px solid var(--rs-color-surface-edge); }
+.rs-cvd { color: var(--rs-color-text-secondary); font-size: 12px; display: flex; gap: 4px; align-items: center; }
+:focus-visible { outline: 2px solid var(--rs-color-accent-highlight); outline-offset: 2px; }
+
+/* page frame and grid */
+.rs-page { max-width: var(--rs-skeleton-max); margin: 0 auto; padding: 8px var(--rs-skeleton-side) 40px; }
+.rs-title { margin: 0; font-family: var(--rs-typography-family-display); font-size: var(--rs-typography-size-title); font-weight: var(--rs-typography-weight-emphasis); }
+.rs-scope { margin: 2px 0 0; color: var(--rs-color-text-secondary); font-size: var(--rs-typography-size-label); }
+.rs-message { margin: 10px 0 0; font-size: var(--rs-typography-size-message); max-width: 70ch; }
+/* the shared skeleton (app.js page()): header, message, four KPI tiles in one row, month | region, footer */
+.rs-head { display: flex; align-items: baseline; gap: 4px 12px; flex-wrap: wrap; }
+.rs-head .rs-scope { margin: 0; }
+.rs-kpis { display: grid; gap: var(--rs-skeleton-gap); grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: var(--rs-density-gap); }
+.rs-card { background: var(--rs-color-surface-panel); border: 1px solid var(--rs-color-surface-edge); border-radius: var(--rs-radius-panel); padding: var(--rs-density-pad); min-width: 0; }
+.rs-card h2 { margin: 0; font-size: var(--rs-typography-size-title); font-weight: var(--rs-typography-weight-emphasis); }
+.rs-sub { margin: 2px 0 10px; color: var(--rs-color-text-secondary); font-size: var(--rs-typography-size-label); }
+.rs-tile { background: var(--rs-color-surface-tile); border: 1px solid var(--rs-color-surface-edge); border-radius: var(--rs-radius-tile); padding: var(--rs-density-pad); min-width: 0; }
+.rs-tile .k-label { color: var(--rs-color-text-secondary); font-size: var(--rs-typography-size-label); }
+.rs-tile .k-value { font-family: var(--rs-typography-family-figures); font-size: var(--rs-typography-size-figure); font-weight: var(--rs-typography-weight-display); line-height: 1.15; margin: 4px 0; }
+.rs-tile .k-var { display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: center; font-size: var(--rs-typography-size-label); }
+.rs-tile .k-dl { color: var(--rs-color-text-secondary); }
+.rs-tile .k-d { font-weight: var(--rs-typography-weight-emphasis); }
+.rs-tile .k-ref { color: var(--rs-color-text-secondary); font-size: var(--rs-typography-size-label); margin-top: 2px; }
+.rs-chip { display: inline-flex; gap: 4px; align-items: center; padding: 2px 8px; border-radius: 999px; font-size: var(--rs-typography-size-label); font-weight: var(--rs-typography-weight-emphasis); }
+.rs-chip.tone-good { background: color-mix(in srgb, var(--rs-color-impact-good) 13%, transparent); }
+.rs-chip.tone-bad { background: color-mix(in srgb, var(--rs-color-impact-bad) 13%, transparent); }
+.rs-chip.tone-neutral { background: color-mix(in srgb, var(--rs-color-impact-neutral) 13%, transparent); }
+.rs-chip.tone-none { background: color-mix(in srgb, var(--rs-color-text-secondary) 12%, transparent); color: var(--rs-color-text-secondary); }
+.rs-row-2 { display: grid; gap: var(--rs-skeleton-gap); grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); margin-top: var(--rs-density-gap); }
+.rs-chart { width: 100%; min-width: 0; }
+.rs-check { margin: 12px 0 0; padding: 8px 12px; border-left: 3px solid var(--rs-color-accent-highlight); background: color-mix(in srgb, var(--rs-color-accent-highlight) 10%, transparent); font-size: var(--rs-typography-size-label); }
+.rs-foot { margin-top: var(--rs-density-gap); color: var(--rs-color-text-secondary); font-size: var(--rs-typography-size-footnote); display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; justify-content: space-between; }
+.rs-notation svg text { fill: var(--rs-color-text-secondary); }
+
+@media (max-width: 760px) {
+  .rs-switch { display: none; }
+  .rs-switch-phone { display: inline-block; }
+  .rs-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .rs-row-2 { grid-template-columns: minmax(0, 1fr); }
+  .rs-page { padding: 4px var(--rs-skeleton-side) 32px; }
+  .rs-top { padding: 10px var(--rs-skeleton-side); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .rs-anim { animation: rs-in var(--rs-motion-duration) var(--rs-motion-easing) both; }
+  @keyframes rs-in { from { opacity: 0; } to { opacity: 1; } }
+}
+@media print {
+  .rs-tools { display: none; }
+  .rs-anim { animation: none; }
+}

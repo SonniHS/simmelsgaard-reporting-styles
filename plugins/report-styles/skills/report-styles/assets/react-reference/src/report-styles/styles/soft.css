@@ -1,0 +1,16 @@
+/* Soft: warm, rounded, calm, roomy. Tints are mixed from tokens so they follow the theme. */
+[data-style="soft"] .rs-card, [data-style="soft"] .rs-tile { border-color: transparent; box-shadow: 0 1px 2px rgba(20, 16, 28, .05), 0 8px 24px rgba(20, 16, 28, .07); }
+[data-style="soft"][data-theme="dark"] .rs-card, [data-style="soft"][data-theme="dark"] .rs-tile { box-shadow: none; border-color: var(--rs-color-surface-edge); }
+[data-style="soft"] .rs-head { display: block; }
+[data-style="soft"] .rs-title { font-size: 26px; font-weight: var(--rs-typography-weight-display); }
+[data-style="soft"] .rs-msg { margin-top: 18px; padding: 18px 22px; border-radius: var(--rs-radius-hero); background: color-mix(in srgb, var(--rs-color-accent-primary) 12%, var(--rs-color-surface-page)); }
+[data-style="soft"] .rs-msg .rs-message { margin: 0; font-family: var(--rs-typography-family-display); font-weight: 700; line-height: 1.4; }
+[data-style="soft"] .rs-legend { display: flex; gap: 16px; color: var(--rs-color-text-secondary); font-size: var(--rs-typography-size-label); margin-bottom: 6px; }
+[data-style="soft"] .rs-legend i { display: inline-block; width: 12px; height: 12px; border-radius: 4px; margin-right: 6px; vertical-align: -1px; }
+[data-style="soft"] svg .pill-good { fill: color-mix(in srgb, var(--rs-color-impact-good) 14%, var(--rs-color-surface-panel)); }
+[data-style="soft"] svg .pill-bad { fill: color-mix(in srgb, var(--rs-color-impact-bad) 14%, var(--rs-color-surface-panel)); }
+[data-style="soft"] svg .pill-neutral { fill: color-mix(in srgb, var(--rs-color-impact-neutral) 14%, var(--rs-color-surface-panel)); }
+[data-style="soft"] svg .pill-none { fill: color-mix(in srgb, var(--rs-color-text-secondary) 12%, var(--rs-color-surface-panel)); }
+@media (max-width: 760px) { [data-style="soft"] .rs-title { font-size: 22px; } }
+[data-style="soft"] .rs-tile .k-d { padding: 2px 8px; border-radius: 999px; background: color-mix(in srgb, currentColor 13%, transparent); }
+[data-style="soft"] .rs-tile .k-d.tone-none { color: var(--rs-color-text-secondary); }

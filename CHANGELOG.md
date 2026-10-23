@@ -5,6 +5,16 @@ All notable changes to this marketplace and its plugin. The format follows
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-10-23
+
+### Added
+- Style **Annual · for Investors** (`style-annual`): the key-figures spread of an annual report — a tinted message
+  band, light-weight numerals, AC columns and bars with a PY marker line, numbered callouts; aubergine and gold.
+- Style **Wallboard · for Operations** (`style-wallboard`): a screen read from a few metres — very large figures,
+  high contrast, thick columns and bars, variances as large chips, few labels; usually shown dark.
+- Both in light and dark with colour-blind-safe sets, Power BI themes, Deneb overrides, DTCG tokens, documented
+  relaxations, and covered by the reconcile, same-scale, layout and browser checks.
+
 ## [1.1.0] - 2026-10-23
 
 ### Added

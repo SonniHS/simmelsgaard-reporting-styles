@@ -1,6 +1,6 @@
 # Report styles — React reference components
 
-React 18 + SVG components for the four report styles, written to the `report-styles` skill. Copy
+React 18 + SVG components for the report styles (IBCS, Showcase, Soft, Graphic, Annual, Wallboard), written to the `report-styles` skill. Copy
 `src/report-styles` into your app and extend. MIT.
 
 ```tsx

@@ -1,6 +1,6 @@
 # report-styles
 
-Four presentation styles for IBCS®-based reports, each in light and dark, with the same numbers and one page
+Six presentation styles for IBCS®-based reports, each in light and dark, with the same numbers and one page
 layout in every style. Requires the `ibcs` plugin from simmelsgaard-reporting-skills (installed as a
 dependency).
 
@@ -20,6 +20,8 @@ dependency).
 - [`style-showcase`](skills/style-showcase/SKILL.md) — Showcase · for Marketing.
 - [`style-soft`](skills/style-soft/SKILL.md) — Soft · for HR / People.
 - [`style-graphic`](skills/style-graphic/SKILL.md) — Graphic · for Communication.
+- [`style-annual`](skills/style-annual/SKILL.md) — Annual · for Investors.
+- [`style-wallboard`](skills/style-wallboard/SKILL.md) — Wallboard · for Operations.
 
 ## Examples
 

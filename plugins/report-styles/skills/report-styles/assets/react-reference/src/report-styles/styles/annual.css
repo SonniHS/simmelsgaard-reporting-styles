@@ -1,0 +1,28 @@
+/* Annual: an annual-report spread on the shared skeleton. A tinted message band, light-weight numerals, no boxes. */
+[data-style="annual"] .rs-head { align-items: baseline; }
+[data-style="annual"] .rs-title { font-size: var(--rs-typography-size-label); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--rs-color-accent-primary); }
+[data-style="annual"] .rs-msg { margin-top: 14px; padding: 22px 26px; background: var(--rs-color-surface-panel); border-radius: var(--rs-radius-hero); border-left: 3px solid var(--rs-color-accent-highlight); }
+[data-style="annual"] .rs-message { margin: 0; font-weight: 400; line-height: 1.4; max-width: 46ch; }
+[data-style="annual"] .rs-message .rs-n { font-weight: 700; }
+[data-style="annual"] .rs-kpis { margin-top: 28px; }
+[data-style="annual"] .rs-tile { background: none; border: 0; border-radius: 0; border-top: 2px solid var(--rs-color-accent-primary); padding: 14px 0 0; }
+[data-style="annual"] .rs-tile .k-value { font-weight: var(--rs-typography-weight-display); letter-spacing: -0.02em; line-height: 1.05; font-variant-numeric: proportional-nums; }
+[data-style="annual"] .rs-tile .k-label { font-weight: 700; color: var(--rs-color-text-primary); }
+[data-style="annual"] .rs-tile .k-g { font-size: .85em; }
+[data-style="annual"] .rs-row-2 { margin-top: 40px; }
+[data-style="annual"] .rs-card { background: none; border: 0; border-radius: 0; padding: 0; }
+[data-style="annual"] .rs-card h2 { font-weight: 700; }
+[data-style="annual"] .an-legend { margin: -4px 0 12px; color: var(--rs-color-text-secondary); font-size: var(--rs-typography-size-label); }
+[data-style="annual"] .an-key { display: inline-block; width: 12px; height: 12px; margin-right: 6px; vertical-align: -1px; }
+[data-style="annual"] .an-key.ac { background: var(--rs-color-scenario-ac); }
+[data-style="annual"] .an-key.py { height: 3px; width: 16px; margin-left: 12px; vertical-align: 3px; background: var(--rs-color-text-secondary); }
+[data-style="annual"] svg .pymark { stroke: var(--rs-color-text-secondary); stroke-width: 2.5; }
+[data-style="annual"] svg .pyhalo { stroke: var(--rs-color-surface-page); stroke-width: 6; }
+[data-style="annual"] svg .grid-faint { stroke: var(--rs-color-surface-edge); }
+[data-style="annual"] svg .t-strong { fill: var(--rs-color-text-primary); }
+[data-style="annual"] .rs-page .rs-n, [data-style="annual"] svg text { font-variant-numeric: proportional-nums; }
+@media (max-width: 760px) {
+  [data-style="annual"] .rs-msg { padding: 16px 18px; }
+  [data-style="annual"] .rs-message { font-size: 18px; }
+  [data-style="annual"] .rs-tile .k-value { font-size: calc(var(--rs-typography-size-figure) * var(--rs-density-phone-scale)); }
+}

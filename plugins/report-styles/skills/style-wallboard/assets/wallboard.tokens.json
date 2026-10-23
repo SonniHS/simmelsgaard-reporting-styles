@@ -1,0 +1,398 @@
+{
+  "$description": "Wallboard · for Operations: A screen read from a few metres: very large figures, high contrast, thick columns and bars, variances as large coloured chips, few labels. Generated from report-styles/assets/tokens/wallboard.json; do not edit.",
+  "color": {
+    "light": {
+      "surface": {
+        "page": {
+          "$value": "#E9EDF1",
+          "$type": "color"
+        },
+        "panel": {
+          "$value": "#FFFFFF",
+          "$type": "color"
+        },
+        "tile": {
+          "$value": "#FFFFFF",
+          "$type": "color"
+        },
+        "edge": {
+          "$value": "#D3DAE2",
+          "$type": "color"
+        },
+        "backdrop": {
+          "$value": "none",
+          "$type": "color"
+        }
+      },
+      "text": {
+        "primary": {
+          "$value": "#0B0F14",
+          "$type": "color"
+        },
+        "secondary": {
+          "$value": "#46505C",
+          "$type": "color"
+        },
+        "onAccent": {
+          "$value": "#FFFFFF",
+          "$type": "color"
+        }
+      },
+      "impact": {
+        "good": {
+          "$value": "#1B8A4C",
+          "$type": "color"
+        },
+        "bad": {
+          "$value": "#CC2F27",
+          "$type": "color"
+        },
+        "neutral": {
+          "$value": "#1F63CC",
+          "$type": "color"
+        },
+        "cvd": {
+          "good": {
+            "$value": "#0A7C90",
+            "$type": "color"
+          },
+          "bad": {
+            "$value": "#CC2F27",
+            "$type": "color"
+          },
+          "neutral": {
+            "$value": "#1F63CC",
+            "$type": "color"
+          }
+        }
+      },
+      "scenario": {
+        "ac": {
+          "$value": "#0B0F14",
+          "$type": "color"
+        },
+        "py": {
+          "$value": "#A3ADB9",
+          "$type": "color"
+        },
+        "pl": {
+          "$value": "#0B0F14",
+          "$type": "color"
+        },
+        "fc": {
+          "$value": "#0B0F14",
+          "$type": "color"
+        }
+      },
+      "accent": {
+        "primary": {
+          "$value": "#0B0F14",
+          "$type": "color"
+        },
+        "highlight": {
+          "$value": "#1F63CC",
+          "$type": "color"
+        }
+      },
+      "chart": {
+        "axis": {
+          "$value": "#0B0F14",
+          "$type": "color"
+        },
+        "grid": {
+          "$value": "transparent",
+          "$type": "color"
+        },
+        "label": {
+          "$value": "#0B0F14",
+          "$type": "color"
+        }
+      }
+    },
+    "dark": {
+      "surface": {
+        "page": {
+          "$value": "#06090D",
+          "$type": "color"
+        },
+        "panel": {
+          "$value": "#10161E",
+          "$type": "color"
+        },
+        "tile": {
+          "$value": "#10161E",
+          "$type": "color"
+        },
+        "edge": {
+          "$value": "#1F2833",
+          "$type": "color"
+        },
+        "backdrop": {
+          "$value": "none",
+          "$type": "color"
+        }
+      },
+      "text": {
+        "primary": {
+          "$value": "#F4F7FA",
+          "$type": "color"
+        },
+        "secondary": {
+          "$value": "#AAB5C2",
+          "$type": "color"
+        },
+        "onAccent": {
+          "$value": "#06090D",
+          "$type": "color"
+        }
+      },
+      "impact": {
+        "good": {
+          "$value": "#3BD97F",
+          "$type": "color"
+        },
+        "bad": {
+          "$value": "#FF5E57",
+          "$type": "color"
+        },
+        "neutral": {
+          "$value": "#5EA8FF",
+          "$type": "color"
+        },
+        "cvd": {
+          "good": {
+            "$value": "#33C7DB",
+            "$type": "color"
+          },
+          "bad": {
+            "$value": "#FF5E57",
+            "$type": "color"
+          },
+          "neutral": {
+            "$value": "#5EA8FF",
+            "$type": "color"
+          }
+        }
+      },
+      "scenario": {
+        "ac": {
+          "$value": "#F4F7FA",
+          "$type": "color"
+        },
+        "py": {
+          "$value": "#5A6573",
+          "$type": "color"
+        },
+        "pl": {
+          "$value": "#F4F7FA",
+          "$type": "color"
+        },
+        "fc": {
+          "$value": "#F4F7FA",
+          "$type": "color"
+        }
+      },
+      "accent": {
+        "primary": {
+          "$value": "#F4F7FA",
+          "$type": "color"
+        },
+        "highlight": {
+          "$value": "#5EA8FF",
+          "$type": "color"
+        }
+      },
+      "chart": {
+        "axis": {
+          "$value": "#F4F7FA",
+          "$type": "color"
+        },
+        "grid": {
+          "$value": "transparent",
+          "$type": "color"
+        },
+        "label": {
+          "$value": "#F4F7FA",
+          "$type": "color"
+        }
+      }
+    }
+  },
+  "typography": {
+    "family": {
+      "text": {
+        "$value": "Inter, system-ui, sans-serif",
+        "$type": "fontFamily"
+      },
+      "display": {
+        "$value": "Inter, system-ui, sans-serif",
+        "$type": "fontFamily"
+      },
+      "figures": {
+        "$value": "Inter, system-ui, sans-serif",
+        "$type": "fontFamily"
+      }
+    },
+    "weight": {
+      "regular": {
+        "$value": 500,
+        "$type": "fontWeight"
+      },
+      "emphasis": {
+        "$value": 700,
+        "$type": "fontWeight"
+      },
+      "display": {
+        "$value": 800,
+        "$type": "fontWeight"
+      }
+    },
+    "size": {
+      "message": {
+        "$value": "24px",
+        "$type": "dimension"
+      },
+      "title": {
+        "$value": "18px",
+        "$type": "dimension"
+      },
+      "body": {
+        "$value": "16px",
+        "$type": "dimension"
+      },
+      "label": {
+        "$value": "15px",
+        "$type": "dimension"
+      },
+      "footnote": {
+        "$value": "13px",
+        "$type": "dimension"
+      },
+      "figure": {
+        "$value": "56px",
+        "$type": "dimension"
+      },
+      "hero": {
+        "$value": "56px",
+        "$type": "dimension"
+      }
+    }
+  },
+  "radius": {
+    "hero": {
+      "$value": "6px",
+      "$type": "dimension"
+    },
+    "panel": {
+      "$value": "6px",
+      "$type": "dimension"
+    },
+    "tile": {
+      "$value": "6px",
+      "$type": "dimension"
+    },
+    "control": {
+      "$value": "6px",
+      "$type": "dimension"
+    },
+    "mark": {
+      "$value": "2px",
+      "$type": "dimension"
+    }
+  },
+  "density": {
+    "gap": {
+      "$value": "16px",
+      "$type": "dimension"
+    },
+    "pad": {
+      "$value": "20px",
+      "$type": "dimension"
+    },
+    "maxVisuals": {
+      "$value": 3,
+      "$type": "number"
+    },
+    "tilesPerRow": {
+      "$value": 4,
+      "$type": "number"
+    },
+    "phoneScale": {
+      "$value": 0.75,
+      "$type": "number"
+    }
+  },
+  "motion": {
+    "duration": {
+      "$value": "0ms",
+      "$type": "duration"
+    },
+    "easing": {
+      "$value": "linear",
+      "$type": "string"
+    }
+  },
+  "$extensions": {
+    "report-styles": {
+      "meta": {
+        "id": "wallboard",
+        "label": "Wallboard",
+        "persona": "for Operations",
+        "summary": "A screen read from a few metres: very large figures, high contrast, thick columns and bars, variances as large coloured chips, few labels.",
+        "brandSlot": "color.*.accent.*, typography.family.*"
+      },
+      "chart": {
+        "scenarioEncoding": "pattern",
+        "gridlines": "none",
+        "timeSeries": "wall-columns",
+        "variance": "chips",
+        "structure": "wall-bars",
+        "kpi": "wall-tile",
+        "allowed": [],
+        "onRequest": [],
+        "banned": [
+          "pie",
+          "ring",
+          "gauge",
+          "funnel",
+          "radar",
+          "traffic-light",
+          "pseudo-3d",
+          "waffle",
+          "pictogram",
+          "area-scaled-icons",
+          "truncated-axis"
+        ],
+        "relaxes": [
+          {
+            "rule": "SI 1.2",
+            "what": "A contrasting page behind the tiles and cards (light: grey; dark: near-black with slate panels).",
+            "why": "Zones must separate at a glance from a distance; dark keeps a lit-room screen from glaring.",
+            "condition": "Impact and scenario colours are tuned per mode and contrast-checked; print is always light."
+          },
+          {
+            "rule": "CO 1.1",
+            "what": "Very large type: KPI values 56 px, labels 15 px, the message 24 px.",
+            "why": "Read from a few metres on a wall screen or a team TV."
+          },
+          {
+            "rule": "SI 2.1",
+            "what": "Tiles and cards with a 6 px radius on a contrasting page.",
+            "why": "Separates the zones at a glance; chrome only, the marks carry no shade."
+          },
+          {
+            "rule": "CO 2.2",
+            "what": "Fewer labels: AC values on the columns and the ΔPY% row, no PY value labels.",
+            "why": "A glance, not an analysis; PY stays visible as the reference column and in the KPI tiles.",
+            "condition": "Every value of the shared set is still printed somewhere on the page."
+          },
+          {
+            "rule": "CO 1.3",
+            "what": "At most 3 visuals a page.",
+            "why": "A wall screen carries one situation; detail lives in the IBCS page."
+          }
+        ]
+      }
+    }
+  }
+}

@@ -39,7 +39,7 @@ export const page: KeyFiguresInput = {
 ## The page
 
 ```tsx
-import "./report-styles/styles/index.css";   // self-hosted fonts, tokens, page skeleton, the four styles
+import "./report-styles/styles/index.css";   // self-hosted fonts, tokens, page skeleton, every style
 import { StyleProvider, TopBar, KeyFiguresPage } from "./report-styles";
 
 export function App() {

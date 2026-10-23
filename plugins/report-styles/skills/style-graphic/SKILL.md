@@ -2,8 +2,8 @@
 name: style-graphic
 description: >
   The Graphic report style ("Graphic · for Communication") — an editorial, newspaper-style data page for
-  company communication, in light or dark. Use it when report numbers go to the intranet, a newsletter, a
-  town-hall slide or the annual review, or when someone asks for an "editorial", "infographic", "news" or
+  company communication, in light or dark. Use it when report numbers go to the intranet, a newsletter or a
+  town-hall slide, or when someone asks for an "editorial", "infographic", "news" or
   "storytelling" version of a report page. Says when to choose it, what it looks like (the key message as a
   serif headline, a ruled figure strip, a line chart with annotations tied to their points, a ruled table
   with inline bars), what it relaxes with rule ids, what stays banned (rings, pies, truncated axes,
@@ -19,10 +19,11 @@ CFO's numbers; readable from across a room. Same numbers and same layout as ever
 
 ## Choose it when
 
-- the numbers are published to employees: intranet stories, newsletters, town-hall slides, the annual review;
+- the numbers are published to employees: intranet stories, newsletters, town-hall slides;
 - the page has one story to tell and the reader will not explore it.
 
-Not for analysis or monthly control (IBCS), not for a product dashboard (Showcase).
+Not for analysis or monthly control (IBCS), not for a product dashboard (Showcase), not for the annual report
+(Annual).
 
 ## What it looks like
 

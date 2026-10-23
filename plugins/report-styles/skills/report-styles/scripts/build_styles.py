@@ -33,7 +33,7 @@ SKILL = Path(__file__).resolve().parent.parent
 SKILLS = SKILL.parent
 TOKENS = SKILL / "assets" / "tokens"
 REACT = SKILL / "assets" / "react-reference" / "src" / "report-styles"
-STYLE_IDS = ("ibcs", "showcase", "soft", "graphic")
+STYLE_IDS = ("ibcs", "showcase", "soft", "graphic", "annual", "wallboard")
 MODES = ("light", "dark")
 PBI_SCHEMA = "https://raw.githubusercontent.com/microsoft/powerbi-desktop-samples/main/Report%20Theme%20JSON%20Schema/reportThemeSchema-2.157.json"
 
@@ -222,6 +222,8 @@ PBI_FONTS = {
     "showcase": {"text": "Segoe UI", "title": "Segoe UI Semibold", "figure": "Segoe UI Semibold"},
     "soft": {"text": "Segoe UI", "title": "Segoe UI Semibold", "figure": "Segoe UI Bold"},
     "graphic": {"text": "Segoe UI", "title": "Georgia", "figure": "Segoe UI Semibold"},
+    "annual": {"text": "Segoe UI", "title": "Segoe UI Semibold", "figure": "Segoe UI Light"},
+    "wallboard": {"text": "Segoe UI Semibold", "title": "Segoe UI Bold", "figure": "Segoe UI Black"},
 }
 
 

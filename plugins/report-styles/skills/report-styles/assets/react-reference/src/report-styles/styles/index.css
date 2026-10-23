@@ -4,8 +4,12 @@
 @import "./tokens-showcase.css";
 @import "./tokens-soft.css";
 @import "./tokens-graphic.css";
+@import "./tokens-annual.css";
+@import "./tokens-wallboard.css";
 @import "./base.css";
 @import "./ibcs.css";
 @import "./showcase.css";
 @import "./soft.css";
 @import "./graphic.css";
+@import "./annual.css";
+@import "./wallboard.css";

@@ -7,7 +7,9 @@ Pick by who reads the page, not by taste. The numbers and the layout are the sam
 | finance, controlling, the CFO, a board's finance committee | **IBCS** | exact notation, dense, absolute and relative variances side by side |
 | marketing, sales, customer success, an executive audience used to product dashboards | **Showcase** | product-grade surfaces, one brand accent, the actuals against one reference by hue |
 | HR, people managers, employees, internal service teams, often on a phone | **Soft** | calm, roomy, larger text, plain words ("This year", "Last year", "Change") |
-| everyone, through the intranet, a newsletter, a town-hall slide or the annual review | **Graphic** | the key message as a headline, annotations where the story is, a source-line feel |
+| everyone, through the intranet, a newsletter or a town-hall slide | **Graphic** | the key message as a headline, annotations where the story is, a source-line feel |
+| investors and the board, in an annual or half-year report or an investor update | **Annual** | the calm look of a published report: light numerals, a message band, numbered callouts |
+| a shift or operations team, on a wall display or a team TV, from a few metres | **Wallboard** | very large figures, high contrast, thick marks, few words; usually dark |
 | unsure | **IBCS** | never wrong, only sometimes too dense for a non-finance reader |
 
 ## One style or several

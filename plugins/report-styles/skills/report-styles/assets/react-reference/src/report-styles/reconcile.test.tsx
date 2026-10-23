@@ -89,8 +89,8 @@ describe("switches", () => {
   });
 
   it("moves style and theme with the arrow keys, wrapping", () => {
-    const r = render("graphic", false);
-    expect(checked(r, "style")).toBe("graphic");
+    const r = render("wallboard", false); // the last style: the arrow wraps to the first
+    expect(checked(r, "style")).toBe("wallboard");
     act(() => radios(r, "style").find((b) => b.props["aria-checked"])!.props.onKeyDown({ key: "ArrowRight", preventDefault() {} }));
     expect(checked(r, "style")).toBe("ibcs");
     act(() => radios(r, "theme").find((b) => b.props["aria-checked"])!.props.onKeyDown({ key: "ArrowLeft", preventDefault() {} }));

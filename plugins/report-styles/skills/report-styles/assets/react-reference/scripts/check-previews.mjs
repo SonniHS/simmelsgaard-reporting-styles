@@ -28,7 +28,7 @@ const data = arg("--data") ? `&data=${arg("--data")}` : ""; // a fixture of the 
 const out = path.resolve(process.cwd(), arg("--out", path.join(root, "previews/shots")));
 fs.mkdirSync(out, { recursive: true });
 
-const STYLES = arg("--styles", "ibcs,showcase,soft,graphic").split(",");
+const STYLES = arg("--styles", "ibcs,showcase,soft,graphic,annual,wallboard").split(",");
 const THEME_DEFAULT = arg("--theme-default", "system");
 const THEMES = ["light", "dark"];
 const WIDTHS = [1280, 390];

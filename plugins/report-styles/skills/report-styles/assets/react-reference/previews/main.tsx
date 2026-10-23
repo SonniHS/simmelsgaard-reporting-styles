@@ -15,7 +15,7 @@ const vm = buildKeyFigures(data);
   shared: { desktop: sharedKeys(vm, false), phone: sharedKeys(vm, true) }, tokens: STYLE_TOKENS,
 };
 
-const styles = (document.documentElement.dataset.styles ?? "ibcs,showcase,soft,graphic").split(",");
+const styles = (document.documentElement.dataset.styles ?? "ibcs,showcase,soft,graphic,annual,wallboard").split(",");
 createRoot(document.getElementById("app")!).render(
   <StyleProvider styles={styles}>
     <TopBar brand={<>Sample Co <span className="rs-dim">Reports</span></>} />

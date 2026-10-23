@@ -1,14 +1,15 @@
 ---
 name: report-styles
 description: >
-  Gives a business report, dashboard or report app one of four presentation styles — IBCS (for the CFO),
-  Showcase (for Marketing), Soft (for HR / People), Graphic (for Communication) — or several with a
+  Gives a business report, dashboard or report app one of six presentation styles — IBCS (for the CFO),
+  Showcase (for Marketing), Soft (for HR / People), Graphic (for Communication), Annual (for Investors),
+  Wallboard (for Operations) — or several with a
   switch, in a web app (React, Microsoft Fabric apps) or in Power BI, without changing a single number.
   Use it whenever someone wants a report to look different for a different audience, asks for a
   "less technical", "marketing", "friendly", "editorial", "dark mode" or "branded" version of an
   IBCS-style page, wants a style or light/dark switch, or wants to pre-select one style for an app.
-  Covers choosing a style, pre-select versus a switch (URL key style=), the light/dark theme switch
-  (theme=), the one page layout every style shares, the shared view model and the reconcile test that
+  Covers choosing a style, pre-select versus a switch (style=), the light/dark switch (theme=), the
+  one page layout every style shares, the shared view model and the reconcile test that
   keeps every style's numbers identical, the token contract with its contrast guardrails and brand
   slot, the Power BI themes and Deneb overrides, and how to add a style.
 ---
@@ -25,7 +26,9 @@ style documents the few presentation rules it relaxes, with rule ids.
 | `ibcs` | IBCS · for the CFO | finance and controlling; dense, exact, the reference every other style reconciles to — [style-ibcs](../style-ibcs/SKILL.md) |
 | `showcase` | Showcase · for Marketing | a product-grade page for marketing or sales; one brand accent — [style-showcase](../style-showcase/SKILL.md) |
 | `soft` | Soft · for HR / People | readers outside finance (HR, people, internal services); calm, roomy, plain words — [style-soft](../style-soft/SKILL.md) |
-| `graphic` | Graphic · for Communication | intranet stories, town halls, the annual review; a newspaper data page — [style-graphic](../style-graphic/SKILL.md) |
+| `graphic` | Graphic · for Communication | intranet stories, newsletters, town halls; a newspaper data page — [style-graphic](../style-graphic/SKILL.md) |
+| `annual` | Annual · for Investors | annual and half-year reports, investor updates, board packs read as documents — [style-annual](../style-annual/SKILL.md) |
+| `wallboard` | Wallboard · for Operations | wall displays and team TVs read from a few metres; usually dark — [style-wallboard](../style-wallboard/SKILL.md) |
 
 Ids are neutral and never change with the labels. Every style has a **light and a dark** colour set.
 
@@ -75,7 +78,7 @@ Ids are neutral and never change with the labels. Every style has a **light and 
 - `assets/tokens/<id>.json` — the source of each style, against `assets/tokens/contract.schema.json`.
 - `scripts/build_styles.py` — validates and generates everything else (`--check` for CI).
 - `assets/react-reference/` — tested React + SVG components: `StyleProvider`, `StyleSwitch`, `ThemeSwitch`,
-  `ReportPage`, `KpiTile`, the four styles' chart parts, `viewModel.ts`, the CSS with self-hosted fonts, and a
+  `ReportPage`, `KpiTile`, each style's chart parts, `viewModel.ts`, the CSS with self-hosted fonts, and a
   preview app. Copy `src/report-styles` into your app ([README](assets/react-reference/README.md)).
 - Per style, in `../style-<id>/assets/`: a DTCG token file, Power BI themes (light, dark, CVD) and Deneb overrides.
 

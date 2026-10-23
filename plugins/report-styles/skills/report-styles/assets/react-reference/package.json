@@ -2,7 +2,7 @@
   "name": "report-styles-react-reference",
   "version": "1.0.0",
   "private": true,
-  "description": "Reference React + SVG components for report styles (IBCS, Showcase, Soft, Graphic): one view model, one page skeleton, a style and theme switch. Copy src/report-styles into your app and extend.",
+  "description": "Reference React + SVG components for report styles (IBCS, Showcase, Soft, Graphic, Annual, Wallboard): one view model, one page skeleton, a style and theme switch. Copy src/report-styles into your app and extend.",
   "license": "MIT",
   "type": "module",
   "scripts": {
@@ -18,6 +18,7 @@
   },
   "devDependencies": {
     "@fontsource/inter": "5.2.6",
+    "@fontsource/manrope": "5.2.6",
     "@fontsource/nunito": "5.2.6",
     "@fontsource/nunito-sans": "5.2.6",
     "@fontsource/source-sans-3": "5.2.8",

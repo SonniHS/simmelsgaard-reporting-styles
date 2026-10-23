@@ -747,8 +747,377 @@ export const STYLE_TOKENS = {
         }
       ]
     }
+  },
+  "annual": {
+    "$comment": "Annual style: the key-figures spread of a calm annual report, for investors and the board. Aubergine and gold, light-weight numerals, a tinted message band, AC columns with a PY marker line and numbered callouts, ranked bars with a PY marker.",
+    "meta": {
+      "id": "annual",
+      "label": "Annual",
+      "persona": "for Investors",
+      "summary": "An annual-report spread: a tinted message band, light-weight numerals, AC columns and bars with a PY marker line, numbered callouts, generous space.",
+      "brandSlot": "color.*.scenario.ac, color.*.scenario.pl, color.*.scenario.fc, color.*.accent.*, color.*.surface.panel, typography.family.*"
+    },
+    "color": {
+      "light": {
+        "surface": {
+          "page": "#FFFFFF",
+          "panel": "#F4F1F7",
+          "tile": "#FFFFFF",
+          "edge": "#E4DFEA",
+          "backdrop": "none"
+        },
+        "text": {
+          "primary": "#231B2E",
+          "secondary": "#5A5166",
+          "onAccent": "#FFFFFF"
+        },
+        "impact": {
+          "good": "#2A8550",
+          "bad": "#BE3A2E",
+          "neutral": "#3365B8",
+          "cvd": {
+            "good": "#0E7F8F",
+            "bad": "#BE3A2E",
+            "neutral": "#3365B8"
+          }
+        },
+        "scenario": {
+          "ac": "#4B2A63",
+          "py": "#CFC6DA",
+          "pl": "#4B2A63",
+          "fc": "#4B2A63"
+        },
+        "accent": {
+          "primary": "#4B2A63",
+          "highlight": "#B8862B"
+        },
+        "chart": {
+          "axis": "#231B2E",
+          "grid": "transparent",
+          "label": "#231B2E"
+        }
+      },
+      "dark": {
+        "surface": {
+          "page": "#17131D",
+          "panel": "#221C2B",
+          "tile": "#17131D",
+          "edge": "#352C41",
+          "backdrop": "none"
+        },
+        "text": {
+          "primary": "#F0EBF5",
+          "secondary": "#B2A8BF",
+          "onAccent": "#17131D"
+        },
+        "impact": {
+          "good": "#5FC487",
+          "bad": "#F17A6C",
+          "neutral": "#7EA6F0",
+          "cvd": {
+            "good": "#4CC2D0",
+            "bad": "#F17A6C",
+            "neutral": "#7EA6F0"
+          }
+        },
+        "scenario": {
+          "ac": "#CDB6E6",
+          "py": "#5A4D6A",
+          "pl": "#CDB6E6",
+          "fc": "#CDB6E6"
+        },
+        "accent": {
+          "primary": "#CDB6E6",
+          "highlight": "#E3B25A"
+        },
+        "chart": {
+          "axis": "#F0EBF5",
+          "grid": "transparent",
+          "label": "#F0EBF5"
+        }
+      }
+    },
+    "typography": {
+      "family": {
+        "text": "Manrope, system-ui, sans-serif",
+        "display": "Manrope, system-ui, sans-serif",
+        "figures": "Manrope, system-ui, sans-serif"
+      },
+      "weight": {
+        "regular": 400,
+        "emphasis": 700,
+        "display": 300
+      },
+      "size": {
+        "message": 22,
+        "title": 16,
+        "body": 15,
+        "label": 13,
+        "footnote": 12,
+        "figure": 44,
+        "hero": 44
+      }
+    },
+    "radius": {
+      "hero": 4,
+      "panel": 4,
+      "tile": 4,
+      "control": 4,
+      "mark": 0
+    },
+    "density": {
+      "gap": 32,
+      "pad": 28,
+      "maxVisuals": 3,
+      "tilesPerRow": 4,
+      "phoneScale": 0.8
+    },
+    "motion": {
+      "enabled": false,
+      "durationMs": 0,
+      "easing": "linear"
+    },
+    "chart": {
+      "scenarioEncoding": "pattern",
+      "gridlines": "none",
+      "timeSeries": "marker-columns",
+      "variance": "numbered-callouts",
+      "structure": "marker-bars",
+      "kpi": "big-figures",
+      "allowed": [],
+      "onRequest": [],
+      "banned": [
+        "pie",
+        "ring",
+        "gauge",
+        "funnel",
+        "radar",
+        "traffic-light",
+        "pseudo-3d",
+        "waffle",
+        "pictogram",
+        "area-scaled-icons",
+        "truncated-axis"
+      ],
+      "relaxes": [
+        {
+          "rule": "SI 1.2",
+          "what": "A tinted band behind the key message and white (dark: plum) panels without boxes.",
+          "why": "The annual-report cover gesture: one focal point per page.",
+          "condition": "The tint is the brand surface, never green or red, and never encodes data."
+        },
+        {
+          "rule": "SI 2.3",
+          "what": "Light-weight display numerals (44 px) for the KPI values.",
+          "why": "The calm, generous voice of an annual report; labels and variances stay regular weight."
+        },
+        {
+          "rule": "CO 1.1",
+          "what": "Large KPI figures and message.",
+          "why": "Read in print and on screens at a distance."
+        },
+        {
+          "rule": "UN 3.2",
+          "what": "PY drawn as a marker line across the AC column or bar, not as a second column or bar.",
+          "why": "One solid shape per category reads calmer; the marker keeps the comparison exact.",
+          "condition": "AC stays solid, PY the marker; both are named in the legend."
+        },
+        {
+          "rule": "SI 2.2",
+          "what": "AC in the aubergine brand colour instead of a neutral dark grey.",
+          "why": "The brand carries the report; the colour is far from every impact hue and AC stays clearly stronger than PY (checked)."
+        },
+        {
+          "rule": "CO 1.3",
+          "what": "At most 3 visuals a page.",
+          "why": "One message per spread; detail lives in the IBCS page."
+        }
+      ]
+    }
+  },
+  "wallboard": {
+    "$comment": "Wallboard style: a glanceable screen for operations — a control room, a shop floor or a team TV. Very large type, high contrast, thick marks, little text, readable from a few metres. Usually shown dark.",
+    "meta": {
+      "id": "wallboard",
+      "label": "Wallboard",
+      "persona": "for Operations",
+      "summary": "A screen read from a few metres: very large figures, high contrast, thick columns and bars, variances as large coloured chips, few labels.",
+      "brandSlot": "color.*.accent.*, typography.family.*"
+    },
+    "color": {
+      "light": {
+        "surface": {
+          "page": "#E9EDF1",
+          "panel": "#FFFFFF",
+          "tile": "#FFFFFF",
+          "edge": "#D3DAE2",
+          "backdrop": "none"
+        },
+        "text": {
+          "primary": "#0B0F14",
+          "secondary": "#46505C",
+          "onAccent": "#FFFFFF"
+        },
+        "impact": {
+          "good": "#1B8A4C",
+          "bad": "#CC2F27",
+          "neutral": "#1F63CC",
+          "cvd": {
+            "good": "#0A7C90",
+            "bad": "#CC2F27",
+            "neutral": "#1F63CC"
+          }
+        },
+        "scenario": {
+          "ac": "#0B0F14",
+          "py": "#A3ADB9",
+          "pl": "#0B0F14",
+          "fc": "#0B0F14"
+        },
+        "accent": {
+          "primary": "#0B0F14",
+          "highlight": "#1F63CC"
+        },
+        "chart": {
+          "axis": "#0B0F14",
+          "grid": "transparent",
+          "label": "#0B0F14"
+        }
+      },
+      "dark": {
+        "surface": {
+          "page": "#06090D",
+          "panel": "#10161E",
+          "tile": "#10161E",
+          "edge": "#1F2833",
+          "backdrop": "none"
+        },
+        "text": {
+          "primary": "#F4F7FA",
+          "secondary": "#AAB5C2",
+          "onAccent": "#06090D"
+        },
+        "impact": {
+          "good": "#3BD97F",
+          "bad": "#FF5E57",
+          "neutral": "#5EA8FF",
+          "cvd": {
+            "good": "#33C7DB",
+            "bad": "#FF5E57",
+            "neutral": "#5EA8FF"
+          }
+        },
+        "scenario": {
+          "ac": "#F4F7FA",
+          "py": "#5A6573",
+          "pl": "#F4F7FA",
+          "fc": "#F4F7FA"
+        },
+        "accent": {
+          "primary": "#F4F7FA",
+          "highlight": "#5EA8FF"
+        },
+        "chart": {
+          "axis": "#F4F7FA",
+          "grid": "transparent",
+          "label": "#F4F7FA"
+        }
+      }
+    },
+    "typography": {
+      "family": {
+        "text": "Inter, system-ui, sans-serif",
+        "display": "Inter, system-ui, sans-serif",
+        "figures": "Inter, system-ui, sans-serif"
+      },
+      "weight": {
+        "regular": 500,
+        "emphasis": 700,
+        "display": 800
+      },
+      "size": {
+        "message": 24,
+        "title": 18,
+        "body": 16,
+        "label": 15,
+        "footnote": 13,
+        "figure": 56,
+        "hero": 56
+      }
+    },
+    "radius": {
+      "hero": 6,
+      "panel": 6,
+      "tile": 6,
+      "control": 6,
+      "mark": 2
+    },
+    "density": {
+      "gap": 16,
+      "pad": 20,
+      "maxVisuals": 3,
+      "tilesPerRow": 4,
+      "phoneScale": 0.75
+    },
+    "motion": {
+      "enabled": false,
+      "durationMs": 0,
+      "easing": "linear"
+    },
+    "chart": {
+      "scenarioEncoding": "pattern",
+      "gridlines": "none",
+      "timeSeries": "wall-columns",
+      "variance": "chips",
+      "structure": "wall-bars",
+      "kpi": "wall-tile",
+      "allowed": [],
+      "onRequest": [],
+      "banned": [
+        "pie",
+        "ring",
+        "gauge",
+        "funnel",
+        "radar",
+        "traffic-light",
+        "pseudo-3d",
+        "waffle",
+        "pictogram",
+        "area-scaled-icons",
+        "truncated-axis"
+      ],
+      "relaxes": [
+        {
+          "rule": "SI 1.2",
+          "what": "A contrasting page behind the tiles and cards (light: grey; dark: near-black with slate panels).",
+          "why": "Zones must separate at a glance from a distance; dark keeps a lit-room screen from glaring.",
+          "condition": "Impact and scenario colours are tuned per mode and contrast-checked; print is always light."
+        },
+        {
+          "rule": "CO 1.1",
+          "what": "Very large type: KPI values 56 px, labels 15 px, the message 24 px.",
+          "why": "Read from a few metres on a wall screen or a team TV."
+        },
+        {
+          "rule": "SI 2.1",
+          "what": "Tiles and cards with a 6 px radius on a contrasting page.",
+          "why": "Separates the zones at a glance; chrome only, the marks carry no shade."
+        },
+        {
+          "rule": "CO 2.2",
+          "what": "Fewer labels: AC values on the columns and the ΔPY% row, no PY value labels.",
+          "why": "A glance, not an analysis; PY stays visible as the reference column and in the KPI tiles.",
+          "condition": "Every value of the shared set is still printed somewhere on the page."
+        },
+        {
+          "rule": "CO 1.3",
+          "what": "At most 3 visuals a page.",
+          "why": "A wall screen carries one situation; detail lives in the IBCS page."
+        }
+      ]
+    }
   }
 } as const;
 
 export type StyleId = keyof typeof STYLE_TOKENS;
-export const STYLE_IDS = ["ibcs", "showcase", "soft", "graphic"] as const satisfies readonly StyleId[];
+export const STYLE_IDS = ["ibcs", "showcase", "soft", "graphic", "annual", "wallboard"] as const satisfies readonly StyleId[];

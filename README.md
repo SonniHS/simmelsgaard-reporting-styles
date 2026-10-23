@@ -2,11 +2,13 @@
 
 [![CI](https://github.com/SonniHS/simmelsgaard-reporting-styles/actions/workflows/ci.yml/badge.svg)](https://github.com/SonniHS/simmelsgaard-reporting-styles/actions/workflows/ci.yml)
 
-Presentation styles for IBCS®-based business reports, as a Claude Code plugin. One report, four audiences:
+Presentation styles for IBCS®-based business reports, as a Claude Code plugin. One report, six audiences:
 
-| IBCS · for the CFO | Showcase · for Marketing | Soft · for HR / People | Graphic · for Communication |
-|---|---|---|---|
-| ![IBCS](docs/previews/ibcs-light-1280.png) | ![Showcase](docs/previews/showcase-dark-1280.png) | ![Soft](docs/previews/soft-light-1280.png) | ![Graphic](docs/previews/graphic-light-1280.png) |
+| IBCS · for the CFO | Showcase · for Marketing | Soft · for HR / People |
+|---|---|---|
+| ![IBCS](docs/previews/ibcs-light-1280.png) | ![Showcase](docs/previews/showcase-dark-1280.png) | ![Soft](docs/previews/soft-light-1280.png) |
+| **Graphic · for Communication** | **Annual · for Investors** | **Wallboard · for Operations** |
+| ![Graphic](docs/previews/graphic-light-1280.png) | ![Annual](docs/previews/annual-light-1280.png) | ![Wallboard](docs/previews/wallboard-dark-1280.png) |
 
 - **The same numbers in every style.** One view model per page; every style draws it, none computes a number. A
   reconcile test proves it on desktop and phone.
@@ -52,6 +54,8 @@ dark mode."*
 | [`style-showcase`](plugins/report-styles/skills/style-showcase/SKILL.md) | Showcase · for Marketing: a product-grade page with one brand accent |
 | [`style-soft`](plugins/report-styles/skills/style-soft/SKILL.md) | Soft · for HR / People: calm, roomy, plain words |
 | [`style-graphic`](plugins/report-styles/skills/style-graphic/SKILL.md) | Graphic · for Communication: a newspaper data page |
+| [`style-annual`](plugins/report-styles/skills/style-annual/SKILL.md) | Annual · for Investors: an annual-report spread |
+| [`style-wallboard`](plugins/report-styles/skills/style-wallboard/SKILL.md) | Wallboard · for Operations: a screen read from a few metres |
 
 ## Contributing
 

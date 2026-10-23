@@ -21,7 +21,9 @@ data (one input per page)
             ├─ IBCS parts      chart grammar, colours, type, words — from tokens/ibcs.json
             ├─ Showcase parts
             ├─ Soft parts
-            └─ Graphic parts
+            ├─ Graphic parts
+            ├─ Annual parts
+            └─ Wallboard parts
 reconcile test: every shown number, in every style, equals the view model's text
 ```
 
@@ -36,6 +38,8 @@ few words differ. A switch between styles is an attribute change on the page; th
 | `showcase` | Showcase · for Marketing | A product-grade page: solid surfaces with a hairline edge, one radius, a line chart with a ΔPY% strip, a ranked dumbbell; one brand accent for the actuals (AC) and the one highlight. |
 | `soft` | Soft · for HR / People | Warm page, rounded cards, calm colours, generous space, larger text and plain words ("This year", "Last year", "Change"). |
 | `graphic` | Graphic · for Communication | A newspaper data page: the key message as a serif headline, a ruled figure strip, a line chart with annotations tied to their points, a ruled table with inline bars. |
+| `annual` | Annual · for Investors | An annual-report spread: a tinted message band, light-weight numerals, AC columns and bars with a PY marker line, numbered callouts. |
+| `wallboard` | Wallboard · for Operations | A screen read from a few metres: very large figures, high contrast, thick columns and bars, variances as large chips, few labels. |
 
 Ids are neutral and stable; labels and personas can be renamed per app. Every style has a light and a dark colour
 set, chosen independently of the style. Print always uses light.
@@ -97,6 +101,8 @@ Every other IBCS rule holds. The exact wording, with the reason and the conditio
 | Showcase | SI 1.2 brand surfaces; SI 2.1 solid panels, one radius; SI 2.3 a large key message; SI 3.1 faint gridlines on the line chart; SI 1.3 one short fade; UN 3.2 AC against one reference by hue; SI 2.1 opt-in pseudo-3D bars; EX 2.1 a ring only on request; CH 4.1 the line and the dumbbell keep their own scales |
 | Soft | SI 1.2 warm page; SI 2.2 a soft blue-grey ink for AC; SI 2.1 rounded cards and bar ends; CO 1.1 larger text; CO 2.2 fewer visuals and more space; SI 3.1 gridlines instead of labels; SI 1.3 a short fade |
 | Graphic | SI 1.2 an off-white page with rules; SI 2.3 a serif headline; CO 1.1 large type; SI 3.1 gridlines on the line chart; CO 1.3 at most three visuals; CH 4.1 the line keeps its own scale |
+| Annual | SI 1.2 a tinted message band; SI 2.3 light-weight numerals; CO 1.1 large figures; UN 3.2 PY as a marker line; SI 2.2 the brand colour for AC; CO 1.3 at most three visuals |
+| Wallboard | SI 1.2 a contrasting page; CO 1.1 very large type; SI 2.1 tiles with a small radius; CO 2.2 fewer labels (no PY value labels); CO 1.3 at most three visuals |
 
 ## Design decisions
 
@@ -105,8 +111,8 @@ Every other IBCS rule holds. The exact wording, with the reason and the conditio
 - **Light and dark for every style**, independent of the style switch, following the system until the reader picks.
   The IBCS dark theme keeps the notation: AC solid, PY lighter, PL outlined, FC hatched read correctly on dark.
 - **Graphic is editorial.** Two directions were built — a newspaper data page and an annual-review infographic;
-  the editorial one was chosen as credible enough to sit next to finance numbers and still readable from across a
-  room. Its first version (a yellow poster block) was dropped as too loud for a company communication team.
+  the editorial one became Graphic, credible enough to sit next to finance numbers, and the annual-review one later
+  became its own style, Annual, for investors. Its first version (a yellow poster block) was dropped as too loud for a company communication team.
 - **Showcase is a product page, not a poster:** solid surfaces, one radius, a tight type scale, amber only for AC
   and the one highlight.
 - **No rings in Soft or Graphic.** A share of a whole is a 100 % stacked bar with labels; Showcase keeps a ring

@@ -71,7 +71,7 @@ the list of IBCS rules the style relaxes.
 |---|---|
 | `tokens.generated.ts`, `styles/tokens-<id>.css` | the React components (`--rs-*` variables; colours scoped by `[data-style][data-theme]`, light again under `@media print`) |
 | `<id>.tokens.json` | a DTCG export of the style |
-| `power-bi/<id>-pbi-theme-<mode>[-cvd].json` | Power BI report themes (IBCS light is the ibcs-power-bi plugin's own) |
+| `power-bi/<id>-pbi-theme-<mode>[-cvd].json` | Power BI report themes, light and dark, each with a colour-blind-safe twin |
 | `deneb/<id>-<mode>.overrides.json` | the ibcs-deneb templates, through that skill's `sync_tokens.py --overrides` |
 
 **Guardrails** (a failure is a notation error, not a style choice): text and labels ≥ 4.5:1 on page and panel;

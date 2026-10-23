@@ -74,8 +74,11 @@ function SoftColumns({ vm, w, phone }: { vm: KeyFiguresVM; w: number; phone: boo
 }
 
 function SoftBars({ vm, w, phone }: { vm: KeyFiguresVM; w: number; phone: boolean }) {
-  const rs = vm.structure.items, row = 44, pillW = phone ? 66 : 74;
-  const nameW = textWidth(rs.map((r) => r.name), phone ? 80 : 100, phone ? 130 : 190, 7.6), valW = textWidth(rs.map((r) => r.acText), 40, 76, 8);
+  const rs = vm.structure.items, pillW = phone ? 66 : 74;
+  const valW = textWidth(rs.map((r) => r.acText), 40, 76, 8);
+  // on a phone the names sit on their own line above the bars: the bars get the width, and through the shared scale
+  // (CH 4.1) the time chart above gets a readable height
+  const nameW = phone ? 0 : textWidth(rs.map((r) => r.name), 100, 190, 7.6), row = phone ? 58 : 44, dy = phone ? 16 : 0;
   const barW = w - nameW - valW - pillW - 8;
   const s = useScale([{ unit: vm.structure.unit, min: 0, max: vm.structure.max, availablePx: barW }]).get(vm.structure.unit);
   if (s == null) return null;
@@ -85,8 +88,8 @@ function SoftBars({ vm, w, phone }: { vm: KeyFiguresVM; w: number; phone: boolea
       {rs.map((r, i) => {
         const y = i * row + 6;
         return (
-          <g key={r.key}>
-            <text x={0} y={y + 19}>{r.name}</text>
+          <g key={r.key} transform={dy ? `translate(0,${dy})` : undefined}>
+            <text x={0} y={phone ? y - 2 : y + 19}>{r.name}</text>
             {r.py > 0 && <rect className="f-py" x={nameW} y={y + 12} width={f(r.py * s)} height={16} rx={4} />}
             <rect className="f-ac" data-u={vm.structure.unit} data-v={r.ac} data-dim="w" x={nameW} y={y + 4} width={f(r.ac * s)} height={16} rx={4} />
             <T k={`item.${r.key}.ac`} x={f(nameW + Math.max(r.ac, r.py) * s + 6)} y={y + 18} fontWeight={700}>{r.acText}</T>

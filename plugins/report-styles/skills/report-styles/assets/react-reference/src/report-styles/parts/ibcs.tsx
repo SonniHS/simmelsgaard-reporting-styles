@@ -62,9 +62,8 @@ function TimeTiers({ vm, w, phone }: { vm: KeyFiguresVM; w: number; phone: boole
 }
 
 function RegionBars({ vm, w, phone }: { vm: KeyFiguresVM; w: number; phone: boolean }) {
-  const rs = vm.structure.items, row = 30, head = 20;
-  // phone: the ΔPY% column only (ΔPY stays in the tiles); two variance columns do not fit 390 px with labels
-  const nameW = textWidth(rs.map((r) => r.name), phone ? 70 : 90, phone ? 96 : 180);
+  const rs = vm.structure.items, head = 20;
+  const nameW = textWidth(rs.map((r) => r.name), 90, 180);
   const valW = textWidth(rs.map((r) => r.acText), 36, 72, 7.2);
   // a variance column: bars up to `bar` px each side of its axis, and room for the longest label on each side
   // (negative labels sit left of their bar, positive right), so no label runs into the next column or off the card
@@ -76,11 +75,16 @@ function RegionBars({ vm, w, phone }: { vm: KeyFiguresVM; w: number; phone: bool
   const barA = 16, barP = phone ? 14 : 22;
   const colA = column(rs.map((r) => ({ dir: r.absDir, text: r.absText })), barA);
   const colP = column(rs.map((r) => ({ dir: r.rel == null ? 1 : r.relDir, text: r.relText! })), barP);
-  // ΔPY (absolute) only when the AC/PY bars keep at least 90 px; ΔPY% always (it carries the comparison)
-  const narrow = phone || w - nameW - valW - colA.width - colP.width < 90;
+  // the first layout that leaves the AC/PY bars at least 90 px: names beside the bars with both variance columns;
+  // names on their own line above the bars (phones always) with both columns; names above with ΔPY% only (ΔPY stays
+  // in the KPI tiles). ΔPY% is always shown: it carries the comparison.
+  const fits = (nameCol: number, both: boolean) => w - nameCol - valW - colP.width - (both ? colA.width : 0) >= 90;
+  const stack = phone || !fits(nameW, true);
+  const narrow = stack && !fits(0, true);
+  const row = stack ? 44 : 30, dy = stack ? 14 : 0;
+  const x0 = stack ? 0 : nameW;
   const cols = narrow ? colP.width : colA.width + colP.width;
-  const barW = Math.max(40, w - nameW - valW - cols);
-  const x0 = nameW;
+  const barW = Math.max(40, w - x0 - valW - cols);
   const cxA = x0 + barW + valW + colA.left, cxP = narrow ? x0 + barW + valW + colP.left : cxA + colA.right + colP.left;
   // the AC/PY bars and the ΔPY bars share the page's px per unit for this unit (CH 4.1)
   const U = vm.structure.unit, maxAbs = Math.max(...rs.map((r) => Math.abs(r.abs)), 1e-9);
@@ -99,8 +103,8 @@ function RegionBars({ vm, w, phone }: { vm: KeyFiguresVM; w: number; phone: bool
         const y = head + i * row, a = r.abs * sA;
         const p = r.rel == null ? 0 : r.rel * sP;
         return (
-          <g key={r.key}>
-            <Fit text={r.name} px={nameW} x={0} y={y + 19} />
+          <g key={r.key} transform={dy ? `translate(0,${dy})` : undefined}>
+            {stack ? <Fit text={r.name} px={w} x={0} y={y - 2} /> : <Fit text={r.name} px={nameW} x={0} y={y + 19} />}
             <rect className="f-py" x={x0} y={y + 10} width={f(r.py * s)} height={15} />
             <rect className="f-ac" data-u={vm.structure.unit} data-v={r.ac} data-dim="w" x={x0} y={y + 6} width={f(r.ac * s)} height={15} />
             <T k={`item.${r.key}.ac`} x={f(x0 + Math.max(r.ac, r.py) * s + 4)} y={y + 18}>{r.acText}</T>

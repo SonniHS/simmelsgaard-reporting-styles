@@ -45,10 +45,10 @@ good #9CCB19, bad #FF4D4D, neutral #4D8DFF; PL outlined and FC hatched keep read
 ## Assets
 
 - `assets/ibcs.tokens.json` — DTCG export (generated from `report-styles/assets/tokens/ibcs.json`).
-- `assets/power-bi/ibcs-pbi-theme-dark.json`, `-dark-cvd.json` — the dark themes. For light, use the
-  `ibcs-power-bi` plugin's `ibcs-pbi-theme.json` (and its CVD twin).
-- `assets/deneb/ibcs-dark.overrides.json` — re-colours the `ibcs-deneb` templates for dark; light needs no
-  overrides. See [power-bi.md](../report-styles/references/power-bi.md).
+- `assets/power-bi/ibcs-pbi-theme-<light|dark>[-cvd].json` — report themes in this style's colours (the same
+  screen-tuned impact colours as the web style).
+- `assets/deneb/ibcs-<light|dark>.overrides.json` — re-colours the `ibcs-deneb` templates to match.
+  See [power-bi.md](../report-styles/references/power-bi.md).
 - Web: `<StyleProvider styles={["ibcs"]}>` with the components in `report-styles/assets/react-reference`.
 
 `ibcs_lint.py theme` on the dark theme reports the dark background and the dark visual background (SI 1.2):

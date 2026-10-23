@@ -69,7 +69,8 @@ svg text.tone-none { fill: var(--rs-color-text-secondary); }
 .rs-tools { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .rs-seg { display: inline-flex; border: 1px solid var(--rs-color-surface-edge); border-radius: var(--rs-radius-control); overflow: hidden; background: var(--rs-color-surface-page); }
 .rs-seg button { font: inherit; font-size: 12px; color: inherit; background: none; border: 0; padding: 6px 12px; cursor: pointer; }
-.rs-seg button[aria-checked="true"] { background: var(--rs-color-accent-primary); color: var(--rs-color-text-on-accent); font-weight: 600; }
+/* the selected option is marked by colour and fill, not weight: bold would change the switch's width per style */
+.rs-seg button[aria-checked="true"] { background: var(--rs-color-accent-primary); color: var(--rs-color-text-on-accent); }
 .rs-switch-phone { display: none; font: inherit; font-size: 12px; padding: 6px 8px; border-radius: var(--rs-radius-control); max-width: 100%;
   color: var(--rs-color-text-primary); background: var(--rs-color-surface-page); border: 1px solid var(--rs-color-surface-edge); }
 .rs-cvd { color: var(--rs-color-text-secondary); font-size: 12px; display: flex; gap: 4px; align-items: center; }

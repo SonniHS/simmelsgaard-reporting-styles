@@ -1,0 +1,191 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/powerbi-desktop-samples/main/Report%20Theme%20JSON%20Schema/reportThemeSchema-2.157.json",
+  "name": "graphic-pbi-theme-dark",
+  "dataColors": [
+    "#ECE9E2",
+    "#6E6A62",
+    "#A4A4A4",
+    "#383838"
+  ],
+  "good": "#62BE86",
+  "bad": "#EE7468",
+  "neutral": "#7AA5EE",
+  "maximum": "#ECE9E2",
+  "center": "#6E6A62",
+  "minimum": "#151513",
+  "foreground": "#ECE9E2",
+  "foregroundNeutralSecondary": "#A9A398",
+  "background": "#151513",
+  "backgroundLight": "#151513",
+  "secondaryBackground": "#151513",
+  "tableAccent": "#ECE9E2",
+  "hyperlink": "#E2A445",
+  "visitedHyperlink": "#E2A445",
+  "textClasses": {
+    "callout": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 26,
+      "color": "#ECE9E2"
+    },
+    "title": {
+      "fontFace": "Georgia",
+      "fontSize": 12,
+      "color": "#ECE9E2"
+    },
+    "header": {
+      "fontFace": "Georgia",
+      "fontSize": 10,
+      "color": "#ECE9E2"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 10,
+      "color": "#ECE9E2"
+    },
+    "largeTitle": {
+      "fontFace": "Georgia",
+      "fontSize": 24,
+      "color": "#ECE9E2"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "show": false,
+            "color": {
+              "solid": {
+                "color": "#151513"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "show": false,
+            "color": {
+              "solid": {
+                "color": "#3A3833"
+              }
+            },
+            "radius": 0
+          }
+        ],
+        "dropShadow": [
+          {
+            "show": false
+          }
+        ],
+        "visualHeader": [
+          {
+            "show": false
+          }
+        ],
+        "title": [
+          {
+            "show": true,
+            "fontFamily": "Georgia",
+            "fontSize": 12,
+            "fontColor": {
+              "solid": {
+                "color": "#ECE9E2"
+              }
+            },
+            "bold": false,
+            "alignment": "left"
+          }
+        ],
+        "subTitle": [
+          {
+            "show": true,
+            "fontFamily": "Segoe UI",
+            "fontSize": 10,
+            "fontColor": {
+              "solid": {
+                "color": "#A9A398"
+              }
+            }
+          }
+        ],
+        "labels": [
+          {
+            "show": true,
+            "fontFamily": "Segoe UI",
+            "fontSize": 10,
+            "color": {
+              "solid": {
+                "color": "#ECE9E2"
+              }
+            }
+          }
+        ],
+        "categoryAxis": [
+          {
+            "show": true,
+            "gridlineShow": false,
+            "showAxisTitle": false,
+            "fontFamily": "Segoe UI",
+            "fontSize": 10,
+            "labelColor": {
+              "solid": {
+                "color": "#A9A398"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "show": true,
+            "gridlineShow": true,
+            "gridlineColor": {
+              "solid": {
+                "color": "#2A2926"
+              }
+            },
+            "showAxisTitle": false,
+            "fontFamily": "Segoe UI",
+            "fontSize": 10,
+            "labelColor": {
+              "solid": {
+                "color": "#A9A398"
+              }
+            }
+          }
+        ],
+        "legend": [
+          {
+            "show": false,
+            "fontFamily": "Segoe UI",
+            "fontSize": 10
+          }
+        ]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [
+          {
+            "color": {
+              "solid": {
+                "color": "#151513"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "outspace": [
+          {
+            "color": {
+              "solid": {
+                "color": "#151513"
+              }
+            },
+            "transparency": 0
+          }
+        ]
+      }
+    }
+  }
+}

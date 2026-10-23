@@ -1,0 +1,38 @@
+simmelsgaard-reporting-styles
+Copyright (c) 2026 Sonni Simmelsgaard
+
+LICENSING (by file type)
+
+  Prose: SKILL.md, references/*.md, README.md files, docs/
+      Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+      See LICENSE-CC-BY-SA-4.0. Adaptations must be shared under the same licence.
+
+  Code and data: scripts/, assets/ (token files, generated themes and overrides,
+  reference components, previews), tests/, the JSON manifests, and code and
+  configuration in fenced code blocks inside the Markdown files
+      MIT License. See LICENSE-MIT.
+
+  The plugin ships a copy of this NOTICE and of both licence texts, because an
+  installed plugin contains only its own directory.
+
+IBCS® STANDARDS
+
+  The IBCS rules these styles keep and relax are those of the International
+  Business Communication Standards (IBCS®), Version 2.0, published by the IBCS
+  Association (https://www.ibcs.com) under CC BY-SA 4.0. Rule ids such as
+  "SI 2.1" refer to that publication. The text here is our own summary; no pages
+  or figures from the IBCS Standards document are reproduced. The notation
+  itself is maintained in the ibcs plugin of simmelsgaard-reporting-skills.
+
+  IBCS® is a registered trademark of IBCS Institute. These styles are not
+  affiliated with or certified by IBCS Institute, and make no claim of IBCS
+  certification.
+
+THIRD-PARTY MATERIAL
+
+  Fonts used by the reference components (Inter, Nunito, Nunito Sans,
+  Source Sans 3, Source Serif 4) are licensed under the SIL Open Font License
+  1.1 and are installed from npm (@fontsource packages), not bundled in this
+  repository. React, TypeScript, Vitest and esbuild are dependencies installed
+  from npm, not bundled. Microsoft Power BI and Deneb are trademarks of their
+  owners and are only described, not redistributed.

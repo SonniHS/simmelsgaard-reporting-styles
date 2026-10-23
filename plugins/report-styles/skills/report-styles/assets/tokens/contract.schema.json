@@ -1,0 +1,545 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "report-styles/contract.schema.json",
+  "title": "Report style token contract",
+  "description": "One schema for every style (ibcs, showcase, soft, graphic). A style may change values, never the meaning of a role. Every style has a light and a dark colour set; the theme (light | dark) is chosen independently of the style. docs/design.md explains each group.",
+  "type": "object",
+  "required": [
+    "meta",
+    "color",
+    "typography",
+    "radius",
+    "density",
+    "motion",
+    "chart"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "hex": {
+      "type": "string",
+      "pattern": "^#[0-9A-Fa-f]{6}$"
+    },
+    "paint": {
+      "type": "string",
+      "pattern": "^(#[0-9A-Fa-f]{6}|rgba\\(.+\\)|transparent)$"
+    },
+    "px": {
+      "type": "number",
+      "minimum": 0
+    },
+    "ruleId": {
+      "type": "string",
+      "pattern": "^(SA|EX|SI|CO|CH|UN) [0-9]+(\\.[0-9]+)?$"
+    },
+    "relaxation": {
+      "type": "object",
+      "required": [
+        "rule",
+        "what",
+        "why"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "rule": {
+          "$ref": "#/$defs/ruleId"
+        },
+        "what": {
+          "type": "string"
+        },
+        "why": {
+          "type": "string"
+        },
+        "condition": {
+          "type": "string"
+        }
+      }
+    },
+    "colorSet": {
+      "type": "object",
+      "required": [
+        "surface",
+        "text",
+        "impact",
+        "scenario",
+        "accent",
+        "chart"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "surface": {
+          "type": "object",
+          "required": [
+            "page",
+            "panel",
+            "tile",
+            "edge",
+            "backdrop"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "page": {
+              "$ref": "#/$defs/hex",
+              "description": "Solid page colour; every contrast check is against it."
+            },
+            "panel": {
+              "$ref": "#/$defs/paint"
+            },
+            "tile": {
+              "$ref": "#/$defs/paint"
+            },
+            "edge": {
+              "$ref": "#/$defs/paint"
+            },
+            "backdrop": {
+              "type": "string",
+              "description": "CSS background of the page (may be a gradient over page); 'none' = solid page."
+            }
+          }
+        },
+        "text": {
+          "type": "object",
+          "required": [
+            "primary",
+            "secondary",
+            "onAccent"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "primary": {
+              "$ref": "#/$defs/hex"
+            },
+            "secondary": {
+              "$ref": "#/$defs/hex"
+            },
+            "onAccent": {
+              "$ref": "#/$defs/hex"
+            }
+          }
+        },
+        "impact": {
+          "type": "object",
+          "description": "Fixed meaning in every style: good = desirable (green family), bad = undesirable (red family), neutral = no judgement (blue family). Never decorative, never a category colour.",
+          "required": [
+            "good",
+            "bad",
+            "neutral",
+            "cvd"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "good": {
+              "$ref": "#/$defs/hex"
+            },
+            "bad": {
+              "$ref": "#/$defs/hex"
+            },
+            "neutral": {
+              "$ref": "#/$defs/hex"
+            },
+            "cvd": {
+              "type": "object",
+              "required": [
+                "good",
+                "bad",
+                "neutral"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "good": {
+                  "$ref": "#/$defs/hex"
+                },
+                "bad": {
+                  "$ref": "#/$defs/hex"
+                },
+                "neutral": {
+                  "$ref": "#/$defs/hex"
+                }
+              }
+            }
+          }
+        },
+        "scenario": {
+          "type": "object",
+          "description": "AC actual, PY previous year, PL plan (BU budget = PL), FC forecast. In every mode AC is solid, PY a lighter or weaker fill, PL outlined (page fill, PL stroke), FC hatched (FC stripes on the page). chart.scenarioEncoding says whether AC and one reference differ by pattern (IBCS) or by hue with labels.",
+          "required": [
+            "ac",
+            "py",
+            "pl",
+            "fc"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "ac": {
+              "$ref": "#/$defs/hex"
+            },
+            "py": {
+              "$ref": "#/$defs/hex"
+            },
+            "pl": {
+              "$ref": "#/$defs/hex"
+            },
+            "fc": {
+              "$ref": "#/$defs/hex"
+            }
+          }
+        },
+        "accent": {
+          "type": "object",
+          "description": "Chrome and emphasis only (focus ring, selected tab, highlight marker, the one bold element). Must not be in the good (green) or bad (red) hue family; blue is allowed for highlighting markers as in IBCS UN 5.1.",
+          "required": [
+            "primary",
+            "highlight"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "primary": {
+              "$ref": "#/$defs/hex"
+            },
+            "highlight": {
+              "$ref": "#/$defs/hex"
+            }
+          }
+        },
+        "chart": {
+          "type": "object",
+          "required": [
+            "axis",
+            "grid",
+            "label"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "axis": {
+              "$ref": "#/$defs/paint"
+            },
+            "grid": {
+              "$ref": "#/$defs/paint"
+            },
+            "label": {
+              "$ref": "#/$defs/hex"
+            }
+          }
+        }
+      },
+      "description": "One mode's colours. Every contrast and impact check runs on each mode separately."
+    }
+  },
+  "properties": {
+    "$comment": {
+      "type": "string"
+    },
+    "meta": {
+      "type": "object",
+      "required": [
+        "id",
+        "label",
+        "persona",
+        "summary"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "enum": [
+            "ibcs",
+            "showcase",
+            "soft",
+            "graphic"
+          ]
+        },
+        "label": {
+          "type": "string"
+        },
+        "persona": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "brandSlot": {
+          "type": "string",
+          "description": "Which tokens a builder replaces with their own brand (paths, comma separated)."
+        }
+      }
+    },
+    "color": {
+      "type": "object",
+      "description": "Light and dark colour sets with the same roles. Print always uses light.",
+      "required": [
+        "light",
+        "dark"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "light": {
+          "$ref": "#/$defs/colorSet"
+        },
+        "dark": {
+          "$ref": "#/$defs/colorSet"
+        }
+      }
+    },
+    "typography": {
+      "type": "object",
+      "required": [
+        "family",
+        "weight",
+        "size"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "family": {
+          "type": "object",
+          "required": [
+            "text",
+            "display",
+            "figures"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "text": {
+              "type": "string"
+            },
+            "display": {
+              "type": "string"
+            },
+            "figures": {
+              "type": "string",
+              "description": "Font for numbers; must have tabular figures (font-variant-numeric: tabular-nums)."
+            }
+          }
+        },
+        "weight": {
+          "type": "object",
+          "required": [
+            "regular",
+            "emphasis",
+            "display"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "regular": {
+              "type": "integer"
+            },
+            "emphasis": {
+              "type": "integer"
+            },
+            "display": {
+              "type": "integer"
+            }
+          }
+        },
+        "size": {
+          "type": "object",
+          "description": "px at desktop; phone sizes come from density.phoneScale. Never below 12 px for any text.",
+          "required": [
+            "message",
+            "title",
+            "body",
+            "label",
+            "footnote",
+            "figure",
+            "hero"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "message": {
+              "$ref": "#/$defs/px"
+            },
+            "title": {
+              "$ref": "#/$defs/px"
+            },
+            "body": {
+              "$ref": "#/$defs/px"
+            },
+            "label": {
+              "$ref": "#/$defs/px"
+            },
+            "footnote": {
+              "$ref": "#/$defs/px"
+            },
+            "figure": {
+              "$ref": "#/$defs/px"
+            },
+            "hero": {
+              "$ref": "#/$defs/px"
+            }
+          }
+        }
+      }
+    },
+    "radius": {
+      "type": "object",
+      "required": [
+        "hero",
+        "panel",
+        "tile",
+        "control",
+        "mark"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "hero": {
+          "$ref": "#/$defs/px"
+        },
+        "panel": {
+          "$ref": "#/$defs/px"
+        },
+        "tile": {
+          "$ref": "#/$defs/px"
+        },
+        "control": {
+          "$ref": "#/$defs/px"
+        },
+        "mark": {
+          "$ref": "#/$defs/px",
+          "description": "Corner radius of bars and columns; 0 keeps lengths exact. Max 4 so a bar end stays readable."
+        }
+      }
+    },
+    "density": {
+      "type": "object",
+      "required": [
+        "gap",
+        "pad",
+        "maxVisuals",
+        "tilesPerRow",
+        "phoneScale"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "gap": {
+          "$ref": "#/$defs/px"
+        },
+        "pad": {
+          "$ref": "#/$defs/px"
+        },
+        "maxVisuals": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Most chart visuals on one page (tiles not counted)."
+        },
+        "tilesPerRow": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "phoneScale": {
+          "type": "number",
+          "minimum": 0.6,
+          "maximum": 1.2
+        }
+      }
+    },
+    "motion": {
+      "type": "object",
+      "required": [
+        "enabled",
+        "durationMs",
+        "easing"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Always off under prefers-reduced-motion, whatever this says."
+        },
+        "durationMs": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 600
+        },
+        "easing": {
+          "type": "string"
+        }
+      }
+    },
+    "chart": {
+      "type": "object",
+      "description": "Chart grammar: which form a style draws for the same view model. Shared components read these; nothing else switches on style id.",
+      "required": [
+        "scenarioEncoding",
+        "gridlines",
+        "timeSeries",
+        "variance",
+        "structure",
+        "kpi",
+        "allowed",
+        "onRequest",
+        "banned",
+        "relaxes"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "scenarioEncoding": {
+          "enum": [
+            "pattern",
+            "hue"
+          ]
+        },
+        "gridlines": {
+          "enum": [
+            "none",
+            "faint"
+          ]
+        },
+        "timeSeries": {
+          "enum": [
+            "columns",
+            "river",
+            "soft-columns",
+            "editorial-line"
+          ]
+        },
+        "variance": {
+          "enum": [
+            "tiers",
+            "strip",
+            "pins",
+            "annotations"
+          ]
+        },
+        "structure": {
+          "enum": [
+            "bars",
+            "ranking",
+            "soft-bars",
+            "table-bars"
+          ]
+        },
+        "kpi": {
+          "enum": [
+            "card",
+            "tile",
+            "soft-tile",
+            "figure-strip"
+          ]
+        },
+        "allowed": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Optional forms beyond the IBCS set, each with a matching relaxes entry."
+        },
+        "banned": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "relaxes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/relaxation"
+          }
+        },
+        "onRequest": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Forms the style does not use unless the owner of the report asks for them; documented with the condition that then applies."
+        }
+      }
+    }
+  }
+}

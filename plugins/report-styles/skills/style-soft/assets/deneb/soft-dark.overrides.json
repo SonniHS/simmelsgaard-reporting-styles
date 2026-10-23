@@ -1,0 +1,102 @@
+{
+  "$description": "report-styles: Soft (dark) for the ibcs-deneb templates. Generated; do not edit.",
+  "color": {
+    "scenario": {
+      "ac": {
+        "$value": "#E4E0EE"
+      },
+      "py": {
+        "$value": "#6B6578"
+      },
+      "pl": {
+        "fill": {
+          "$value": "#26232D"
+        },
+        "stroke": {
+          "$value": "#E4E0EE"
+        }
+      },
+      "fc": {
+        "ground": {
+          "$value": "#26232D"
+        },
+        "stripe": {
+          "$value": "#E4E0EE"
+        },
+        "stroke": {
+          "$value": "#E4E0EE"
+        }
+      }
+    },
+    "variance": {
+      "good": {
+        "$value": "#63C68C"
+      },
+      "bad": {
+        "$value": "#F07A6E"
+      },
+      "neutral": {
+        "$value": "#7FA4EE"
+      },
+      "cvd": {
+        "good": {
+          "$value": "#4FC0D0"
+        },
+        "bad": {
+          "$value": "#F07A6E"
+        },
+        "neutral": {
+          "$value": "#7FA4EE"
+        }
+      }
+    },
+    "text": {
+      "primary": {
+        "$value": "#F1EDF5"
+      },
+      "secondary": {
+        "$value": "#B5AFC0"
+      },
+      "onDark": {
+        "$value": "#26232D"
+      }
+    },
+    "background": {
+      "page": {
+        "$value": "#26232D"
+      }
+    },
+    "axis": {
+      "category": {
+        "$value": "#5C5668"
+      },
+      "pyReference": {
+        "$value": "#6B6578"
+      },
+      "plReference": {
+        "$value": "#E4E0EE"
+      },
+      "grid": {
+        "$value": "#302C37"
+      }
+    },
+    "marker": {
+      "highlight": {
+        "$value": "#E8B163"
+      },
+      "annotationRef": {
+        "$value": "#E8B163"
+      }
+    }
+  },
+  "typography": {
+    "family": {
+      "powerbi": {
+        "$value": [
+          "Segoe UI",
+          "Segoe UI Semibold"
+        ]
+      }
+    }
+  }
+}

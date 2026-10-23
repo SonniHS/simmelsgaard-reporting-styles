@@ -1,0 +1,11 @@
+/* Everything a report page needs: fonts, the generated token variables per style, the shared skeleton, the styles. */
+@import "./fonts.css";
+@import "./tokens-ibcs.css";
+@import "./tokens-showcase.css";
+@import "./tokens-soft.css";
+@import "./tokens-graphic.css";
+@import "./base.css";
+@import "./ibcs.css";
+@import "./showcase.css";
+@import "./soft.css";
+@import "./graphic.css";

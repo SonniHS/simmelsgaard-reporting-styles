@@ -1,0 +1,38 @@
+/* Graphic (Editorial): a newspaper data page. Hairline rules, a serif headline, no boxes; the shared skeleton restyled. */
+[data-style="graphic"] .rs-top { border-bottom: 1px solid var(--rs-color-surface-edge); }
+[data-style="graphic"] .rs-head { align-items: center; gap: 4px 10px; margin-top: 18px; }
+[data-style="graphic"] .ed-tag { width: 28px; height: 6px; background: var(--rs-color-accent-primary); }
+[data-style="graphic"] .rs-title { font-family: var(--rs-typography-family-text); font-size: var(--rs-typography-size-label); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+[data-style="graphic"] .rs-message { font-family: var(--rs-typography-family-display); font-weight: var(--rs-typography-weight-display); line-height: 1.15; letter-spacing: -0.01em; max-width: 26ch; margin: 12px 0 0; }
+[data-style="graphic"] .rs-message .rs-n { font-family: var(--rs-typography-family-display); }
+/* KPI tiles as a ruled strip of figures */
+[data-style="graphic"] .rs-kpis { margin-top: 28px; border-top: 2px solid var(--rs-color-text-primary); }
+[data-style="graphic"] .rs-tile { background: none; border: 0; border-radius: 0; padding: 12px 8px 4px 0; }
+/* the ruled strip: a hairline in the middle of the shared gap, outside the tile so its box matches every style */
+[data-style="graphic"] .rs-tile + .rs-tile { position: relative; }
+[data-style="graphic"] .rs-tile + .rs-tile::before { content: ""; position: absolute; left: calc(var(--rs-skeleton-gap) / -2); top: 12px; bottom: 4px; border-left: 1px solid var(--rs-color-surface-edge); }
+[data-style="graphic"] .rs-tile .k-value { font-size: var(--rs-typography-size-figure); font-weight: 600; line-height: 1.1; }
+/* cards as ruled figures */
+[data-style="graphic"] .rs-row-2 { margin-top: 36px; }
+[data-style="graphic"] .rs-card { background: none; border: 0; border-radius: 0; border-top: 1px solid var(--rs-color-text-primary); padding: 10px 0 0; }
+[data-style="graphic"] .rs-card h2 { font-weight: 700; }
+[data-style="graphic"] .ed-key { display: inline-block; width: 16px; height: 3px; margin: 0 6px 0 4px; vertical-align: 3px; }
+[data-style="graphic"] .ed-key.ac { background: var(--rs-color-scenario-ac); }
+[data-style="graphic"] .ed-key.py { background: var(--rs-color-scenario-py); height: 2px; }
+[data-style="graphic"] svg text.note { font-size: var(--rs-typography-size-label); }
+[data-style="graphic"] .ed-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+[data-style="graphic"] .ed-table th, [data-style="graphic"] .ed-table td { padding: 8px 0 8px 10px; border-bottom: 1px solid var(--rs-color-surface-edge); text-align: right; white-space: nowrap; }
+[data-style="graphic"] .ed-table th:first-child { padding-left: 0; text-align: left; font-weight: 600; }
+[data-style="graphic"] .ed-table thead th { font-size: var(--rs-typography-size-label); color: var(--rs-color-text-secondary); font-weight: 400; border-bottom: 1px solid var(--rs-color-text-primary); }
+[data-style="graphic"] .ed-table td .rs-n.tone-good, [data-style="graphic"] .ed-table td .rs-n.tone-bad { font-weight: 600; }
+[data-style="graphic"] .ed-table tr.ed-mark th { box-shadow: inset 3px 0 0 var(--rs-color-accent-highlight); padding-left: 10px; }
+[data-style="graphic"] .ed-bar { width: 46%; position: relative; }
+[data-style="graphic"] .ed-bar .ac { display: block; height: 10px; background: var(--rs-color-scenario-ac); }
+[data-style="graphic"] .ed-bar .py { position: absolute; top: 5px; bottom: 5px; width: 2px; margin-left: -1px; background: var(--rs-color-scenario-py); box-shadow: 0 0 0 1px var(--rs-color-surface-page); }
+@media (max-width: 760px) {
+  [data-style="graphic"] .rs-message { font-size: calc(var(--rs-typography-size-message) * .78); }
+  [data-style="graphic"] .rs-tile:nth-child(3)::before { display: none; }
+  [data-style="graphic"] .rs-tile:nth-child(n+3) { border-top: 1px solid var(--rs-color-surface-edge); }
+  [data-style="graphic"] .rs-tile .k-value { font-size: calc(var(--rs-typography-size-figure) * .8); }
+  [data-style="graphic"] .ed-bar { width: 38%; }
+}

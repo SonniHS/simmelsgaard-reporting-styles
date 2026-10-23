@@ -1,0 +1,16 @@
+/* Showcase: a premium product page. Solid surfaces with a hairline edge, one radius, amber only for AC and the highlight. */
+[data-style="showcase"] .rs-title { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; }
+[data-style="showcase"] .rs-msg { margin-top: 14px; }
+[data-style="showcase"] .rs-message { font-weight: 500; line-height: 1.35; margin: 0; letter-spacing: -0.01em; max-width: 60ch; }
+[data-style="showcase"] .rs-message .rs-n { font-weight: 600; }
+[data-style="showcase"] .rs-card h2 { font-weight: 600; }
+[data-style="showcase"] .rs-legend { display: flex; gap: 14px; color: var(--rs-color-text-secondary); font-size: var(--rs-typography-size-label); margin: -4px 0 10px; }
+[data-style="showcase"] .rs-legend i { display: inline-block; width: 14px; height: 3px; border-radius: 2px; margin-right: 6px; vertical-align: 3px; }
+[data-style="showcase"] .rs-legend i.ac { background: var(--rs-color-scenario-ac); }
+[data-style="showcase"] .rs-legend i.py { background: var(--rs-color-scenario-py); }
+[data-style="showcase"] .rs-tile .k-value { letter-spacing: -0.02em; }
+[data-style="showcase"] .rs-tile .k-d { padding: 1px 7px; border-radius: 6px; background: color-mix(in srgb, currentColor 13%, transparent); }
+[data-style="showcase"] .rs-tile .k-d.tone-none { color: var(--rs-color-text-secondary); }
+@media (max-width: 760px) {
+  [data-style="showcase"] .rs-message { font-size: 17px; }
+}

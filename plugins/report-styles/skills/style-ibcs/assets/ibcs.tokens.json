@@ -1,0 +1,380 @@
+{
+  "$description": "IBCS · for the CFO: Notation first: white paper, scenario patterns, dense pages, no decoration. The reference every other style reconciles to. Generated from report-styles/assets/tokens/ibcs.json; do not edit.",
+  "color": {
+    "light": {
+      "surface": {
+        "page": {
+          "$value": "#F4F5F7",
+          "$type": "color"
+        },
+        "panel": {
+          "$value": "#FFFFFF",
+          "$type": "color"
+        },
+        "tile": {
+          "$value": "#FFFFFF",
+          "$type": "color"
+        },
+        "edge": {
+          "$value": "#E3E5E8",
+          "$type": "color"
+        },
+        "backdrop": {
+          "$value": "none",
+          "$type": "color"
+        }
+      },
+      "text": {
+        "primary": {
+          "$value": "#000000",
+          "$type": "color"
+        },
+        "secondary": {
+          "$value": "#595959",
+          "$type": "color"
+        },
+        "onAccent": {
+          "$value": "#FFFFFF",
+          "$type": "color"
+        }
+      },
+      "impact": {
+        "good": {
+          "$value": "#3F9C35",
+          "$type": "color"
+        },
+        "bad": {
+          "$value": "#D42A20",
+          "$type": "color"
+        },
+        "neutral": {
+          "$value": "#1F6FD1",
+          "$type": "color"
+        },
+        "cvd": {
+          "good": {
+            "$value": "#008E96",
+            "$type": "color"
+          },
+          "bad": {
+            "$value": "#D42A20",
+            "$type": "color"
+          },
+          "neutral": {
+            "$value": "#1F6FD1",
+            "$type": "color"
+          }
+        }
+      },
+      "scenario": {
+        "ac": {
+          "$value": "#404040",
+          "$type": "color"
+        },
+        "py": {
+          "$value": "#A6A6A6",
+          "$type": "color"
+        },
+        "pl": {
+          "$value": "#404040",
+          "$type": "color"
+        },
+        "fc": {
+          "$value": "#404040",
+          "$type": "color"
+        }
+      },
+      "accent": {
+        "primary": {
+          "$value": "#404040",
+          "$type": "color"
+        },
+        "highlight": {
+          "$value": "#1F6FD1",
+          "$type": "color"
+        }
+      },
+      "chart": {
+        "axis": {
+          "$value": "#404040",
+          "$type": "color"
+        },
+        "grid": {
+          "$value": "transparent",
+          "$type": "color"
+        },
+        "label": {
+          "$value": "#000000",
+          "$type": "color"
+        }
+      }
+    },
+    "dark": {
+      "surface": {
+        "page": {
+          "$value": "#1E1E1E",
+          "$type": "color"
+        },
+        "panel": {
+          "$value": "#262626",
+          "$type": "color"
+        },
+        "tile": {
+          "$value": "#262626",
+          "$type": "color"
+        },
+        "edge": {
+          "$value": "#333333",
+          "$type": "color"
+        },
+        "backdrop": {
+          "$value": "none",
+          "$type": "color"
+        }
+      },
+      "text": {
+        "primary": {
+          "$value": "#EDEDED",
+          "$type": "color"
+        },
+        "secondary": {
+          "$value": "#A6A6A6",
+          "$type": "color"
+        },
+        "onAccent": {
+          "$value": "#1E1E1E",
+          "$type": "color"
+        }
+      },
+      "impact": {
+        "good": {
+          "$value": "#9CCB19",
+          "$type": "color"
+        },
+        "bad": {
+          "$value": "#FF4D4D",
+          "$type": "color"
+        },
+        "neutral": {
+          "$value": "#4D8DFF",
+          "$type": "color"
+        },
+        "cvd": {
+          "good": {
+            "$value": "#1FB5BE",
+            "$type": "color"
+          },
+          "bad": {
+            "$value": "#FF4D4D",
+            "$type": "color"
+          },
+          "neutral": {
+            "$value": "#4D8DFF",
+            "$type": "color"
+          }
+        }
+      },
+      "scenario": {
+        "ac": {
+          "$value": "#D9D9D9",
+          "$type": "color"
+        },
+        "py": {
+          "$value": "#7F7F7F",
+          "$type": "color"
+        },
+        "pl": {
+          "$value": "#D9D9D9",
+          "$type": "color"
+        },
+        "fc": {
+          "$value": "#D9D9D9",
+          "$type": "color"
+        }
+      },
+      "accent": {
+        "primary": {
+          "$value": "#D9D9D9",
+          "$type": "color"
+        },
+        "highlight": {
+          "$value": "#4D8DFF",
+          "$type": "color"
+        }
+      },
+      "chart": {
+        "axis": {
+          "$value": "#D9D9D9",
+          "$type": "color"
+        },
+        "grid": {
+          "$value": "transparent",
+          "$type": "color"
+        },
+        "label": {
+          "$value": "#EDEDED",
+          "$type": "color"
+        }
+      }
+    }
+  },
+  "typography": {
+    "family": {
+      "text": {
+        "$value": "system-ui, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+        "$type": "fontFamily"
+      },
+      "display": {
+        "$value": "system-ui, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+        "$type": "fontFamily"
+      },
+      "figures": {
+        "$value": "system-ui, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+        "$type": "fontFamily"
+      }
+    },
+    "weight": {
+      "regular": {
+        "$value": 400,
+        "$type": "fontWeight"
+      },
+      "emphasis": {
+        "$value": 700,
+        "$type": "fontWeight"
+      },
+      "display": {
+        "$value": 700,
+        "$type": "fontWeight"
+      }
+    },
+    "size": {
+      "message": {
+        "$value": "17px",
+        "$type": "dimension"
+      },
+      "title": {
+        "$value": "14px",
+        "$type": "dimension"
+      },
+      "body": {
+        "$value": "13px",
+        "$type": "dimension"
+      },
+      "label": {
+        "$value": "12px",
+        "$type": "dimension"
+      },
+      "footnote": {
+        "$value": "12px",
+        "$type": "dimension"
+      },
+      "figure": {
+        "$value": "24px",
+        "$type": "dimension"
+      },
+      "hero": {
+        "$value": "24px",
+        "$type": "dimension"
+      }
+    }
+  },
+  "radius": {
+    "hero": {
+      "$value": "8px",
+      "$type": "dimension"
+    },
+    "panel": {
+      "$value": "8px",
+      "$type": "dimension"
+    },
+    "tile": {
+      "$value": "8px",
+      "$type": "dimension"
+    },
+    "control": {
+      "$value": "6px",
+      "$type": "dimension"
+    },
+    "mark": {
+      "$value": "0px",
+      "$type": "dimension"
+    }
+  },
+  "density": {
+    "gap": {
+      "$value": "16px",
+      "$type": "dimension"
+    },
+    "pad": {
+      "$value": "16px",
+      "$type": "dimension"
+    },
+    "maxVisuals": {
+      "$value": 8,
+      "$type": "number"
+    },
+    "tilesPerRow": {
+      "$value": 4,
+      "$type": "number"
+    },
+    "phoneScale": {
+      "$value": 1.0,
+      "$type": "number"
+    }
+  },
+  "motion": {
+    "duration": {
+      "$value": "0ms",
+      "$type": "duration"
+    },
+    "easing": {
+      "$value": "linear",
+      "$type": "string"
+    }
+  },
+  "$extensions": {
+    "report-styles": {
+      "meta": {
+        "id": "ibcs",
+        "label": "IBCS",
+        "persona": "for the CFO",
+        "summary": "Notation first: white paper, scenario patterns, dense pages, no decoration. The reference every other style reconciles to.",
+        "brandSlot": "color.*.accent.primary, typography.family.text"
+      },
+      "chart": {
+        "scenarioEncoding": "pattern",
+        "gridlines": "none",
+        "timeSeries": "columns",
+        "variance": "tiers",
+        "structure": "bars",
+        "kpi": "card",
+        "allowed": [],
+        "onRequest": [],
+        "banned": [
+          "pie",
+          "ring",
+          "gauge",
+          "funnel",
+          "radar",
+          "traffic-light",
+          "pseudo-3d",
+          "waffle",
+          "pictogram"
+        ],
+        "relaxes": [
+          {
+            "rule": "SI 2.1",
+            "what": "Cards with rounded corners and a light grey page, for UI chrome only; no frames inside charts or tables.",
+            "why": "App chrome only; notation inside charts and tables stays IBCS."
+          },
+          {
+            "rule": "SI 1.2",
+            "what": "A dark theme (charcoal page and cards) when the reader picks dark.",
+            "why": "Reader preference and dark app shells; the ibcs-dark derivation keeps the notation (AC solid, PY lighter, PL outlined, FC hatched) and the impact hue families.",
+            "condition": "Light is the default for print and for anything shared as a document."
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+/* IBCS: white cards on a light grey page (dark: charcoal), dense, no decoration. */
+[data-style="ibcs"] .rs-head { display: block; }
+[data-style="ibcs"] .rs-head .rs-scope { margin-top: 2px; }
+[data-style="ibcs"] .rs-card, [data-style="ibcs"] .rs-tile { border-color: transparent; }
+[data-style="ibcs"] .rs-message { font-weight: var(--rs-typography-weight-emphasis); }
+[data-style="ibcs"] .rs-tile .k-g { display: none; }

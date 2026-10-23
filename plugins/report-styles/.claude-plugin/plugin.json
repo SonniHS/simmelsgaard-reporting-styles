@@ -1,0 +1,12 @@
+{
+  "name": "report-styles",
+  "version": "1.0.0",
+  "description": "Report styles for IBCS®-based reports: IBCS (for the CFO), Showcase (Marketing), Soft (HR / People) and Graphic (Communication), each in light and dark, one page layout and the same numbers in every style; a style and theme switch for web apps, Power BI themes and Deneb overrides.",
+  "author": {
+    "name": "Sonni Simmelsgaard",
+    "url": "https://github.com/SonniHS"
+  },
+  "license": "CC-BY-SA-4.0 AND MIT",
+  "keywords": ["ibcs", "report-styles", "design-tokens", "dark-mode", "power-bi", "deneb", "react", "dashboard-design"],
+  "dependencies": ["ibcs@simmelsgaard-reporting-skills"]
+}

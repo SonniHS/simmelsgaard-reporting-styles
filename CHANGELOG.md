@@ -5,6 +5,26 @@ All notable changes to this marketplace and its plugin. The format follows
 
 ## [Unreleased]
 
+## [1.3.0] - 2026-10-23
+
+### Added
+- Style **Contrast · for Accessibility** (`style-contrast`): AAA contrast in both modes (text 7:1, marks 4.5:1),
+  Atkinson Hyperlegible, 2 px borders, a direction glyph on every variance so colour is never the only cue.
+- Style **Terminal · for Engineering** (`style-terminal`): a monospace command-line page, 1 px boxes, a table with
+  inline bars, an amber accent; dark-first.
+- `meta.level: "AAA"` in the token contract: the build then enforces 7:1 for text and 4.5:1 for marks.
+- **Playground** (`previews/playground.html`, [docs/playground.md](docs/playground.md)): every style, theme and width on
+  your own numbers — presets, a form for every field, JSON, stress buttons — with the report's checks shown live.
+- A stress fixture (long names, six-digit values, 24 months) and the 820 px width in the browser check and CI.
+
+### Changed
+- **Only the IBCS style follows the IBCS® Standards**; the docs and skills now say so plainly. The other styles borrow
+  elements of the IBCS notation and relax its presentation rules on purpose, so they are not IBCS-compliant.
+- Layout robustness, found with the playground: the two cards stack below 1024 px; value and axis labels thin by the
+  space they have (not only on phones); long names end in "…" with a tooltip; KPI values shrink to fit their tile;
+  line-end labels never collide; the first and last columns are inset so their labels stay on the card.
+- The shared set: every time point's Δ% that fits, and always the largest, the smallest and the last.
+
 ## [1.2.0] - 2026-10-23
 
 ### Added

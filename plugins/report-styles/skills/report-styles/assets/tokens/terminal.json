@@ -1,0 +1,171 @@
+{
+  "$comment": "Terminal style: a monospace, command-line look for engineering and IT teams — dense, boxed, quiet, dark-first, with an amber accent.",
+  "meta": {
+    "id": "terminal",
+    "label": "Terminal",
+    "persona": "for Engineering",
+    "summary": "A command-line page: a monospace typeface, 1 px box borders, compact tables, plain-text variances, an amber accent; dark-first.",
+    "brandSlot": "color.*.accent.*"
+  },
+  "color": {
+    "light": {
+      "surface": {
+        "page": "#FAFAF7",
+        "panel": "#FAFAF7",
+        "tile": "#FAFAF7",
+        "edge": "#C9CCC4",
+        "backdrop": "none"
+      },
+      "text": {
+        "primary": "#1C1E21",
+        "secondary": "#545A62",
+        "onAccent": "#FFFFFF"
+      },
+      "impact": {
+        "good": "#1D7A3A",
+        "bad": "#C42B2B",
+        "neutral": "#1E62C8",
+        "cvd": {
+          "good": "#0B7686",
+          "bad": "#C42B2B",
+          "neutral": "#1E62C8"
+        }
+      },
+      "scenario": {
+        "ac": "#1C1E21",
+        "py": "#AEB3B9",
+        "pl": "#1C1E21",
+        "fc": "#1C1E21"
+      },
+      "accent": {
+        "primary": "#8C5A00",
+        "highlight": "#8C5A00"
+      },
+      "chart": {
+        "axis": "#1C1E21",
+        "grid": "transparent",
+        "label": "#1C1E21"
+      }
+    },
+    "dark": {
+      "surface": {
+        "page": "#0E1013",
+        "panel": "#0E1013",
+        "tile": "#0E1013",
+        "edge": "#2E333A",
+        "backdrop": "none"
+      },
+      "text": {
+        "primary": "#E3E6EA",
+        "secondary": "#9AA2AC",
+        "onAccent": "#0E1013"
+      },
+      "impact": {
+        "good": "#4CC46B",
+        "bad": "#F2625A",
+        "neutral": "#63A6F7",
+        "cvd": {
+          "good": "#3FC3CE",
+          "bad": "#F2625A",
+          "neutral": "#63A6F7"
+        }
+      },
+      "scenario": {
+        "ac": "#E3E6EA",
+        "py": "#4C535C",
+        "pl": "#E3E6EA",
+        "fc": "#E3E6EA"
+      },
+      "accent": {
+        "primary": "#E8B04A",
+        "highlight": "#E8B04A"
+      },
+      "chart": {
+        "axis": "#9AA2AC",
+        "grid": "transparent",
+        "label": "#E3E6EA"
+      }
+    }
+  },
+  "typography": {
+    "family": {
+      "text": "\"JetBrains Mono\", ui-monospace, monospace",
+      "display": "\"JetBrains Mono\", ui-monospace, monospace",
+      "figures": "\"JetBrains Mono\", ui-monospace, monospace"
+    },
+    "weight": {
+      "regular": 400,
+      "emphasis": 700,
+      "display": 700
+    },
+    "size": {
+      "message": 17,
+      "title": 14,
+      "body": 13,
+      "label": 12,
+      "footnote": 12,
+      "figure": 28,
+      "hero": 28
+    }
+  },
+  "radius": {
+    "hero": 0,
+    "panel": 0,
+    "tile": 0,
+    "control": 0,
+    "mark": 0
+  },
+  "density": {
+    "gap": 12,
+    "pad": 14,
+    "maxVisuals": 6,
+    "tilesPerRow": 4,
+    "phoneScale": 0.9
+  },
+  "motion": {
+    "enabled": false,
+    "durationMs": 0,
+    "easing": "linear"
+  },
+  "chart": {
+    "scenarioEncoding": "pattern",
+    "gridlines": "none",
+    "timeSeries": "terminal-columns",
+    "variance": "plain-labels",
+    "structure": "terminal-table",
+    "kpi": "terminal-tile",
+    "allowed": [],
+    "onRequest": [],
+    "banned": [
+      "pie",
+      "ring",
+      "gauge",
+      "funnel",
+      "radar",
+      "traffic-light",
+      "pseudo-3d",
+      "waffle",
+      "pictogram",
+      "area-scaled-icons",
+      "truncated-axis"
+    ],
+    "relaxes": [
+      {
+        "rule": "SI 2.3",
+        "what": "A monospace typeface (JetBrains Mono) for all text and figures.",
+        "why": "The familiar look of logs and terminals for engineering teams; monospace keeps figures aligned in tables."
+      },
+      {
+        "rule": "SI 2.1",
+        "what": "1 px box borders around tiles and cards, no radius.",
+        "why": "The boxed look of a terminal dashboard; chrome only."
+      },
+      {
+        "rule": "SI 1.2",
+        "what": "A dark page in dark mode with an amber accent for the switch and focus.",
+        "why": "Engineering screens are mostly dark; the accent is never green or red and never encodes data.",
+        "condition": "Print is always light."
+      }
+    ]
+  }
+}

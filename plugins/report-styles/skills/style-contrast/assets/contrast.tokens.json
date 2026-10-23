@@ -1,0 +1,399 @@
+{
+  "$description": "Contrast · for Accessibility: Maximum legibility: black on white (or white on black), AAA contrast, a typeface designed for low vision, strong borders, and every variance carrying a direction glyph as well as its colour. Generated from report-styles/assets/tokens/contrast.json; do not edit.",
+  "color": {
+    "light": {
+      "surface": {
+        "page": {
+          "$value": "#FFFFFF",
+          "$type": "color"
+        },
+        "panel": {
+          "$value": "#FFFFFF",
+          "$type": "color"
+        },
+        "tile": {
+          "$value": "#FFFFFF",
+          "$type": "color"
+        },
+        "edge": {
+          "$value": "#000000",
+          "$type": "color"
+        },
+        "backdrop": {
+          "$value": "none",
+          "$type": "color"
+        }
+      },
+      "text": {
+        "primary": {
+          "$value": "#000000",
+          "$type": "color"
+        },
+        "secondary": {
+          "$value": "#333333",
+          "$type": "color"
+        },
+        "onAccent": {
+          "$value": "#FFFFFF",
+          "$type": "color"
+        }
+      },
+      "impact": {
+        "good": {
+          "$value": "#00702E",
+          "$type": "color"
+        },
+        "bad": {
+          "$value": "#B0001A",
+          "$type": "color"
+        },
+        "neutral": {
+          "$value": "#0040A0",
+          "$type": "color"
+        },
+        "cvd": {
+          "good": {
+            "$value": "#006475",
+            "$type": "color"
+          },
+          "bad": {
+            "$value": "#B0001A",
+            "$type": "color"
+          },
+          "neutral": {
+            "$value": "#0040A0",
+            "$type": "color"
+          }
+        }
+      },
+      "scenario": {
+        "ac": {
+          "$value": "#000000",
+          "$type": "color"
+        },
+        "py": {
+          "$value": "#707070",
+          "$type": "color"
+        },
+        "pl": {
+          "$value": "#000000",
+          "$type": "color"
+        },
+        "fc": {
+          "$value": "#000000",
+          "$type": "color"
+        }
+      },
+      "accent": {
+        "primary": {
+          "$value": "#000000",
+          "$type": "color"
+        },
+        "highlight": {
+          "$value": "#0040A0",
+          "$type": "color"
+        }
+      },
+      "chart": {
+        "axis": {
+          "$value": "#000000",
+          "$type": "color"
+        },
+        "grid": {
+          "$value": "transparent",
+          "$type": "color"
+        },
+        "label": {
+          "$value": "#000000",
+          "$type": "color"
+        }
+      }
+    },
+    "dark": {
+      "surface": {
+        "page": {
+          "$value": "#000000",
+          "$type": "color"
+        },
+        "panel": {
+          "$value": "#000000",
+          "$type": "color"
+        },
+        "tile": {
+          "$value": "#000000",
+          "$type": "color"
+        },
+        "edge": {
+          "$value": "#FFFFFF",
+          "$type": "color"
+        },
+        "backdrop": {
+          "$value": "none",
+          "$type": "color"
+        }
+      },
+      "text": {
+        "primary": {
+          "$value": "#FFFFFF",
+          "$type": "color"
+        },
+        "secondary": {
+          "$value": "#D6D6D6",
+          "$type": "color"
+        },
+        "onAccent": {
+          "$value": "#000000",
+          "$type": "color"
+        }
+      },
+      "impact": {
+        "good": {
+          "$value": "#5BE38F",
+          "$type": "color"
+        },
+        "bad": {
+          "$value": "#FF8A8A",
+          "$type": "color"
+        },
+        "neutral": {
+          "$value": "#8EC2FF",
+          "$type": "color"
+        },
+        "cvd": {
+          "good": {
+            "$value": "#5CDCEB",
+            "$type": "color"
+          },
+          "bad": {
+            "$value": "#FF8A8A",
+            "$type": "color"
+          },
+          "neutral": {
+            "$value": "#8EC2FF",
+            "$type": "color"
+          }
+        }
+      },
+      "scenario": {
+        "ac": {
+          "$value": "#FFFFFF",
+          "$type": "color"
+        },
+        "py": {
+          "$value": "#9A9A9A",
+          "$type": "color"
+        },
+        "pl": {
+          "$value": "#FFFFFF",
+          "$type": "color"
+        },
+        "fc": {
+          "$value": "#FFFFFF",
+          "$type": "color"
+        }
+      },
+      "accent": {
+        "primary": {
+          "$value": "#FFFFFF",
+          "$type": "color"
+        },
+        "highlight": {
+          "$value": "#FFD60A",
+          "$type": "color"
+        }
+      },
+      "chart": {
+        "axis": {
+          "$value": "#FFFFFF",
+          "$type": "color"
+        },
+        "grid": {
+          "$value": "transparent",
+          "$type": "color"
+        },
+        "label": {
+          "$value": "#FFFFFF",
+          "$type": "color"
+        }
+      }
+    }
+  },
+  "typography": {
+    "family": {
+      "text": {
+        "$value": "\"Atkinson Hyperlegible\", system-ui, sans-serif",
+        "$type": "fontFamily"
+      },
+      "display": {
+        "$value": "\"Atkinson Hyperlegible\", system-ui, sans-serif",
+        "$type": "fontFamily"
+      },
+      "figures": {
+        "$value": "\"Atkinson Hyperlegible\", system-ui, sans-serif",
+        "$type": "fontFamily"
+      }
+    },
+    "weight": {
+      "regular": {
+        "$value": 400,
+        "$type": "fontWeight"
+      },
+      "emphasis": {
+        "$value": 700,
+        "$type": "fontWeight"
+      },
+      "display": {
+        "$value": 700,
+        "$type": "fontWeight"
+      }
+    },
+    "size": {
+      "message": {
+        "$value": "22px",
+        "$type": "dimension"
+      },
+      "title": {
+        "$value": "18px",
+        "$type": "dimension"
+      },
+      "body": {
+        "$value": "17px",
+        "$type": "dimension"
+      },
+      "label": {
+        "$value": "15px",
+        "$type": "dimension"
+      },
+      "footnote": {
+        "$value": "14px",
+        "$type": "dimension"
+      },
+      "figure": {
+        "$value": "36px",
+        "$type": "dimension"
+      },
+      "hero": {
+        "$value": "36px",
+        "$type": "dimension"
+      }
+    }
+  },
+  "radius": {
+    "hero": {
+      "$value": "4px",
+      "$type": "dimension"
+    },
+    "panel": {
+      "$value": "4px",
+      "$type": "dimension"
+    },
+    "tile": {
+      "$value": "4px",
+      "$type": "dimension"
+    },
+    "control": {
+      "$value": "4px",
+      "$type": "dimension"
+    },
+    "mark": {
+      "$value": "0px",
+      "$type": "dimension"
+    }
+  },
+  "density": {
+    "gap": {
+      "$value": "20px",
+      "$type": "dimension"
+    },
+    "pad": {
+      "$value": "20px",
+      "$type": "dimension"
+    },
+    "maxVisuals": {
+      "$value": 4,
+      "$type": "number"
+    },
+    "tilesPerRow": {
+      "$value": 4,
+      "$type": "number"
+    },
+    "phoneScale": {
+      "$value": 0.85,
+      "$type": "number"
+    }
+  },
+  "motion": {
+    "duration": {
+      "$value": "0ms",
+      "$type": "duration"
+    },
+    "easing": {
+      "$value": "linear",
+      "$type": "string"
+    }
+  },
+  "$extensions": {
+    "report-styles": {
+      "meta": {
+        "id": "contrast",
+        "label": "Contrast",
+        "persona": "for Accessibility",
+        "level": "AAA",
+        "summary": "Maximum legibility: black on white (or white on black), AAA contrast, a typeface designed for low vision, strong borders, and every variance carrying a direction glyph as well as its colour.",
+        "brandSlot": "typography.family.*"
+      },
+      "chart": {
+        "scenarioEncoding": "pattern",
+        "gridlines": "none",
+        "timeSeries": "contrast-columns",
+        "variance": "glyph-labels",
+        "structure": "contrast-bars",
+        "kpi": "bordered-tile",
+        "allowed": [],
+        "onRequest": [],
+        "banned": [
+          "pie",
+          "ring",
+          "gauge",
+          "funnel",
+          "radar",
+          "traffic-light",
+          "pseudo-3d",
+          "waffle",
+          "pictogram",
+          "area-scaled-icons",
+          "truncated-axis"
+        ],
+        "relaxes": [
+          {
+            "rule": "SI 2.1",
+            "what": "2 px borders around tiles and cards.",
+            "why": "Clear boundaries for low vision and for screen magnifiers, where only part of the page is visible."
+          },
+          {
+            "rule": "SI 2.3",
+            "what": "Atkinson Hyperlegible, a typeface designed for low-vision readers, at larger sizes.",
+            "why": "Distinct letterforms (1/l/I, 0/O, 5/S) and generous spacing improve legibility."
+          },
+          {
+            "rule": "CO 1.1",
+            "what": "Larger text: body 17 px, labels 15 px, figures 36 px.",
+            "why": "Readable without zooming; still fits 390 px."
+          },
+          {
+            "rule": "UN 4.1",
+            "what": "Every variance label carries a direction glyph (▲ ▼) next to its colour.",
+            "why": "Colour is never the only cue (WCAG 1.4.1); the glyph follows the sign, the colour the impact.",
+            "condition": "The glyph follows the sign, never the tone; a variance shown as zero has no glyph and no colour."
+          },
+          {
+            "rule": "SI 1.2",
+            "what": "A dark theme of white on pure black when the reader picks dark.",
+            "why": "Many low-vision readers need inverted contrast; the notation and the impact hue families are kept at AAA contrast.",
+            "condition": "Print is always light."
+          }
+        ]
+      }
+    }
+  }
+}

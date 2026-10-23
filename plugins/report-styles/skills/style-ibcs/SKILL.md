@@ -11,7 +11,7 @@ description: >
 
 # IBCS · for the CFO
 
-The reference style. It follows the IBCS® notation of the `ibcs` plugin (`ibcs-notation`, `ibcs-web-charts`,
+The reference style, and **the only report style that follows the IBCS® Standards**. It follows the IBCS® notation of the `ibcs` plugin (`ibcs-notation`, `ibcs-web-charts`,
 `ibcs-power-bi`) without changes inside charts and tables; this skill only adds what the report-styles system
 needs: its place in the shared page layout, its light and dark colours, and its assets. For the switch, the
 layout and the reconcile test, see [report-styles](../report-styles/SKILL.md).

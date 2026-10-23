@@ -39,6 +39,8 @@ describe("hard rules", () => {
     expect(keep([1, -5, 3, 2, 4, 1, 2], true)).toEqual([false, true, false, false, false, false, true]);
     expect(keep([1, -5, 3, 2], true)).toEqual([true, true, true, true]);
     expect(keep([1, 2], false)).toEqual([true, true]);
+    // the largest (index 5) sits next to the last (index 6): with a 2-point gap only the last and the smallest stay
+    expect(keep([5, -9, 3, 2, 4, 30, 2], true, 2)).toEqual([false, true, false, false, false, false, true]);
   });
   it("a score has a Δ in its own unit and no Δ% (a % of a bounded scale misleads)", () => {
     const v = variance(4.42, 4.47, 2, 1, "score");

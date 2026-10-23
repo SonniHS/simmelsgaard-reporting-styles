@@ -70,6 +70,7 @@ jobs:
           npm run check-previews
           npm run check-previews -- --data people
           npm run check-previews -- --data service
+          npm run check-previews -- --data stress
         env:
           REPORT_STYLES_BROWSER: chromium
 

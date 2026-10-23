@@ -17,6 +17,10 @@ is annotated where the story is, and every chart says what it shows. Credible an
 CFO's numbers; readable from across a room. Same numbers and same layout as every style; see
 [report-styles](../report-styles/SKILL.md).
 
+**Not IBCS-compliant.** It keeps a core of the IBCS notation (scenarios, variances with impact colours, N/A,
+same unit same scale) and relaxes the IBCS rules listed below. Where IBCS compliance is required, use
+[style-ibcs](../style-ibcs/SKILL.md), and offer this style as an additional view.
+
 ## Choose it when
 
 - the numbers are published to employees: intranet stories, newsletters, town-hall slides;

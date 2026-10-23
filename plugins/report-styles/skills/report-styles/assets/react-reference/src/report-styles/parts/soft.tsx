@@ -2,7 +2,7 @@ import type { StyleParts } from "../ReportPage";
 import { glyph } from "../ReportPage";
 import { keep, type KeyFiguresVM, tickText } from "../viewModel";
 import { useScale } from "../scale";
-import { f, mlabel, S, Svg, T, textWidth } from "./svg";
+import { axisLabels, f, Fit, S, Svg, T, textWidth, crowded } from "./svg";
 
 // Soft: rounded columns on faint gridlines with a change-on-last-year pin tier; rounded bars with tinted pills.
 // Plain-language words, with the IBCS abbreviations next to them in the legend.
@@ -22,7 +22,7 @@ export function softParts(vm: KeyFiguresVM, { phone }: { phone: boolean }): Styl
 }
 
 function SoftColumns({ vm, w, phone }: { vm: KeyFiguresVM; w: number; phone: boolean }) {
-  const m = vm.time.points, ax = 30, step = (w - ax) / m.length, cw = Math.min(step * 0.5, 26), main = 180, top = 8;
+  const m = vm.time.points, ax = textWidth(vm.time.ticks.map(tickText), 24, 80, 7.6), step = (w - ax) / m.length, cw = Math.min(step * 0.5, 26), main = 180, top = 8;
   // same unit, same scale (CH 4.1): the columns share px per unit with the page's other charts of this unit; the
   // gridlines follow that scale (ticks that no longer fit are dropped)
   const s = useScale([{ unit: vm.time.unit, min: 0, max: vm.time.ticks[vm.time.ticks.length - 1]!, availablePx: main }]).get(vm.time.unit);
@@ -35,8 +35,9 @@ function SoftColumns({ vm, w, phone }: { vm: KeyFiguresVM; w: number; phone: boo
   const r = cw >= 8 ? 4 : 0; // no radius on bars thinner than 8 px
   const col = (x: number, y: number, ww: number, hh: number, cls: string, mark?: { u: string; v: number }) =>
     <path className={cls} data-u={mark?.u} data-v={mark?.v} data-dim={mark ? "h" : undefined} d={`M${f(x)},${f(y + hh)}V${f(y + r)}q0,-${r} ${r},-${r}H${f(x + ww - r)}q${r},0 ${r},${r}V${f(y + hh)}Z`} />;
-  const yv = y0 + 92, sp = 26 / Math.max(...m.map((d) => Math.abs(d.rel ?? 0)));
-  const k = keep(m.map((d) => d.rel), phone);
+  // the tier's caption sits above the tallest pin and its label (26 px stem, 9 px gap, 14 px label)
+  const yv = y0 + 100, sp = 26 / Math.max(...m.map((d) => Math.abs(d.rel ?? 0)));
+  const k = keep(m.map((d) => d.rel), phone || crowded(step, m.map((d) => d.relText), 7.6));
   return (
     <Svg w={w} h={yv + 40} label={`${vm.time.title}, this year against last year, with the change`}>
       {/* gridlines with axis labels, no data labels on this tier (gridlines or labels, never both) */}
@@ -52,12 +53,12 @@ function SoftColumns({ vm, w, phone }: { vm: KeyFiguresVM; w: number; phone: boo
           <g key={d.key}>
             {col(cx - cw / 2 - cw * 0.3, y0 - d.py * s, cw, d.py * s, "f-py")}
             {col(cx - cw / 2 + cw * 0.15, y0 - d.ac * s, cw, d.ac * s, "f-ac", { u: vm.time.unit, v: d.ac })}
-            <text className="t-dim" x={f(cx)} y={y0 + 18} textAnchor="middle">{mlabel(d, phone, m.length)}</text>
+            <text className="t-dim" x={f(cx)} y={y0 + 18} textAnchor="middle">{axisLabels(m, phone, step, 7.6)[m.indexOf(d)]}</text>
           </g>
         );
       })}
       {/* change on last year: round-headed pins with labels */}
-      <text className="t-dim" x={0} y={y0 + 44}>Change on last year, %</text>
+      <text className="t-dim" x={0} y={y0 + 42}>Change on last year, %</text>
       <line className="axis-py" x1={ax} x2={w} y1={yv} y2={yv} strokeWidth={2} strokeLinecap="round" />
       {m.map((d, i) => {
         const cx = ax + step * (i + 0.5), p = (d.rel ?? 0) * sp;
@@ -79,7 +80,7 @@ function SoftBars({ vm, w, phone }: { vm: KeyFiguresVM; w: number; phone: boolea
   // on a phone the names sit on their own line above the bars: the bars get the width, and through the shared scale
   // (CH 4.1) the time chart above gets a readable height
   const nameW = phone ? 0 : textWidth(rs.map((r) => r.name), 100, 190, 7.6), row = phone ? 58 : 44, dy = phone ? 16 : 0;
-  const barW = w - nameW - valW - pillW - 8;
+  const barW = Math.max(40, w - nameW - valW - pillW - 8);
   const s = useScale([{ unit: vm.structure.unit, min: 0, max: vm.structure.max, availablePx: barW }]).get(vm.structure.unit);
   if (s == null) return null;
   const px = w - pillW;
@@ -89,7 +90,7 @@ function SoftBars({ vm, w, phone }: { vm: KeyFiguresVM; w: number; phone: boolea
         const y = i * row + 6;
         return (
           <g key={r.key} transform={dy ? `translate(0,${dy})` : undefined}>
-            <text x={0} y={phone ? y - 2 : y + 19}>{r.name}</text>
+            <Fit text={r.name} px={phone ? w : nameW - 6} perChar={7.6} x={0} y={phone ? y - 2 : y + 19} />
             {r.py > 0 && <rect className="f-py" x={nameW} y={y + 12} width={f(r.py * s)} height={16} rx={4} />}
             <rect className="f-ac" data-u={vm.structure.unit} data-v={r.ac} data-dim="w" x={nameW} y={y + 4} width={f(r.ac * s)} height={16} rx={4} />
             <T k={`item.${r.key}.ac`} x={f(nameW + Math.max(r.ac, r.py) * s + 6)} y={y + 18} fontWeight={700}>{r.acText}</T>

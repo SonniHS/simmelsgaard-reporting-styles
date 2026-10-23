@@ -245,7 +245,9 @@
             "soft",
             "graphic",
             "annual",
-            "wallboard"
+            "wallboard",
+            "contrast",
+            "terminal"
           ]
         },
         "label": {
@@ -260,6 +262,13 @@
         "brandSlot": {
           "type": "string",
           "description": "Which tokens a builder replaces with their own brand (paths, comma separated)."
+        },
+        "level": {
+          "enum": [
+            "AA",
+            "AAA"
+          ],
+          "description": "Contrast level the build enforces: AA (default; text 4.5:1, marks 3:1) or AAA (text 7:1, marks 4.5:1), in both modes."
         }
       }
     },
@@ -490,7 +499,9 @@
             "soft-columns",
             "editorial-line",
             "marker-columns",
-            "wall-columns"
+            "wall-columns",
+            "contrast-columns",
+            "terminal-columns"
           ]
         },
         "variance": {
@@ -500,7 +511,9 @@
             "pins",
             "annotations",
             "numbered-callouts",
-            "chips"
+            "chips",
+            "glyph-labels",
+            "plain-labels"
           ]
         },
         "structure": {
@@ -510,7 +523,9 @@
             "soft-bars",
             "table-bars",
             "marker-bars",
-            "wall-bars"
+            "wall-bars",
+            "contrast-bars",
+            "terminal-table"
           ]
         },
         "kpi": {
@@ -520,7 +535,9 @@
             "soft-tile",
             "figure-strip",
             "big-figures",
-            "wall-tile"
+            "wall-tile",
+            "bordered-tile",
+            "terminal-tile"
           ]
         },
         "allowed": {

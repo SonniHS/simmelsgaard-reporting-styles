@@ -1,7 +1,7 @@
 {
   "name": "report-styles",
-  "version": "1.2.0",
-  "description": "Report styles for IBCS®-based reports: IBCS (for the CFO), Showcase (Marketing), Soft (HR / People), Graphic (Communication), Annual (Investors) and Wallboard (Operations), each in light and dark, one page layout and the same numbers in every style; a style and theme switch for web apps, Power BI themes and Deneb overrides.",
+  "version": "1.3.0",
+  "description": "Report styles: IBCS (for the CFO; the only style that follows the IBCS® Standards) and seven styles that borrow elements of the IBCS notation — Showcase, Soft, Graphic, Annual, Wallboard, Contrast, Terminal — each in light and dark, one page layout and the same numbers in every style; a style and theme switch for web apps, Power BI themes and Deneb overrides.",
   "author": {
     "name": "Sonni Simmelsgaard",
     "url": "https://github.com/SonniHS"

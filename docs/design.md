@@ -2,8 +2,13 @@
 
 How the report styles are built and why. For using them, start with [getting started](getting-started.md).
 
-IBCS® is a registered trademark of IBCS Institute. This project follows the IBCS® Standards; it is not affiliated
-with or certified by IBCS Institute.
+IBCS® is a registered trademark of IBCS Institute. The IBCS style follows the IBCS® Standards; the project is not
+affiliated with or certified by IBCS Institute.
+
+> **Only the IBCS style follows the IBCS® Standards.** The other styles borrow elements of the IBCS notation —
+> scenarios (AC, PY, PL, FC), variances with impact colours by polarity, N/A rules, same unit same scale — but relax
+> IBCS presentation rules on purpose (each relaxation is documented with its rule id), so they are not
+> IBCS-compliant. Use the IBCS style wherever IBCS compliance is required.
 
 ## The idea
 
@@ -23,7 +28,9 @@ data (one input per page)
             ├─ Soft parts
             ├─ Graphic parts
             ├─ Annual parts
-            └─ Wallboard parts
+            ├─ Wallboard parts
+            ├─ Contrast parts
+            └─ Terminal parts
 reconcile test: every shown number, in every style, equals the view model's text
 ```
 
@@ -34,17 +41,22 @@ few words differ. A switch between styles is an attribute change on the page; th
 
 | Id | Label · persona | Character |
 |---|---|---|
-| `ibcs` | IBCS · for the CFO | Notation first: light grey page with white cards (dark: charcoal), scenario patterns, dense, no decoration. The reference every other style reconciles to. |
+| `ibcs` | IBCS · for the CFO | Notation first: light grey page with white cards (dark: charcoal), scenario patterns, dense, no decoration. The only style that follows the IBCS Standards, and the reference every other style reconciles to. |
 | `showcase` | Showcase · for Marketing | A product-grade page: solid surfaces with a hairline edge, one radius, a line chart with a ΔPY% strip, a ranked dumbbell; one brand accent for the actuals (AC) and the one highlight. |
 | `soft` | Soft · for HR / People | Warm page, rounded cards, calm colours, generous space, larger text and plain words ("This year", "Last year", "Change"). |
 | `graphic` | Graphic · for Communication | A newspaper data page: the key message as a serif headline, a ruled figure strip, a line chart with annotations tied to their points, a ruled table with inline bars. |
 | `annual` | Annual · for Investors | An annual-report spread: a tinted message band, light-weight numerals, AC columns and bars with a PY marker line, numbered callouts. |
 | `wallboard` | Wallboard · for Operations | A screen read from a few metres: very large figures, high contrast, thick columns and bars, variances as large chips, few labels. |
+| `contrast` | Contrast · for Accessibility | AAA contrast in both modes (text 7:1, marks 4.5:1, enforced), Atkinson Hyperlegible, 2 px borders, a direction glyph on every variance so colour is never the only cue. |
+| `terminal` | Terminal · for Engineering | A command-line page: JetBrains Mono, 1 px boxes, a monospace table with inline bars, plain-text variances, an amber accent; dark-first. |
 
 Ids are neutral and stable; labels and personas can be renamed per app. Every style has a light and a dark colour
 set, chosen independently of the style. Print always uses light.
 
-## Rules no style can switch off
+## What every style keeps
+
+These come from the IBCS notation and the reporting hard rules. Every style keeps them; only the IBCS style also
+keeps all the IBCS presentation rules.
 
 - **Same numbers.** Values, rounding and formatting come from the view model; a style computes no number.
 - **Same layout.** Header · key message · one row of four KPI tiles · time card left, structure card right ·
@@ -79,7 +91,8 @@ the list of IBCS rules the style relaxes.
 | `deneb/<id>-<mode>.overrides.json` | the ibcs-deneb templates, through that skill's `sync_tokens.py --overrides` |
 
 **Guardrails** (a failure is a notation error, not a style choice): text and labels ≥ 4.5:1 on page and panel;
-impact and CVD impact ≥ 3:1; AC, PL and FC ≥ 3:1; impact hues in their families; good brighter than bad in light
+impact and CVD impact ≥ 3:1; AC, PL and FC ≥ 3:1 (a style with `meta.level: "AAA"` — Contrast — needs 7:1 and
+4.5:1); impact hues in their families; good brighter than bad in light
 mode, a good/bad luminance gap in dark mode; AC clearly stronger than PY; accents never green or red; no text below
 12 px; bar radius ≤ 4 px; gauges, funnels, radar and traffic lights banned in every style.
 
@@ -92,8 +105,10 @@ page makes no third-party request on load.
 
 ## What each style relaxes
 
-Every other IBCS rule holds. The exact wording, with the reason and the condition, is in each token file's
-`chart.relaxes` and in each style's skill.
+The IBCS style relaxes only app chrome and offers a dark theme; it is the IBCS-compliant style. Every other style
+relaxes IBCS presentation rules on purpose for its audience, which is why it is **not** IBCS-compliant: the list
+says exactly where it differs from IBCS, it does not make the style IBCS. The exact wording, with the reason and
+the condition, is in each token file's `chart.relaxes` and in each style's skill.
 
 | Style | Relaxed rules (IBCS ids) |
 |---|---|
@@ -103,6 +118,8 @@ Every other IBCS rule holds. The exact wording, with the reason and the conditio
 | Graphic | SI 1.2 an off-white page with rules; SI 2.3 a serif headline; CO 1.1 large type; SI 3.1 gridlines on the line chart; CO 1.3 at most three visuals; CH 4.1 the line keeps its own scale |
 | Annual | SI 1.2 a tinted message band; SI 2.3 light-weight numerals; CO 1.1 large figures; UN 3.2 PY as a marker line; SI 2.2 the brand colour for AC; CO 1.3 at most three visuals |
 | Wallboard | SI 1.2 a contrasting page; CO 1.1 very large type; SI 2.1 tiles with a small radius; CO 2.2 fewer labels (no PY value labels); CO 1.3 at most three visuals |
+| Contrast | SI 2.1 2 px borders; SI 2.3 a low-vision typeface; CO 1.1 larger text; UN 4.1 a direction glyph on every variance |
+| Terminal | SI 2.3 a monospace typeface; SI 2.1 1 px box borders; SI 1.2 a dark page with an amber accent |
 
 ## Design decisions
 

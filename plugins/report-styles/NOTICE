@@ -30,8 +30,8 @@ IBCS® STANDARDS
 
 THIRD-PARTY MATERIAL
 
-  Fonts used by the reference components (Inter, Manrope, Nunito, Nunito
-  Sans, Source Sans 3, Source Serif 4) are licensed under the SIL Open Font License
+  Fonts used by the reference components (Atkinson Hyperlegible, Inter,
+  JetBrains Mono, Manrope, Nunito, Nunito Sans, Source Sans 3, Source Serif 4) are licensed under the SIL Open Font License
   1.1 and are installed from npm (@fontsource packages), not bundled in this
   repository. React, TypeScript, Vitest and esbuild are dependencies installed
   from npm, not bundled. Microsoft Power BI and Deneb are trademarks of their

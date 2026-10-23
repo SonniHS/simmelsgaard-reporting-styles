@@ -67,15 +67,19 @@ export function variance(ac: number, py: number, decimals: number, polarity: Pol
   };
 }
 
-/** Labels to keep on a phone when more than six share an axis: the largest |value|, the smallest, and the last
- *  (label thinning by priority). Six or fewer always keep every label. */
-export function keep(values: (number | null)[], phone: boolean): boolean[] {
-  if (!phone || values.length <= 6) return values.map(() => true);
+/** Labels to keep when they are thinned (a phone, or labels that do not fit) and more than six share an axis: the
+ *  last, the largest |value| and the smallest, in that priority. `minGap` (in points) drops a lower-priority label
+ *  closer than that to a kept one, for labels wider than their column. Six or fewer always keep every label. */
+export function keep(values: (number | null)[], thin: boolean, minGap = 1): boolean[] {
+  // six or fewer labels are all kept, unless they are wider than their columns (minGap > 1)
+  if (!thin || (values.length <= 6 && minGap <= 1)) return values.map(() => true);
   const idx = values.flatMap((v, i) => (v == null ? [] : [[v, i] as const]));
   if (!idx.length) return values.map(() => false);
   const hi = idx.reduce((a, b) => (Math.abs(b[0]) > Math.abs(a[0]) ? b : a))[1];
   const lo = idx.reduce((a, b) => (b[0] < a[0] ? b : a))[1];
-  return values.map((_, i) => i === hi || i === lo || i === values.length - 1);
+  const kept: number[] = [];
+  for (const i of [values.length - 1, hi, lo]) if (!kept.some((k) => Math.abs(k - i) < minGap) || kept.includes(i)) kept.push(i);
+  return values.map((_, i) => kept.includes(i));
 }
 
 /** Round axis ticks from 0 to at least `max`: 3–6 steps of 1, 2, 2.5 or 5 × 10ⁿ. Bars and columns start at zero. */
@@ -213,11 +217,15 @@ export function expectedTexts(vm: KeyFiguresVM): Record<string, string> {
   return want;
 }
 
-/** The numbers every style must show (the shared set); IBCS may show more. Points' Δ% only where labels are not thinned. */
-export function sharedKeys(vm: KeyFiguresVM, phone: boolean): string[] {
+/** The numbers every style must show (the shared set); IBCS may show more. Every KPI and structure item in full; of
+ *  the time points' Δ% at least the ones label thinning always keeps (the largest |Δ|, the smallest, the last) —
+ *  all of them whenever they fit, which each chart decides from its space. `phone` is kept for callers; the minimum
+ *  is the same at every width. */
+export function sharedKeys(vm: KeyFiguresVM, _phone = false): string[] {
   const need: string[] = [];
   vm.kpis.forEach((k) => need.push(k.key + ".ac", k.key + ".py", k.key + ".abs", ...(k.relText ? [k.key + ".rel"] : [])));
   vm.structure.items.forEach((r) => need.push(`item.${r.key}.ac`, `item.${r.key}.rel`));
-  if (!phone) vm.time.points.forEach((m) => need.push(m.key + ".rel"));
+  const always = keep(vm.time.points.map((m) => m.rel), true);
+  vm.time.points.forEach((m, i) => { if (always[i] && m.relText) need.push(m.key + ".rel"); });
   return need;
 }

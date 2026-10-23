@@ -1,0 +1,183 @@
+{
+  "$comment": "Contrast style: for readers with low vision or colour-vision differences, and for any report that must meet WCAG AAA. Text 7:1, marks 4.5:1 in both modes (meta.level AAA), Atkinson Hyperlegible, 2 px borders, direction glyphs on every variance so colour is never the only cue.",
+  "meta": {
+    "id": "contrast",
+    "label": "Contrast",
+    "persona": "for Accessibility",
+    "level": "AAA",
+    "summary": "Maximum legibility: black on white (or white on black), AAA contrast, a typeface designed for low vision, strong borders, and every variance carrying a direction glyph as well as its colour.",
+    "brandSlot": "typography.family.*"
+  },
+  "color": {
+    "light": {
+      "surface": {
+        "page": "#FFFFFF",
+        "panel": "#FFFFFF",
+        "tile": "#FFFFFF",
+        "edge": "#000000",
+        "backdrop": "none"
+      },
+      "text": {
+        "primary": "#000000",
+        "secondary": "#333333",
+        "onAccent": "#FFFFFF"
+      },
+      "impact": {
+        "good": "#00702E",
+        "bad": "#B0001A",
+        "neutral": "#0040A0",
+        "cvd": {
+          "good": "#006475",
+          "bad": "#B0001A",
+          "neutral": "#0040A0"
+        }
+      },
+      "scenario": {
+        "ac": "#000000",
+        "py": "#707070",
+        "pl": "#000000",
+        "fc": "#000000"
+      },
+      "accent": {
+        "primary": "#000000",
+        "highlight": "#0040A0"
+      },
+      "chart": {
+        "axis": "#000000",
+        "grid": "transparent",
+        "label": "#000000"
+      }
+    },
+    "dark": {
+      "surface": {
+        "page": "#000000",
+        "panel": "#000000",
+        "tile": "#000000",
+        "edge": "#FFFFFF",
+        "backdrop": "none"
+      },
+      "text": {
+        "primary": "#FFFFFF",
+        "secondary": "#D6D6D6",
+        "onAccent": "#000000"
+      },
+      "impact": {
+        "good": "#5BE38F",
+        "bad": "#FF8A8A",
+        "neutral": "#8EC2FF",
+        "cvd": {
+          "good": "#5CDCEB",
+          "bad": "#FF8A8A",
+          "neutral": "#8EC2FF"
+        }
+      },
+      "scenario": {
+        "ac": "#FFFFFF",
+        "py": "#9A9A9A",
+        "pl": "#FFFFFF",
+        "fc": "#FFFFFF"
+      },
+      "accent": {
+        "primary": "#FFFFFF",
+        "highlight": "#FFD60A"
+      },
+      "chart": {
+        "axis": "#FFFFFF",
+        "grid": "transparent",
+        "label": "#FFFFFF"
+      }
+    }
+  },
+  "typography": {
+    "family": {
+      "text": "\"Atkinson Hyperlegible\", system-ui, sans-serif",
+      "display": "\"Atkinson Hyperlegible\", system-ui, sans-serif",
+      "figures": "\"Atkinson Hyperlegible\", system-ui, sans-serif"
+    },
+    "weight": {
+      "regular": 400,
+      "emphasis": 700,
+      "display": 700
+    },
+    "size": {
+      "message": 22,
+      "title": 18,
+      "body": 17,
+      "label": 15,
+      "footnote": 14,
+      "figure": 36,
+      "hero": 36
+    }
+  },
+  "radius": {
+    "hero": 4,
+    "panel": 4,
+    "tile": 4,
+    "control": 4,
+    "mark": 0
+  },
+  "density": {
+    "gap": 20,
+    "pad": 20,
+    "maxVisuals": 4,
+    "tilesPerRow": 4,
+    "phoneScale": 0.85
+  },
+  "motion": {
+    "enabled": false,
+    "durationMs": 0,
+    "easing": "linear"
+  },
+  "chart": {
+    "scenarioEncoding": "pattern",
+    "gridlines": "none",
+    "timeSeries": "contrast-columns",
+    "variance": "glyph-labels",
+    "structure": "contrast-bars",
+    "kpi": "bordered-tile",
+    "allowed": [],
+    "onRequest": [],
+    "banned": [
+      "pie",
+      "ring",
+      "gauge",
+      "funnel",
+      "radar",
+      "traffic-light",
+      "pseudo-3d",
+      "waffle",
+      "pictogram",
+      "area-scaled-icons",
+      "truncated-axis"
+    ],
+    "relaxes": [
+      {
+        "rule": "SI 2.1",
+        "what": "2 px borders around tiles and cards.",
+        "why": "Clear boundaries for low vision and for screen magnifiers, where only part of the page is visible."
+      },
+      {
+        "rule": "SI 2.3",
+        "what": "Atkinson Hyperlegible, a typeface designed for low-vision readers, at larger sizes.",
+        "why": "Distinct letterforms (1/l/I, 0/O, 5/S) and generous spacing improve legibility."
+      },
+      {
+        "rule": "CO 1.1",
+        "what": "Larger text: body 17 px, labels 15 px, figures 36 px.",
+        "why": "Readable without zooming; still fits 390 px."
+      },
+      {
+        "rule": "UN 4.1",
+        "what": "Every variance label carries a direction glyph (▲ ▼) next to its colour.",
+        "why": "Colour is never the only cue (WCAG 1.4.1); the glyph follows the sign, the colour the impact.",
+        "condition": "The glyph follows the sign, never the tone; a variance shown as zero has no glyph and no colour."
+      },
+      {
+        "rule": "SI 1.2",
+        "what": "A dark theme of white on pure black when the reader picks dark.",
+        "why": "Many low-vision readers need inverted contrast; the notation and the impact hue families are kept at AAA contrast.",
+        "condition": "Print is always light."
+      }
+    ]
+  }
+}

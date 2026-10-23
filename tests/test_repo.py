@@ -26,7 +26,7 @@ PLUGINS = ROOT / "plugins"
 DENYLIST = ROOT / "tests" / "private-denylist.txt"
 SKILLS = PLUGINS / "report-styles" / "skills"
 BUILD = SKILLS / "report-styles" / "scripts" / "build_styles.py"
-STYLES = ("ibcs", "showcase", "soft", "graphic", "annual", "wallboard")
+STYLES = ("ibcs", "showcase", "soft", "graphic", "annual", "wallboard", "contrast", "terminal")
 INTERNAL = {"BRIEF.md"}  # working files that are removed before publishing (and are not scanned until then)
 
 SKIP_SCAN = {"LICENSE-CC-BY-SA-4.0", "LICENSE-MIT"}

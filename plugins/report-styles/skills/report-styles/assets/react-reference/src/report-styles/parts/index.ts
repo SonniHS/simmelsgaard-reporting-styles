@@ -2,10 +2,12 @@ import type { StyleParts } from "../ReportPage";
 import type { StyleId } from "../tokens.generated";
 import type { KeyFiguresVM } from "../viewModel";
 import { annualParts } from "./annual";
+import { contrastParts } from "./contrast";
 import { graphicParts } from "./graphic";
 import { ibcsParts } from "./ibcs";
 import { showcaseParts } from "./showcase";
 import { softParts } from "./soft";
+import { terminalParts } from "./terminal";
 import { wallboardParts } from "./wallboard";
 
 export type PartsFactory = (vm: KeyFiguresVM, ctx: { phone: boolean }) => StyleParts;
@@ -18,4 +20,6 @@ export const STYLE_PARTS: Record<StyleId, PartsFactory> = {
   graphic: graphicParts,
   annual: annualParts,
   wallboard: wallboardParts,
+  contrast: contrastParts,
+  terminal: terminalParts,
 };

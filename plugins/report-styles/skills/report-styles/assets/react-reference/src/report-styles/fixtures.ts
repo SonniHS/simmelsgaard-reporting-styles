@@ -61,3 +61,36 @@ export const SERVICE_FIXTURE: KeyFiguresInput = {
     ],
   },
 };
+
+// A stress page for the browser checks: long names, six-digit values, 24 time points, a negative reference.
+export const STRESS_FIXTURE: KeyFiguresInput = {
+  title: "Stress test",
+  company: "Sample Co International Holding",
+  period: "Jan 2024 – Dec 2025",
+  acLabel: "2025",
+  pyLabel: "2024",
+  totals: { structure: "sales" },
+  kpis: [
+    { key: "sales", label: "Net sales across all channels", unit: "kEUR", ac: 1284300, py: 1191750, decimals: 0, polarity: 1, kind: "amount" },
+    { key: "ebit", label: "EBIT margin", unit: "%", ac: 7.4, py: 9.1, decimals: 1, polarity: 1, kind: "rate" },
+    { key: "nps", label: "Net promoter score", unit: "of 100", ac: 41, py: 38, decimals: 0, polarity: 1, kind: "score" },
+    { key: "result", label: "Result after tax", unit: "kEUR", ac: 18250, py: -4300, decimals: 0, polarity: 1, kind: "amount" },
+  ],
+  time: {
+    title: "Net sales by month, two years", unit: "kEUR", decimals: 0, polarity: 1,
+    points: Array.from({ length: 24 }, (_, i) => ({
+      label: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][i % 12]! + (i < 12 ? "" : "’"),
+      ac: 48000 + ((i * 7919) % 13000), py: 46000 + ((i * 104729) % 11000),
+    })),
+  },
+  structure: {
+    title: "Net sales by business unit", unit: "kEUR", decimals: 0, polarity: 1,
+    items: [
+      { key: "bu1", name: "Industrial automation and robotics", ac: 412800, py: 389100 },
+      { key: "bu2", name: "Consumer electronics (Europe and Middle East)", ac: 298400, py: 311900 },
+      { key: "bu3", name: "Medical devices", ac: 254100, py: 221700 },
+      { key: "bu4", name: "Services, maintenance and spare parts", ac: 199600, py: 189050 },
+      { key: "bu5", name: "Energy storage (new unit)", ac: 119400, py: 0 },
+    ],
+  },
+};

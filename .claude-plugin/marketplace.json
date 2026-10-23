@@ -5,8 +5,8 @@
     "url": "https://github.com/SonniHS"
   },
   "metadata": {
-    "description": "Presentation styles for IBCS®-based business reports: IBCS, Showcase, Soft, Graphic, Annual and Wallboard, in light and dark, with the same numbers and one page layout in every style.",
-    "version": "1.2.0"
+    "description": "Presentation styles for reports built on the IBCS® notation — IBCS (the only IBCS-compliant one), Showcase, Soft, Graphic, Annual, Wallboard, Contrast and Terminal — in light and dark, with the same numbers and one page layout in every style.",
+    "version": "1.3.0"
   },
   "allowCrossMarketplaceDependenciesOn": [
     "simmelsgaard-reporting-skills"
@@ -15,7 +15,7 @@
     {
       "name": "report-styles",
       "source": "./plugins/report-styles",
-      "description": "Six report styles (IBCS, Showcase, Soft, Graphic, Annual, Wallboard) in light and dark: a style and theme switch, one shared page layout, a reconcile test, tokens with contrast guardrails, React reference components, Power BI themes and Deneb overrides.",
+      "description": "Eight report styles in light and dark — IBCS (the only IBCS-compliant one) plus seven that borrow its notation: a style and theme switch, one shared page layout, a reconcile test, tokens with contrast guardrails, React components, Power BI themes, Deneb overrides and a playground.",
       "category": "data-visualization",
       "tags": [
         "ibcs",

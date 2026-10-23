@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping improve simmelsgaard-reporting-styles: presentation styles for IBCS®-based reports, as a Claude
+Thanks for helping improve simmelsgaard-reporting-styles: presentation styles for reports built on the IBCS® notation, as a Claude
 Code plugin. Bug reports, wrong or missing guidance, new style proposals and pull requests are all welcome.
 
 ## Proposing a change

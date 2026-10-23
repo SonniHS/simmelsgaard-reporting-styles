@@ -87,6 +87,9 @@ svg text.tone-none { fill: var(--rs-color-text-secondary); }
 .rs-card { background: var(--rs-color-surface-panel); border: 1px solid var(--rs-color-surface-edge); border-radius: var(--rs-radius-panel); padding: var(--rs-density-pad); min-width: 0; }
 .rs-card h2 { margin: 0; font-size: var(--rs-typography-size-title); font-weight: var(--rs-typography-weight-emphasis); }
 .rs-sub { margin: 2px 0 10px; color: var(--rs-color-text-secondary); font-size: var(--rs-typography-size-label); }
+/* a KPI value shrinks to fit its tile (a 56 px "1,284,300" on a narrow tile), never wraps or clips */
+.rs-tile { container-type: inline-size; }
+.rs-tile .k-value .rs-n { font-size: min(1em, 17cqi); }
 .rs-tile { background: var(--rs-color-surface-tile); border: 1px solid var(--rs-color-surface-edge); border-radius: var(--rs-radius-tile); padding: var(--rs-density-pad); min-width: 0; }
 .rs-tile .k-label { color: var(--rs-color-text-secondary); font-size: var(--rs-typography-size-label); }
 .rs-tile .k-value { font-family: var(--rs-typography-family-figures); font-size: var(--rs-typography-size-figure); font-weight: var(--rs-typography-weight-display); line-height: 1.15; margin: 4px 0; }
@@ -105,6 +108,10 @@ svg text.tone-none { fill: var(--rs-color-text-secondary); }
 .rs-foot { margin-top: var(--rs-density-gap); color: var(--rs-color-text-secondary); font-size: var(--rs-typography-size-footnote); display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; justify-content: space-between; }
 .rs-notation svg text { fill: var(--rs-color-text-secondary); }
 
+/* below 1024 px the two cards stack: side by side they would be too narrow for their labels */
+@media (max-width: 1023px) {
+  .rs-row-2 { grid-template-columns: minmax(0, 1fr); }
+}
 @media (max-width: 760px) {
   .rs-switch { display: none; }
   .rs-switch-phone { display: inline-block; }

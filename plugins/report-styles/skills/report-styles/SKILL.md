@@ -1,9 +1,9 @@
 ---
 name: report-styles
 description: >
-  Gives a business report, dashboard or report app one of six presentation styles — IBCS (for the CFO),
-  Showcase (for Marketing), Soft (for HR / People), Graphic (for Communication), Annual (for Investors),
-  Wallboard (for Operations) — or several with a
+  Gives a business report, dashboard or report app one of eight presentation styles — IBCS (for the CFO,
+  the only IBCS-compliant one), Showcase, Soft, Graphic, Annual, Wallboard, Contrast (accessibility) and
+  Terminal (engineering) — or several with a
   switch, in a web app (React, Microsoft Fabric apps) or in Power BI, without changing a single number.
   Use it whenever someone wants a report to look different for a different audience, asks for a
   "less technical", "marketing", "friendly", "editorial", "dark mode" or "branded" version of an
@@ -17,18 +17,23 @@ description: >
 # Report styles
 
 A **style** changes how a report looks, never what it says. Every style draws the same view model in
-the same page layout; only the chart grammar, colours, type and a few words differ. The IBCS notation
-rules (scenarios, variances, impact colours) come from the `ibcs` plugin and hold in every style; each
-style documents the few presentation rules it relaxes, with rule ids.
+the same page layout; only the chart grammar, colours, type and a few words differ.
+
+**Only the IBCS style follows the IBCS® Standards.** Every other style keeps a core of the IBCS notation
+from the `ibcs` plugin (scenarios, variances with impact colours, N/A, same unit same scale) but relaxes
+IBCS presentation rules on purpose, documented with rule ids — so it is not IBCS-compliant. When a page
+must comply with IBCS, use `ibcs` (offer other styles only as additional views).
 
 | Id | Label · persona | Choose it when |
 |---|---|---|
-| `ibcs` | IBCS · for the CFO | finance and controlling; dense, exact, the reference every other style reconciles to — [style-ibcs](../style-ibcs/SKILL.md) |
+| `ibcs` | IBCS · for the CFO | finance and controlling, and any page that must comply with IBCS; the only IBCS-compliant style — [style-ibcs](../style-ibcs/SKILL.md) |
 | `showcase` | Showcase · for Marketing | a product-grade page for marketing or sales; one brand accent — [style-showcase](../style-showcase/SKILL.md) |
 | `soft` | Soft · for HR / People | readers outside finance (HR, people, internal services); calm, roomy, plain words — [style-soft](../style-soft/SKILL.md) |
 | `graphic` | Graphic · for Communication | intranet stories, newsletters, town halls; a newspaper data page — [style-graphic](../style-graphic/SKILL.md) |
 | `annual` | Annual · for Investors | annual and half-year reports, investor updates, board packs read as documents — [style-annual](../style-annual/SKILL.md) |
 | `wallboard` | Wallboard · for Operations | wall displays and team TVs read from a few metres; usually dark — [style-wallboard](../style-wallboard/SKILL.md) |
+| `contrast` | Contrast · for Accessibility | readers with low vision or colour-vision differences, or a WCAG AAA requirement — [style-contrast](../style-contrast/SKILL.md) |
+| `terminal` | Terminal · for Engineering | engineering and IT teams; a monospace command-line page, dark-first — [style-terminal](../style-terminal/SKILL.md) |
 
 Ids are neutral and never change with the labels. Every style has a **light and a dark** colour set.
 
@@ -78,8 +83,8 @@ Ids are neutral and never change with the labels. Every style has a **light and 
 - `assets/tokens/<id>.json` — the source of each style, against `assets/tokens/contract.schema.json`.
 - `scripts/build_styles.py` — validates and generates everything else (`--check` for CI).
 - `assets/react-reference/` — tested React + SVG components: `StyleProvider`, `StyleSwitch`, `ThemeSwitch`,
-  `ReportPage`, `KpiTile`, each style's chart parts, `viewModel.ts`, the CSS with self-hosted fonts, and a
-  preview app. Copy `src/report-styles` into your app ([README](assets/react-reference/README.md)).
+  `ReportPage`, `KpiTile`, each style's chart parts, `viewModel.ts`, the CSS with self-hosted fonts, a
+  preview app, and a playground (`previews/playground.html`) to try every style, width and number with live checks. Copy `src/report-styles` into your app ([README](assets/react-reference/README.md)).
 - Per style, in `../style-<id>/assets/`: a DTCG token file, Power BI themes (light, dark, CVD) and Deneb overrides.
 
 ## Adding a style

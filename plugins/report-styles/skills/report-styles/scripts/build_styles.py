@@ -33,7 +33,7 @@ SKILL = Path(__file__).resolve().parent.parent
 SKILLS = SKILL.parent
 TOKENS = SKILL / "assets" / "tokens"
 REACT = SKILL / "assets" / "react-reference" / "src" / "report-styles"
-STYLE_IDS = ("ibcs", "showcase", "soft", "graphic", "annual", "wallboard")
+STYLE_IDS = ("ibcs", "showcase", "soft", "graphic", "annual", "wallboard", "contrast", "terminal")
 MODES = ("light", "dark")
 PBI_SCHEMA = "https://raw.githubusercontent.com/microsoft/powerbi-desktop-samples/main/Report%20Theme%20JSON%20Schema/reportThemeSchema-2.157.json"
 
@@ -74,7 +74,7 @@ HUE = {"good": (70, 165), "cvd.good": (165, 200), "bad": (345, 20), "neutral": (
 def check(style: dict) -> list[str]:
     errs: list[str] = []
     for mode in MODES:
-        errs += check_colors(f"{style['meta']['id']}/{mode}", mode, style["color"][mode])
+        errs += check_colors(f"{style['meta']['id']}/{mode}", mode, style["color"][mode], style["meta"].get("level", "AA"))
     sid = style["meta"]["id"]
     for role, px in style["typography"]["size"].items():
         if px < 12:
@@ -92,8 +92,10 @@ def check(style: dict) -> list[str]:
     return errs
 
 
-def check_colors(sid: str, mode: str, c: dict) -> list[str]:
+def check_colors(sid: str, mode: str, c: dict, level: str = "AA") -> list[str]:
+    """Contrast and notation guardrails for one mode. level "AAA" (meta.level) raises text to 7:1 and marks to 4.5:1."""
     errs: list[str] = []
+    text_min, mark_min = (7.0, 4.5) if level == "AAA" else (4.5, 3.0)
     page = rgb(c["surface"]["page"])
     grounds = {"page": page}
     if c["surface"]["panel"] != "transparent":
@@ -105,17 +107,17 @@ def check_colors(sid: str, mode: str, c: dict) -> list[str]:
             if r < minimum:
                 errs.append(f"{sid}: {name} {paint} on {gname} {r:.2f}:1 < {minimum}:1")
 
-    need("text.primary", c["text"]["primary"], 4.5)
-    need("text.secondary", c["text"]["secondary"], 4.5)
-    need("chart.label", c["chart"]["label"], 4.5)
+    need("text.primary", c["text"]["primary"], text_min)
+    need("text.secondary", c["text"]["secondary"], text_min)
+    need("chart.label", c["chart"]["label"], text_min)
     r = contrast(rgb(c["text"]["onAccent"]), rgb(c["accent"]["primary"]))
-    if r < 4.5:
-        errs.append(f"{sid}: text.onAccent on accent.primary {r:.2f}:1 < 4.5:1")
+    if r < text_min:
+        errs.append(f"{sid}: text.onAccent on accent.primary {r:.2f}:1 < {text_min}:1")
 
     imp = c["impact"]
     for key in ("good", "bad", "neutral"):
-        need(f"impact.{key}", imp[key], 3.0)
-        need(f"impact.cvd.{key}", imp["cvd"][key], 3.0)
+        need(f"impact.{key}", imp[key], mark_min)
+        need(f"impact.cvd.{key}", imp["cvd"][key], mark_min)
     for name, paint in (("good", imp["good"]), ("bad", imp["bad"]), ("neutral", imp["neutral"]),
                         ("cvd.good", imp["cvd"]["good"]), ("cvd.bad", imp["cvd"]["bad"]), ("cvd.neutral", imp["cvd"]["neutral"])):
         band = HUE[name.replace("cvd.", "") if name != "cvd.good" else name]
@@ -137,7 +139,7 @@ def check_colors(sid: str, mode: str, c: dict) -> list[str]:
         errs.append(f"{sid}: AC contrast {ac:.2f} is not ≥ 1.5 × PY contrast {py:.2f}")
     # AC, PL (outline) and FC (hatch stripes) are the marks that carry the notation: non-text contrast 3:1 (WCAG 1.4.11)
     for key in ("ac", "pl", "fc"):
-        need(f"scenario.{key}", c["scenario"][key], 3.0)
+        need(f"scenario.{key}", c["scenario"][key], mark_min)
 
     for key in ("primary", "highlight"):
         h, s = hue(rgb(c["accent"][key]))
@@ -224,6 +226,8 @@ PBI_FONTS = {
     "graphic": {"text": "Segoe UI", "title": "Georgia", "figure": "Segoe UI Semibold"},
     "annual": {"text": "Segoe UI", "title": "Segoe UI Semibold", "figure": "Segoe UI Light"},
     "wallboard": {"text": "Segoe UI Semibold", "title": "Segoe UI Bold", "figure": "Segoe UI Black"},
+    "contrast": {"text": "Segoe UI", "title": "Segoe UI Bold", "figure": "Segoe UI Bold"},
+    "terminal": {"text": "Consolas", "title": "Consolas", "figure": "Consolas"},
 }
 
 

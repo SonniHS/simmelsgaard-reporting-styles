@@ -1,5 +1,5 @@
 // Browser check and screenshots: a report page in every offered style and both themes at 1280 and 390 px, in Chrome.
-//   npm run previews && npm run check-previews -- [--out <dir for the PNGs>] [--data people|service]
+//   npm run previews && npm run check-previews -- [--out <dir for the PNGs>] [--data people|service|stress] [--widths 1280,820,390]
 // Your own app (a static build): node check-previews.mjs --site dist --page index.html --styles soft,ibcs
 //   --theme-default dark   (the styles in the app's order; the app's theme default: system | light | dark)
 // The page must expose window.__REPORT_STYLES__ = { expected, headline, shared, tokens } (see previews/main.tsx).
@@ -28,10 +28,10 @@ const data = arg("--data") ? `&data=${arg("--data")}` : ""; // a fixture of the 
 const out = path.resolve(process.cwd(), arg("--out", path.join(root, "previews/shots")));
 fs.mkdirSync(out, { recursive: true });
 
-const STYLES = arg("--styles", "ibcs,showcase,soft,graphic,annual,wallboard").split(",");
+const STYLES = arg("--styles", "ibcs,showcase,soft,graphic,annual,wallboard,contrast,terminal").split(",");
 const THEME_DEFAULT = arg("--theme-default", "system");
 const THEMES = ["light", "dark"];
-const WIDTHS = [1280, 390];
+const WIDTHS = arg("--widths", "1280,820,390").split(",").map(Number);
 const site = path.resolve(process.cwd(), arg("--site", root));
 const pagePath = arg("--page", "previews/index.html");
 if (site === root && !fs.existsSync(path.join(site, "previews/dist/main.js"))) throw new Error("previews not built: npm run previews");
@@ -88,12 +88,12 @@ for (const width of WIDTHS) for (const theme of THEMES) {
         for (let i = 1; i < order.length; i++) if (order[i - 1].compareDocumentPosition(order[i]) !== Node.DOCUMENT_POSITION_FOLLOWING) skel.push("sections out of order");
         const tiles = [...document.querySelectorAll(".rs-kpis > .rs-tile")];
         if (tiles.length !== 4) skel.push(`${tiles.length} KPI tiles`);
-        if (window.innerWidth > 760) {
-          if (new Set(tiles.map((t) => Math.round(box(t).top))).size !== 1) skel.push("KPI tiles not in one row");
-          const [mo, re] = [box(order[3]), box(order[4])];
-          if (!(Math.round(mo.top) === Math.round(re.top) && mo.left < re.left)) skel.push("time card not left of the structure card");
-          if (!(box(order[2]).bottom <= mo.top)) skel.push("KPI row not above the charts");
-        }
+        const [mo, re] = [box(order[3]), box(order[4])];
+        if (window.innerWidth > 760 && new Set(tiles.map((t) => Math.round(box(t).top))).size !== 1) skel.push("KPI tiles not in one row");
+        // side by side from 1024 px, stacked (time card first) below
+        if (window.innerWidth >= 1024 ? !(Math.round(mo.top) === Math.round(re.top) && mo.left < re.left) : !(mo.bottom <= re.top + 1))
+          skel.push(window.innerWidth >= 1024 ? "time card not left of the structure card" : "time card not above the structure card");
+        if (!(box(order[2]).bottom <= mo.top)) skel.push("KPI row not above the charts");
       }
       // horizontal geometry of the skeleton, for the cross-style comparison
       const g = {};

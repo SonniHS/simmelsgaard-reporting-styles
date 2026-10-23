@@ -6,6 +6,8 @@
 @import "./tokens-graphic.css";
 @import "./tokens-annual.css";
 @import "./tokens-wallboard.css";
+@import "./tokens-contrast.css";
+@import "./tokens-terminal.css";
 @import "./base.css";
 @import "./ibcs.css";
 @import "./showcase.css";
@@ -13,3 +15,5 @@
 @import "./graphic.css";
 @import "./annual.css";
 @import "./wallboard.css";
+@import "./contrast.css";
+@import "./terminal.css";

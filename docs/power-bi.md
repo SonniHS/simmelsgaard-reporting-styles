@@ -16,6 +16,8 @@ workflow.
 | Graphic | `graphic-pbi-theme-light.json`, `-light-cvd`, `-dark`, `-dark-cvd` |
 | Annual | `annual-pbi-theme-light.json`, `-light-cvd`, `-dark`, `-dark-cvd` |
 | Wallboard | `wallboard-pbi-theme-light.json`, `-light-cvd`, `-dark`, `-dark-cvd` |
+| Contrast | `contrast-pbi-theme-light.json`, `-light-cvd`, `-dark`, `-dark-cvd` |
+| Terminal | `terminal-pbi-theme-light.json`, `-light-cvd`, `-dark`, `-dark-cvd` |
 
 Import one in Power BI Desktop (View → Themes → Browse for themes), or set it as the custom theme of a PBIR report.
 Themes set page and visual backgrounds, borders, title and label fonts (installed faces: Power BI themes take no web

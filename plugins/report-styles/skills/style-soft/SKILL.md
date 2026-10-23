@@ -17,6 +17,10 @@ A warm page, rounded cards, calm colours, generous space, larger text and plain 
 (AC solid, PY light, PL outlined, FC hatched), in a softer ink. Same numbers and same layout as every style;
 see [report-styles](../report-styles/SKILL.md).
 
+**Not IBCS-compliant.** It keeps a core of the IBCS notation (scenarios, variances with impact colours, N/A,
+same unit same scale) and relaxes the IBCS rules listed below. Where IBCS compliance is required, use
+[style-ibcs](../style-ibcs/SKILL.md), and offer this style as an additional view.
+
 ## Choose it when
 
 - the readers are HR, people managers, employees, internal service teams, often on a phone;

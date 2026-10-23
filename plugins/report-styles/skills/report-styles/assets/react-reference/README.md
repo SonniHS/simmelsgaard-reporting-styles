@@ -39,4 +39,5 @@ npm ci
 npm run typecheck
 npm test            # view-model rules, switch state, reconcile of every style on desktop and phone
 npm run previews    # previews/dist; serve previews/ over http (fonts do not load from file://)
+                    # previews/index.html: the page; previews/playground.html: try styles, widths and data
 ```

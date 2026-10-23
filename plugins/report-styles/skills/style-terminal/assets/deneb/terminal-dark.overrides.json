@@ -1,0 +1,99 @@
+{
+  "$description": "report-styles: Terminal (dark) for the ibcs-deneb templates. Generated; do not edit.",
+  "color": {
+    "scenario": {
+      "ac": {
+        "$value": "#E3E6EA"
+      },
+      "py": {
+        "$value": "#4C535C"
+      },
+      "pl": {
+        "fill": {
+          "$value": "#0E1013"
+        },
+        "stroke": {
+          "$value": "#E3E6EA"
+        }
+      },
+      "fc": {
+        "ground": {
+          "$value": "#0E1013"
+        },
+        "stripe": {
+          "$value": "#E3E6EA"
+        },
+        "stroke": {
+          "$value": "#E3E6EA"
+        }
+      }
+    },
+    "variance": {
+      "good": {
+        "$value": "#4CC46B"
+      },
+      "bad": {
+        "$value": "#F2625A"
+      },
+      "neutral": {
+        "$value": "#63A6F7"
+      },
+      "cvd": {
+        "good": {
+          "$value": "#3FC3CE"
+        },
+        "bad": {
+          "$value": "#F2625A"
+        },
+        "neutral": {
+          "$value": "#63A6F7"
+        }
+      }
+    },
+    "text": {
+      "primary": {
+        "$value": "#E3E6EA"
+      },
+      "secondary": {
+        "$value": "#9AA2AC"
+      },
+      "onDark": {
+        "$value": "#0E1013"
+      }
+    },
+    "background": {
+      "page": {
+        "$value": "#0E1013"
+      }
+    },
+    "axis": {
+      "category": {
+        "$value": "#9AA2AC"
+      },
+      "pyReference": {
+        "$value": "#4C535C"
+      },
+      "plReference": {
+        "$value": "#E3E6EA"
+      }
+    },
+    "marker": {
+      "highlight": {
+        "$value": "#E8B04A"
+      },
+      "annotationRef": {
+        "$value": "#E8B04A"
+      }
+    }
+  },
+  "typography": {
+    "family": {
+      "powerbi": {
+        "$value": [
+          "Consolas",
+          "Consolas"
+        ]
+      }
+    }
+  }
+}

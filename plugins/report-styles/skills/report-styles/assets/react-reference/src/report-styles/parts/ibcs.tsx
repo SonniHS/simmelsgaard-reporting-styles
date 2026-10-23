@@ -1,7 +1,7 @@
 import type { StyleParts } from "../ReportPage";
 import { keep, type KeyFiguresVM } from "../viewModel";
 import { useScale } from "../scale";
-import { f, Fit, mlabel, Svg, T, textWidth } from "./svg";
+import { edgePad, axisLabels, f, Fit, Svg, T, textWidth, crowded } from "./svg";
 
 // IBCS, the reference: a multi-tier column chart (ΔPY% pins, ΔPY bars, PY/AC columns) and region bars with ΔPY and
 // ΔPY% columns. The two absolute-variance details (monthly ΔPY, region ΔPY) are the IBCS page's extras.
@@ -15,7 +15,8 @@ export function ibcsParts(vm: KeyFiguresVM, { phone }: { phone: boolean }): Styl
 }
 
 function TimeTiers({ vm, w, phone }: { vm: KeyFiguresVM; w: number; phone: boolean }) {
-  const m = vm.time.points, step = w / m.length, cw = step * 0.56;
+  const m = vm.time.points, pad = edgePad(w, m.length, [...m.map((d) => d.acText), ...m.map((d) => d.absText), ...m.map((d) => d.relText)], 7.2);
+  const step = (w - 2 * pad) / m.length, cw = step * 0.56;
   const tierPct = 70, tierAbs = 70, main = 190, gap = 10;
   const yPct = 16 + tierPct / 2, yAbs = 16 + tierPct + gap + 14 + tierAbs / 2;
   const sPct = (tierPct / 2 - 16) / Math.max(...m.map((d) => Math.abs(d.rel ?? 0)));
@@ -27,7 +28,7 @@ function TimeTiers({ vm, w, phone }: { vm: KeyFiguresVM; w: number; phone: boole
   const sAbs = sMain;
   // the value tier is as tall as its columns at the shared scale (plus the label room), never an empty band
   const y0 = 16 + tierPct + gap + 14 + tierAbs + gap + Math.min(main, Math.ceil(vm.time.max * sMain) + 22);
-  const kPct = keep(m.map((d) => d.rel), phone), kAbs = keep(m.map((d) => d.abs), phone), kAc = keep(m.map((d) => d.ac), phone);
+  const kPct = keep(m.map((d) => d.rel), phone || crowded(step, m.map((d) => d.relText), 7)), kAbs = keep(m.map((d) => d.abs), phone || crowded(step, m.map((d) => d.absText), 7)), kAc = keep(m.map((d) => d.ac), phone || crowded(step, m.map((d) => d.acText), 7), Math.ceil((Math.max(...m.map((d) => d.acText.length)) * 7 + 8) / step));
   return (
     <Svg w={w} h={y0 + 22} label={`${vm.time.title}, AC and PY with variances`}>
       <text className="t-dim" x={0} y={10}>ΔPY%</text>
@@ -35,7 +36,7 @@ function TimeTiers({ vm, w, phone }: { vm: KeyFiguresVM; w: number; phone: boole
       <line className="axis-py" x1={0} x2={w} y1={yPct} y2={yPct} strokeWidth={2} />
       <line className="axis-py" x1={0} x2={w} y1={yAbs} y2={yAbs} strokeWidth={3} />
       {m.map((d, i) => {
-        const cx = step * (i + 0.5);
+        const cx = pad + step * (i + 0.5);
         const ph = (d.rel ?? 0) * sPct, py = yPct - ph;
         const ah = d.abs * sAbs;
         const hp = d.py * sMain, ha = d.ac * sMain;
@@ -52,7 +53,7 @@ function TimeTiers({ vm, w, phone }: { vm: KeyFiguresVM; w: number; phone: boole
             <rect className="f-py" x={f(cx - cw / 2 - step * 0.12)} y={f(y0 - hp)} width={f(cw)} height={f(hp)} />
             <rect className="f-ac" data-u={vm.time.unit} data-v={d.ac} data-dim="h" x={f(cx - cw / 2 + step * 0.04)} y={f(y0 - ha)} width={f(cw)} height={f(ha)} />
             {kAc[i] && <T k={d.key + ".ac"} x={f(cx + step * 0.04)} y={f(y0 - ha - 4)} textAnchor="middle">{d.acText}</T>}
-            <text x={f(cx)} y={y0 + 16} textAnchor="middle">{mlabel(d, phone, m.length)}</text>
+            <text x={f(cx)} y={y0 + 16} textAnchor="middle">{axisLabels(m, phone, step, 7.2)[i]}</text>
           </g>
         );
       })}

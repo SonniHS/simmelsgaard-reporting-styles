@@ -33,6 +33,8 @@ export const page: KeyFiguresInput = {
   scale such as 4.42 of 5): Δ only, because a % change of a bounded scale misleads.
 - **polarity** — `1` more is better, `-1` less is better, `0` neither. Use `0` for a mix (a split across channels or
   products where a shift is not good or bad in itself): its variances show in blue, never green or red.
+- **units** — scale the values (kEUR, mEUR, k, m), as IBCS asks: labels stay readable up to about eight characters;
+  longer ones are thinned or fitted, never cut off.
 - **message** — optional; the default key message is built from the first KPI, the weakest structure item and the
   first rate, in plain words. Pass your own sentence built from view-model texts, each number with its key.
 

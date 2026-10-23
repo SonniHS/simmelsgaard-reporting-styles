@@ -7,7 +7,7 @@ which of them appear. The skeleton is code (`ReportPage.tsx`), so a style cannot
 header      title (descriptive) · scope
 message     the key message, a separate element built from view-model texts
 KPI row     four tiles in one row (two by two on a phone), same order
-cards       time card (left, 3/5) | structure card (right, 2/5), titled from the data; stacked on a phone
+cards       time card (left, 3/5) | structure card (right, 2/5), titled from the data; stacked below 1024 px
 footer      data note · notation key (AC solid, PY lighter, PL outlined, FC hatched)
 ```
 
@@ -21,7 +21,10 @@ footer      data note · notation key (AC solid, PY lighter, PL outlined, FC hat
 | the notation key and the footer | an optional `kicker` before the title |
 
 **The shared set of numbers** every style shows: every KPI's AC, PY, ΔPY and ΔPY%; each structure item's AC and ΔPY%;
-each time point's ΔPY% at desktop width (phones thin labels by priority: the largest |value|, the smallest, the last).
+each time point's ΔPY% wherever the labels fit. Where they do not (a phone, a narrow card, many points), labels thin
+by priority — the last, the largest |value|, the smallest — and those three are always shown. Axis labels thin the
+same way; names too long for their column end in "…" with the full name as a tooltip; KPI values shrink to fit their
+tile.
 IBCS may show more in place (its ΔPY tier on the time card and a ΔPY column on the structure card).
 
 **Horizontal geometry is fixed** (`--rs-skeleton-max` 1344 px, `--rs-skeleton-side` 16 px, `--rs-skeleton-gap`

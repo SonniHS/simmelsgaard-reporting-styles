@@ -1,0 +1,387 @@
+{
+  "$description": "Terminal · for Engineering: A command-line page: a monospace typeface, 1 px box borders, compact tables, plain-text variances, an amber accent; dark-first. Generated from report-styles/assets/tokens/terminal.json; do not edit.",
+  "color": {
+    "light": {
+      "surface": {
+        "page": {
+          "$value": "#FAFAF7",
+          "$type": "color"
+        },
+        "panel": {
+          "$value": "#FAFAF7",
+          "$type": "color"
+        },
+        "tile": {
+          "$value": "#FAFAF7",
+          "$type": "color"
+        },
+        "edge": {
+          "$value": "#C9CCC4",
+          "$type": "color"
+        },
+        "backdrop": {
+          "$value": "none",
+          "$type": "color"
+        }
+      },
+      "text": {
+        "primary": {
+          "$value": "#1C1E21",
+          "$type": "color"
+        },
+        "secondary": {
+          "$value": "#545A62",
+          "$type": "color"
+        },
+        "onAccent": {
+          "$value": "#FFFFFF",
+          "$type": "color"
+        }
+      },
+      "impact": {
+        "good": {
+          "$value": "#1D7A3A",
+          "$type": "color"
+        },
+        "bad": {
+          "$value": "#C42B2B",
+          "$type": "color"
+        },
+        "neutral": {
+          "$value": "#1E62C8",
+          "$type": "color"
+        },
+        "cvd": {
+          "good": {
+            "$value": "#0B7686",
+            "$type": "color"
+          },
+          "bad": {
+            "$value": "#C42B2B",
+            "$type": "color"
+          },
+          "neutral": {
+            "$value": "#1E62C8",
+            "$type": "color"
+          }
+        }
+      },
+      "scenario": {
+        "ac": {
+          "$value": "#1C1E21",
+          "$type": "color"
+        },
+        "py": {
+          "$value": "#AEB3B9",
+          "$type": "color"
+        },
+        "pl": {
+          "$value": "#1C1E21",
+          "$type": "color"
+        },
+        "fc": {
+          "$value": "#1C1E21",
+          "$type": "color"
+        }
+      },
+      "accent": {
+        "primary": {
+          "$value": "#8C5A00",
+          "$type": "color"
+        },
+        "highlight": {
+          "$value": "#8C5A00",
+          "$type": "color"
+        }
+      },
+      "chart": {
+        "axis": {
+          "$value": "#1C1E21",
+          "$type": "color"
+        },
+        "grid": {
+          "$value": "transparent",
+          "$type": "color"
+        },
+        "label": {
+          "$value": "#1C1E21",
+          "$type": "color"
+        }
+      }
+    },
+    "dark": {
+      "surface": {
+        "page": {
+          "$value": "#0E1013",
+          "$type": "color"
+        },
+        "panel": {
+          "$value": "#0E1013",
+          "$type": "color"
+        },
+        "tile": {
+          "$value": "#0E1013",
+          "$type": "color"
+        },
+        "edge": {
+          "$value": "#2E333A",
+          "$type": "color"
+        },
+        "backdrop": {
+          "$value": "none",
+          "$type": "color"
+        }
+      },
+      "text": {
+        "primary": {
+          "$value": "#E3E6EA",
+          "$type": "color"
+        },
+        "secondary": {
+          "$value": "#9AA2AC",
+          "$type": "color"
+        },
+        "onAccent": {
+          "$value": "#0E1013",
+          "$type": "color"
+        }
+      },
+      "impact": {
+        "good": {
+          "$value": "#4CC46B",
+          "$type": "color"
+        },
+        "bad": {
+          "$value": "#F2625A",
+          "$type": "color"
+        },
+        "neutral": {
+          "$value": "#63A6F7",
+          "$type": "color"
+        },
+        "cvd": {
+          "good": {
+            "$value": "#3FC3CE",
+            "$type": "color"
+          },
+          "bad": {
+            "$value": "#F2625A",
+            "$type": "color"
+          },
+          "neutral": {
+            "$value": "#63A6F7",
+            "$type": "color"
+          }
+        }
+      },
+      "scenario": {
+        "ac": {
+          "$value": "#E3E6EA",
+          "$type": "color"
+        },
+        "py": {
+          "$value": "#4C535C",
+          "$type": "color"
+        },
+        "pl": {
+          "$value": "#E3E6EA",
+          "$type": "color"
+        },
+        "fc": {
+          "$value": "#E3E6EA",
+          "$type": "color"
+        }
+      },
+      "accent": {
+        "primary": {
+          "$value": "#E8B04A",
+          "$type": "color"
+        },
+        "highlight": {
+          "$value": "#E8B04A",
+          "$type": "color"
+        }
+      },
+      "chart": {
+        "axis": {
+          "$value": "#9AA2AC",
+          "$type": "color"
+        },
+        "grid": {
+          "$value": "transparent",
+          "$type": "color"
+        },
+        "label": {
+          "$value": "#E3E6EA",
+          "$type": "color"
+        }
+      }
+    }
+  },
+  "typography": {
+    "family": {
+      "text": {
+        "$value": "\"JetBrains Mono\", ui-monospace, monospace",
+        "$type": "fontFamily"
+      },
+      "display": {
+        "$value": "\"JetBrains Mono\", ui-monospace, monospace",
+        "$type": "fontFamily"
+      },
+      "figures": {
+        "$value": "\"JetBrains Mono\", ui-monospace, monospace",
+        "$type": "fontFamily"
+      }
+    },
+    "weight": {
+      "regular": {
+        "$value": 400,
+        "$type": "fontWeight"
+      },
+      "emphasis": {
+        "$value": 700,
+        "$type": "fontWeight"
+      },
+      "display": {
+        "$value": 700,
+        "$type": "fontWeight"
+      }
+    },
+    "size": {
+      "message": {
+        "$value": "17px",
+        "$type": "dimension"
+      },
+      "title": {
+        "$value": "14px",
+        "$type": "dimension"
+      },
+      "body": {
+        "$value": "13px",
+        "$type": "dimension"
+      },
+      "label": {
+        "$value": "12px",
+        "$type": "dimension"
+      },
+      "footnote": {
+        "$value": "12px",
+        "$type": "dimension"
+      },
+      "figure": {
+        "$value": "28px",
+        "$type": "dimension"
+      },
+      "hero": {
+        "$value": "28px",
+        "$type": "dimension"
+      }
+    }
+  },
+  "radius": {
+    "hero": {
+      "$value": "0px",
+      "$type": "dimension"
+    },
+    "panel": {
+      "$value": "0px",
+      "$type": "dimension"
+    },
+    "tile": {
+      "$value": "0px",
+      "$type": "dimension"
+    },
+    "control": {
+      "$value": "0px",
+      "$type": "dimension"
+    },
+    "mark": {
+      "$value": "0px",
+      "$type": "dimension"
+    }
+  },
+  "density": {
+    "gap": {
+      "$value": "12px",
+      "$type": "dimension"
+    },
+    "pad": {
+      "$value": "14px",
+      "$type": "dimension"
+    },
+    "maxVisuals": {
+      "$value": 6,
+      "$type": "number"
+    },
+    "tilesPerRow": {
+      "$value": 4,
+      "$type": "number"
+    },
+    "phoneScale": {
+      "$value": 0.9,
+      "$type": "number"
+    }
+  },
+  "motion": {
+    "duration": {
+      "$value": "0ms",
+      "$type": "duration"
+    },
+    "easing": {
+      "$value": "linear",
+      "$type": "string"
+    }
+  },
+  "$extensions": {
+    "report-styles": {
+      "meta": {
+        "id": "terminal",
+        "label": "Terminal",
+        "persona": "for Engineering",
+        "summary": "A command-line page: a monospace typeface, 1 px box borders, compact tables, plain-text variances, an amber accent; dark-first.",
+        "brandSlot": "color.*.accent.*"
+      },
+      "chart": {
+        "scenarioEncoding": "pattern",
+        "gridlines": "none",
+        "timeSeries": "terminal-columns",
+        "variance": "plain-labels",
+        "structure": "terminal-table",
+        "kpi": "terminal-tile",
+        "allowed": [],
+        "onRequest": [],
+        "banned": [
+          "pie",
+          "ring",
+          "gauge",
+          "funnel",
+          "radar",
+          "traffic-light",
+          "pseudo-3d",
+          "waffle",
+          "pictogram",
+          "area-scaled-icons",
+          "truncated-axis"
+        ],
+        "relaxes": [
+          {
+            "rule": "SI 2.3",
+            "what": "A monospace typeface (JetBrains Mono) for all text and figures.",
+            "why": "The familiar look of logs and terminals for engineering teams; monospace keeps figures aligned in tables."
+          },
+          {
+            "rule": "SI 2.1",
+            "what": "1 px box borders around tiles and cards, no radius.",
+            "why": "The boxed look of a terminal dashboard; chrome only."
+          },
+          {
+            "rule": "SI 1.2",
+            "what": "A dark page in dark mode with an amber accent for the switch and focus.",
+            "why": "Engineering screens are mostly dark; the accent is never green or red and never encodes data.",
+            "condition": "Print is always light."
+          }
+        ]
+      }
+    }
+  }
+}

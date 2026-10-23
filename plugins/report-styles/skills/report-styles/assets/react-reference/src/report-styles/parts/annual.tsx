@@ -1,7 +1,7 @@
 import type { StyleParts } from "../ReportPage";
 import { useScale } from "../scale";
 import { keep, type KeyFiguresVM, type Point } from "../viewModel";
-import { f, mlabel, S, Svg, T, textWidth } from "./svg";
+import { axisLabels, f, Fit, S, Svg, T, textWidth, crowded } from "./svg";
 
 // Annual: the key-figures spread of an annual report. AC columns and bars in the brand colour with PY as a marker line
 // across them (a page-coloured halo keeps it readable on the column and on the page), numbered callouts tied to their
@@ -25,7 +25,7 @@ function MarkerColumns({ vm, w, phone }: { vm: KeyFiguresVM; w: number; phone: b
   const pad = Math.max(0, Math.ceil(labelW / 2 - w / n / 2) + 2), step = (w - 2 * pad) / n, cw = Math.min(step * 0.62, 34);
   const s = useScale([{ unit: vm.time.unit, min: 0, max: vm.time.max, availablePx: main - 22 }]).get(vm.time.unit);
   if (s == null) return null;
-  const y0 = top + Math.min(main, Math.ceil(vm.time.max * s) + 22), k = keep(m.map((d) => d.ac), phone), kr = keep(m.map((d) => d.rel), phone);
+  const y0 = top + Math.min(main, Math.ceil(vm.time.max * s) + 22), k = keep(m.map((d) => d.ac), phone || crowded(step, m.map((d) => d.acText), 7.4), Math.ceil((Math.max(...m.map((d) => d.acText.length)) * 7.4 + 8) / step)), kr = keep(m.map((d) => d.rel), phone || crowded(step, m.map((d) => d.relText), 7.6));
   const { best, dip, below } = vm.time, py = vm.pyLabel;
   const notes: [Point, string][] = [[best, "the largest gain"]];
   if (dip !== best) notes.push([dip, below === 1 ? `the only one below ${py}` : below > 1 ? "the largest drop" : "the smallest gain"]);
@@ -40,7 +40,7 @@ function MarkerColumns({ vm, w, phone }: { vm: KeyFiguresVM; w: number; phone: b
             <rect className="f-ac" data-u={vm.time.unit} data-v={d.ac} data-dim="h" x={f(cx - cw / 2)} y={f(y0 - ha)} width={f(cw)} height={f(ha)} />
             {d.py > 0 && <><line className="pyhalo" {...pm} /><line className="pymark" {...pm} /></>}
             {k[i] && <T k={d.key + ".ac"} x={f(cx)} y={f(y0 - Math.max(ha, hp) - 6)} textAnchor="middle">{d.acText}</T>}
-            <text className="t-dim" x={f(cx)} y={y0 + 18} textAnchor="middle">{mlabel(d, phone, n)}</text>
+            <text className="t-dim" x={f(cx)} y={y0 + 18} textAnchor="middle">{axisLabels(m, phone, step, 7.2)[i]}</text>
             {kr[i] && <T k={d.key + ".rel"} className={`tone-${d.relTone}`} x={f(cx)} y={yr} textAnchor="middle" fontWeight={700}>{d.relText}</T>}
           </g>
         );
@@ -81,7 +81,7 @@ function MarkerBars({ vm, w, phone }: { vm: KeyFiguresVM; w: number; phone: bool
         const y = i * row + 4 + dy, pm = { x1: f(nameW + r.py * s), x2: f(nameW + r.py * s), y1: y, y2: y + 26 };
         return (
           <g key={r.key}>
-            <text x={0} y={phone ? y - 4 : y + 17} fontWeight={600}>{r.name}</text>
+            <Fit text={r.name} px={phone ? w : nameW - 6} perChar={7.6} x={0} y={phone ? y - 4 : y + 17} fontWeight={600} />
             <rect className="f-ac" data-u={vm.structure.unit} data-v={r.ac} data-dim="w" x={nameW} y={y + 4} width={f(r.ac * s)} height={18} />
             {r.py > 0 && <><line className="pyhalo" {...pm} /><line className="pymark" {...pm} /></>}
             <T k={`item.${r.key}.ac`} x={f(nameW + Math.max(r.ac, r.py) * s + 8)} y={y + 17}>{r.acText}</T>

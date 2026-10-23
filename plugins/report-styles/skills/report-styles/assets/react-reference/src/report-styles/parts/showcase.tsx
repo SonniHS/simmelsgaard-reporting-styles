@@ -1,6 +1,6 @@
 import type { StyleParts } from "../ReportPage";
 import { keep, type KeyFiguresVM, tickText } from "../viewModel";
-import { f, mlabel, path, S, Svg, T, textWidth } from "./svg";
+import { axisLabels, endLabels, f, Fit, path, S, Svg, T, textWidth, crowded } from "./svg";
 
 // Showcase: a line chart (AC amber, PY slate, the gap shaded by impact) with a ΔPY% strip below, and a ranked
 // dumbbell for the regions. Amber is AC and nothing else.
@@ -15,11 +15,13 @@ export function showcaseParts(vm: KeyFiguresVM, { phone }: { phone: boolean }): 
 
 function River({ vm, w, phone }: { vm: KeyFiguresVM; w: number; phone: boolean }) {
   const m = vm.time.points, n = m.length, ticks = vm.time.ticks, top_ = ticks[ticks.length - 1]!;
-  const ax = 30, endW = phone ? 40 : 52, top = 8, hh = phone ? 140 : 180;
+  const ax = textWidth(ticks.map(tickText), 24, 80, 7.2), top = 8, hh = phone ? 140 : 180;
+  // room for the end values (AC and PY of the last point) right of the lines
+  const endW = textWidth([m[n - 1]!.acText, m[n - 1]!.pyText], phone ? 40 : 52, 120, 7.8) + 6;
   const x = (i: number) => ax + 6 + (i * (w - ax - 6 - endW)) / Math.max(1, n - 1), y = (v: number) => top + hh - (v / top_) * hh;
   const L = m[n - 1]!;
   const yl = top + hh + 18;
-  const ys = yl + 60, sh = 16 / Math.max(...m.map((d) => Math.abs(d.rel ?? 0))), k = keep(m.map((d) => d.rel), phone);
+  const ys = yl + 60, sh = 16 / Math.max(...m.map((d) => Math.abs(d.rel ?? 0))), k = keep(m.map((d) => d.rel), phone || crowded((w - ax - 6 - endW) / Math.max(1, n - 1), m.map((d) => d.relText), 7.4));
   const bw = Math.min(14, (w - ax) / (2 * n));
   return (
     <Svg w={w} h={ys + 22} label={`${vm.time.title}, AC ${vm.acLabel} against PY ${vm.pyLabel}, with ΔPY%`}>
@@ -38,9 +40,9 @@ function River({ vm, w, phone }: { vm: KeyFiguresVM; w: number; phone: boolean }
       <path d={path(m.map((d, i) => [x(i), y(d.py)]))} fill="none" className="axis-py" strokeWidth={1.75} strokeLinejoin="round" />
       <path d={path(m.map((d, i) => [x(i), y(d.ac)]))} fill="none" className="s-ac" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" />
       <circle cx={f(x(n - 1))} cy={f(y(L.ac))} r={4} className="f-ac" />
-      <T k={L.key + ".ac"} className="fig" x={f(x(n - 1) + 9)} y={f(y(L.ac) + 4)}>{L.acText}</T>
-      <text className="t-dim" x={f(x(n - 1) + 9)} y={f(y(L.py) + 14)}><S k={L.key + ".py"}>{L.pyText}</S></text>
-      {m.map((d, i) => <text key={d.key} className="t-dim" x={f(x(i))} y={yl} textAnchor="middle">{mlabel(d, phone, m.length)}</text>)}
+      <T k={L.key + ".ac"} className="fig" x={f(x(n - 1) + 9)} y={f(endLabels(y(L.ac), y(L.py)).ac)}>{L.acText}</T>
+      <text className="t-dim" x={f(x(n - 1) + 9)} y={f(endLabels(y(L.ac), y(L.py)).py)}><S k={L.key + ".py"}>{L.pyText}</S></text>
+      {m.map((d, i) => <text key={d.key} className="t-dim" x={f(x(i))} y={yl} textAnchor="middle">{axisLabels(m, phone, (w - ax - 6 - endW) / Math.max(1, n - 1), 7.2)[i]}</text>)}
       {/* the ΔPY% strip: one small column per month in its tone; labels thinned on a phone */}
       <text className="t-dim" x={0} y={yl + 22}>ΔPY%</text>
       <line className="grid-strong" x1={ax} x2={w - endW + 8} y1={ys} y2={ys} />
@@ -69,7 +71,7 @@ function Ranking({ vm, w, phone }: { vm: KeyFiguresVM; w: number; phone: boolean
         return (
           <g key={r.key}>
             <text className="t-dim fig" x={0} y={y + 4}>{i + 1}</text>
-            <text x={20} y={y + 4}>{r.name}</text>
+            <Fit text={r.name} px={x0 - 30} perChar={7.2} x={20} y={y + 4} />
             <line className="grid" x1={x0} x2={x1} y1={y} y2={y} />
             <line className={`s-${r.absTone}`} x1={f(x0 + r.py * s)} x2={f(x0 + r.ac * s)} y1={y} y2={y} strokeWidth={2.5} strokeLinecap="round" />
             <circle cx={f(x0 + r.py * s)} cy={y} r={4.5} className="f-panel s-py" strokeWidth={2} />

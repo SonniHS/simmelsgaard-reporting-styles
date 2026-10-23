@@ -1116,8 +1116,362 @@ export const STYLE_TOKENS = {
         }
       ]
     }
+  },
+  "contrast": {
+    "$comment": "Contrast style: for readers with low vision or colour-vision differences, and for any report that must meet WCAG AAA. Text 7:1, marks 4.5:1 in both modes (meta.level AAA), Atkinson Hyperlegible, 2 px borders, direction glyphs on every variance so colour is never the only cue.",
+    "meta": {
+      "id": "contrast",
+      "label": "Contrast",
+      "persona": "for Accessibility",
+      "level": "AAA",
+      "summary": "Maximum legibility: black on white (or white on black), AAA contrast, a typeface designed for low vision, strong borders, and every variance carrying a direction glyph as well as its colour.",
+      "brandSlot": "typography.family.*"
+    },
+    "color": {
+      "light": {
+        "surface": {
+          "page": "#FFFFFF",
+          "panel": "#FFFFFF",
+          "tile": "#FFFFFF",
+          "edge": "#000000",
+          "backdrop": "none"
+        },
+        "text": {
+          "primary": "#000000",
+          "secondary": "#333333",
+          "onAccent": "#FFFFFF"
+        },
+        "impact": {
+          "good": "#00702E",
+          "bad": "#B0001A",
+          "neutral": "#0040A0",
+          "cvd": {
+            "good": "#006475",
+            "bad": "#B0001A",
+            "neutral": "#0040A0"
+          }
+        },
+        "scenario": {
+          "ac": "#000000",
+          "py": "#707070",
+          "pl": "#000000",
+          "fc": "#000000"
+        },
+        "accent": {
+          "primary": "#000000",
+          "highlight": "#0040A0"
+        },
+        "chart": {
+          "axis": "#000000",
+          "grid": "transparent",
+          "label": "#000000"
+        }
+      },
+      "dark": {
+        "surface": {
+          "page": "#000000",
+          "panel": "#000000",
+          "tile": "#000000",
+          "edge": "#FFFFFF",
+          "backdrop": "none"
+        },
+        "text": {
+          "primary": "#FFFFFF",
+          "secondary": "#D6D6D6",
+          "onAccent": "#000000"
+        },
+        "impact": {
+          "good": "#5BE38F",
+          "bad": "#FF8A8A",
+          "neutral": "#8EC2FF",
+          "cvd": {
+            "good": "#5CDCEB",
+            "bad": "#FF8A8A",
+            "neutral": "#8EC2FF"
+          }
+        },
+        "scenario": {
+          "ac": "#FFFFFF",
+          "py": "#9A9A9A",
+          "pl": "#FFFFFF",
+          "fc": "#FFFFFF"
+        },
+        "accent": {
+          "primary": "#FFFFFF",
+          "highlight": "#FFD60A"
+        },
+        "chart": {
+          "axis": "#FFFFFF",
+          "grid": "transparent",
+          "label": "#FFFFFF"
+        }
+      }
+    },
+    "typography": {
+      "family": {
+        "text": "\"Atkinson Hyperlegible\", system-ui, sans-serif",
+        "display": "\"Atkinson Hyperlegible\", system-ui, sans-serif",
+        "figures": "\"Atkinson Hyperlegible\", system-ui, sans-serif"
+      },
+      "weight": {
+        "regular": 400,
+        "emphasis": 700,
+        "display": 700
+      },
+      "size": {
+        "message": 22,
+        "title": 18,
+        "body": 17,
+        "label": 15,
+        "footnote": 14,
+        "figure": 36,
+        "hero": 36
+      }
+    },
+    "radius": {
+      "hero": 4,
+      "panel": 4,
+      "tile": 4,
+      "control": 4,
+      "mark": 0
+    },
+    "density": {
+      "gap": 20,
+      "pad": 20,
+      "maxVisuals": 4,
+      "tilesPerRow": 4,
+      "phoneScale": 0.85
+    },
+    "motion": {
+      "enabled": false,
+      "durationMs": 0,
+      "easing": "linear"
+    },
+    "chart": {
+      "scenarioEncoding": "pattern",
+      "gridlines": "none",
+      "timeSeries": "contrast-columns",
+      "variance": "glyph-labels",
+      "structure": "contrast-bars",
+      "kpi": "bordered-tile",
+      "allowed": [],
+      "onRequest": [],
+      "banned": [
+        "pie",
+        "ring",
+        "gauge",
+        "funnel",
+        "radar",
+        "traffic-light",
+        "pseudo-3d",
+        "waffle",
+        "pictogram",
+        "area-scaled-icons",
+        "truncated-axis"
+      ],
+      "relaxes": [
+        {
+          "rule": "SI 2.1",
+          "what": "2 px borders around tiles and cards.",
+          "why": "Clear boundaries for low vision and for screen magnifiers, where only part of the page is visible."
+        },
+        {
+          "rule": "SI 2.3",
+          "what": "Atkinson Hyperlegible, a typeface designed for low-vision readers, at larger sizes.",
+          "why": "Distinct letterforms (1/l/I, 0/O, 5/S) and generous spacing improve legibility."
+        },
+        {
+          "rule": "CO 1.1",
+          "what": "Larger text: body 17 px, labels 15 px, figures 36 px.",
+          "why": "Readable without zooming; still fits 390 px."
+        },
+        {
+          "rule": "UN 4.1",
+          "what": "Every variance label carries a direction glyph (▲ ▼) next to its colour.",
+          "why": "Colour is never the only cue (WCAG 1.4.1); the glyph follows the sign, the colour the impact.",
+          "condition": "The glyph follows the sign, never the tone; a variance shown as zero has no glyph and no colour."
+        },
+        {
+          "rule": "SI 1.2",
+          "what": "A dark theme of white on pure black when the reader picks dark.",
+          "why": "Many low-vision readers need inverted contrast; the notation and the impact hue families are kept at AAA contrast.",
+          "condition": "Print is always light."
+        }
+      ]
+    }
+  },
+  "terminal": {
+    "$comment": "Terminal style: a monospace, command-line look for engineering and IT teams — dense, boxed, quiet, dark-first, with an amber accent.",
+    "meta": {
+      "id": "terminal",
+      "label": "Terminal",
+      "persona": "for Engineering",
+      "summary": "A command-line page: a monospace typeface, 1 px box borders, compact tables, plain-text variances, an amber accent; dark-first.",
+      "brandSlot": "color.*.accent.*"
+    },
+    "color": {
+      "light": {
+        "surface": {
+          "page": "#FAFAF7",
+          "panel": "#FAFAF7",
+          "tile": "#FAFAF7",
+          "edge": "#C9CCC4",
+          "backdrop": "none"
+        },
+        "text": {
+          "primary": "#1C1E21",
+          "secondary": "#545A62",
+          "onAccent": "#FFFFFF"
+        },
+        "impact": {
+          "good": "#1D7A3A",
+          "bad": "#C42B2B",
+          "neutral": "#1E62C8",
+          "cvd": {
+            "good": "#0B7686",
+            "bad": "#C42B2B",
+            "neutral": "#1E62C8"
+          }
+        },
+        "scenario": {
+          "ac": "#1C1E21",
+          "py": "#AEB3B9",
+          "pl": "#1C1E21",
+          "fc": "#1C1E21"
+        },
+        "accent": {
+          "primary": "#8C5A00",
+          "highlight": "#8C5A00"
+        },
+        "chart": {
+          "axis": "#1C1E21",
+          "grid": "transparent",
+          "label": "#1C1E21"
+        }
+      },
+      "dark": {
+        "surface": {
+          "page": "#0E1013",
+          "panel": "#0E1013",
+          "tile": "#0E1013",
+          "edge": "#2E333A",
+          "backdrop": "none"
+        },
+        "text": {
+          "primary": "#E3E6EA",
+          "secondary": "#9AA2AC",
+          "onAccent": "#0E1013"
+        },
+        "impact": {
+          "good": "#4CC46B",
+          "bad": "#F2625A",
+          "neutral": "#63A6F7",
+          "cvd": {
+            "good": "#3FC3CE",
+            "bad": "#F2625A",
+            "neutral": "#63A6F7"
+          }
+        },
+        "scenario": {
+          "ac": "#E3E6EA",
+          "py": "#4C535C",
+          "pl": "#E3E6EA",
+          "fc": "#E3E6EA"
+        },
+        "accent": {
+          "primary": "#E8B04A",
+          "highlight": "#E8B04A"
+        },
+        "chart": {
+          "axis": "#9AA2AC",
+          "grid": "transparent",
+          "label": "#E3E6EA"
+        }
+      }
+    },
+    "typography": {
+      "family": {
+        "text": "\"JetBrains Mono\", ui-monospace, monospace",
+        "display": "\"JetBrains Mono\", ui-monospace, monospace",
+        "figures": "\"JetBrains Mono\", ui-monospace, monospace"
+      },
+      "weight": {
+        "regular": 400,
+        "emphasis": 700,
+        "display": 700
+      },
+      "size": {
+        "message": 17,
+        "title": 14,
+        "body": 13,
+        "label": 12,
+        "footnote": 12,
+        "figure": 28,
+        "hero": 28
+      }
+    },
+    "radius": {
+      "hero": 0,
+      "panel": 0,
+      "tile": 0,
+      "control": 0,
+      "mark": 0
+    },
+    "density": {
+      "gap": 12,
+      "pad": 14,
+      "maxVisuals": 6,
+      "tilesPerRow": 4,
+      "phoneScale": 0.9
+    },
+    "motion": {
+      "enabled": false,
+      "durationMs": 0,
+      "easing": "linear"
+    },
+    "chart": {
+      "scenarioEncoding": "pattern",
+      "gridlines": "none",
+      "timeSeries": "terminal-columns",
+      "variance": "plain-labels",
+      "structure": "terminal-table",
+      "kpi": "terminal-tile",
+      "allowed": [],
+      "onRequest": [],
+      "banned": [
+        "pie",
+        "ring",
+        "gauge",
+        "funnel",
+        "radar",
+        "traffic-light",
+        "pseudo-3d",
+        "waffle",
+        "pictogram",
+        "area-scaled-icons",
+        "truncated-axis"
+      ],
+      "relaxes": [
+        {
+          "rule": "SI 2.3",
+          "what": "A monospace typeface (JetBrains Mono) for all text and figures.",
+          "why": "The familiar look of logs and terminals for engineering teams; monospace keeps figures aligned in tables."
+        },
+        {
+          "rule": "SI 2.1",
+          "what": "1 px box borders around tiles and cards, no radius.",
+          "why": "The boxed look of a terminal dashboard; chrome only."
+        },
+        {
+          "rule": "SI 1.2",
+          "what": "A dark page in dark mode with an amber accent for the switch and focus.",
+          "why": "Engineering screens are mostly dark; the accent is never green or red and never encodes data.",
+          "condition": "Print is always light."
+        }
+      ]
+    }
   }
 } as const;
 
 export type StyleId = keyof typeof STYLE_TOKENS;
-export const STYLE_IDS = ["ibcs", "showcase", "soft", "graphic", "annual", "wallboard"] as const satisfies readonly StyleId[];
+export const STYLE_IDS = ["ibcs", "showcase", "soft", "graphic", "annual", "wallboard", "contrast", "terminal"] as const satisfies readonly StyleId[];

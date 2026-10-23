@@ -1,7 +1,7 @@
 import type { StyleParts } from "../ReportPage";
 import { Num } from "../ReportPage";
 import { keep, type KeyFiguresVM, type Point, tickText } from "../viewModel";
-import { f, mlabel, path, S, Svg, T, textWidth } from "./svg";
+import { axisLabels, f, mlabel, path, S, Svg, T, textWidth, crowded } from "./svg";
 
 // Graphic (Editorial): a newspaper data page. A line chart on faint gridlines with the best month and the dip
 // annotated (each tied to its point by a leader line) and a Δ% row; regions as a ruled table with inline bars.
@@ -61,11 +61,13 @@ function EditorialLine({ vm, w, phone }: { vm: KeyFiguresVM; w: number; phone: b
     const mid = (ya + yp) / 2;
     return acUp ? { ac: mid - gap / 2, py: mid + gap / 2 } : { ac: mid + gap / 2, py: mid - gap / 2 };
   })();
-  const yl = top + hh + 18, yr = yl + 26, k = keep(m.map((d) => d.rel), phone);
+  const yl = top + hh + 18, yr = yl + 26, k = keep(m.map((d) => d.rel), phone || crowded((x1 - x0) / Math.max(1, n - 1), m.map((d) => d.relText), 7.6));
   // annotations, each tied to its point by a leader line: the best month above the lines, the dip below them
   const note = (d: Point, word: string, above: boolean) => {
     const i = m.indexOf(d), px = x(i), py = y(d.ac), ty = above ? 14 : py + 64;
-    const anchor = px > w * 0.55 ? "end" : "start", tx = px + (anchor === "end" ? -8 : 8);
+    // run the text toward the side with room for it, never into the axis labels on the right
+    const textW = (d.label.length + (d.relText ?? "").length + word.length + 2) * 6.8;
+    const anchor = px + 8 + textW <= x1 + endW ? "start" : "end", tx = px + (anchor === "end" ? -8 : 8);
     return (
       <g key={d.key + "-note"}>
         <line className="leader" x1={f(px)} x2={f(px)} y1={f(above ? ty + 6 : ty - 14)} y2={f(above ? py - 6 : py + 6)} />
@@ -91,7 +93,7 @@ function EditorialLine({ vm, w, phone }: { vm: KeyFiguresVM; w: number; phone: b
       <text className="t-dim" x={f(x(n - 1) + 7)} y={f(endY.py)}><S k={L.key + ".py"}>{L.pyText}</S></text>
       {note(best, phone ? "the best" : `on ${py}, the largest gain`, true)}
       {best !== dip && note(dip, below === 1 ? (phone ? "only dip" : `the only one below ${py}`) : below > 1 ? (phone ? "weakest" : `the largest drop on ${py}`) : (phone ? "smallest" : "the smallest gain"), false)}
-      {m.map((d, i) => <text key={d.key} className="t-dim" x={f(x(i))} y={yl} textAnchor="middle">{mlabel(d, phone, m.length)}</text>)}
+      {m.map((d, i) => <text key={d.key} className="t-dim" x={f(x(i))} y={yl} textAnchor="middle">{axisLabels(m, phone, (x1 - x0) / Math.max(1, n - 1), 7.2)[i]}</text>)}
       {/* the Δ% row: a line of figures under the months, as a newspaper prints a table under a chart */}
       <line className="grid" x1={0} x2={w - axR + 4} y1={yl + 8} y2={yl + 8} />
       <text className="t-dim" x={w} y={yr} textAnchor="end">Δ%</text>

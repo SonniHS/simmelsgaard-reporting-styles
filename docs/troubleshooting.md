@@ -30,5 +30,8 @@ style's skill). Anything else is a defect: please open an issue.
 **The browser check fails with "previews not built" or "no page".** Run `npm run previews` first, or pass `--site`
 and `--page` for your own build. It needs Playwright: `npm i -D playwright`, or `NODE_PATH` to a `node_modules` with it.
 
+**Some value labels are missing.** Labels thin by priority when they do not fit — on a phone, on a narrow card, or with
+many points: the last, the largest and the smallest always stay. Scale large numbers (kEUR, mEUR) so more fit.
+
 **The switch shows "for HR / People" to a different team.** Rename the persona for your app:
 `<StyleProvider labels={{ soft: { persona: "for the team" } }}>`.

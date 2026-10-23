@@ -1,0 +1,191 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/powerbi-desktop-samples/main/Report%20Theme%20JSON%20Schema/reportThemeSchema-2.157.json",
+  "name": "terminal-pbi-theme-dark",
+  "dataColors": [
+    "#E3E6EA",
+    "#4C535C",
+    "#A1A1A1",
+    "#333333"
+  ],
+  "good": "#4CC46B",
+  "bad": "#F2625A",
+  "neutral": "#63A6F7",
+  "maximum": "#E3E6EA",
+  "center": "#4C535C",
+  "minimum": "#0E1013",
+  "foreground": "#E3E6EA",
+  "foregroundNeutralSecondary": "#9AA2AC",
+  "background": "#0E1013",
+  "backgroundLight": "#0E1013",
+  "secondaryBackground": "#0E1013",
+  "tableAccent": "#E3E6EA",
+  "hyperlink": "#E8B04A",
+  "visitedHyperlink": "#E8B04A",
+  "textClasses": {
+    "callout": {
+      "fontFace": "Consolas",
+      "fontSize": 21,
+      "color": "#E3E6EA"
+    },
+    "title": {
+      "fontFace": "Consolas",
+      "fontSize": 10,
+      "color": "#E3E6EA"
+    },
+    "header": {
+      "fontFace": "Consolas",
+      "fontSize": 9,
+      "color": "#E3E6EA"
+    },
+    "label": {
+      "fontFace": "Consolas",
+      "fontSize": 9,
+      "color": "#E3E6EA"
+    },
+    "largeTitle": {
+      "fontFace": "Consolas",
+      "fontSize": 13,
+      "color": "#E3E6EA"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#0E1013"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "show": false,
+            "color": {
+              "solid": {
+                "color": "#2E333A"
+              }
+            },
+            "radius": 0
+          }
+        ],
+        "dropShadow": [
+          {
+            "show": false
+          }
+        ],
+        "visualHeader": [
+          {
+            "show": false
+          }
+        ],
+        "title": [
+          {
+            "show": true,
+            "fontFamily": "Consolas",
+            "fontSize": 10,
+            "fontColor": {
+              "solid": {
+                "color": "#E3E6EA"
+              }
+            },
+            "bold": false,
+            "alignment": "left"
+          }
+        ],
+        "subTitle": [
+          {
+            "show": true,
+            "fontFamily": "Consolas",
+            "fontSize": 9,
+            "fontColor": {
+              "solid": {
+                "color": "#9AA2AC"
+              }
+            }
+          }
+        ],
+        "labels": [
+          {
+            "show": true,
+            "fontFamily": "Consolas",
+            "fontSize": 9,
+            "color": {
+              "solid": {
+                "color": "#E3E6EA"
+              }
+            }
+          }
+        ],
+        "categoryAxis": [
+          {
+            "show": true,
+            "gridlineShow": false,
+            "showAxisTitle": false,
+            "fontFamily": "Consolas",
+            "fontSize": 9,
+            "labelColor": {
+              "solid": {
+                "color": "#9AA2AC"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "show": false,
+            "gridlineShow": false,
+            "gridlineColor": {
+              "solid": {
+                "color": "#0E1013"
+              }
+            },
+            "showAxisTitle": false,
+            "fontFamily": "Consolas",
+            "fontSize": 9,
+            "labelColor": {
+              "solid": {
+                "color": "#9AA2AC"
+              }
+            }
+          }
+        ],
+        "legend": [
+          {
+            "show": false,
+            "fontFamily": "Consolas",
+            "fontSize": 9
+          }
+        ]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [
+          {
+            "color": {
+              "solid": {
+                "color": "#0E1013"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "outspace": [
+          {
+            "color": {
+              "solid": {
+                "color": "#0E1013"
+              }
+            },
+            "transparency": 0
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,191 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/powerbi-desktop-samples/main/Report%20Theme%20JSON%20Schema/reportThemeSchema-2.157.json",
+  "name": "terminal-pbi-theme-light-cvd",
+  "dataColors": [
+    "#1C1E21",
+    "#AEB3B9",
+    "#595959",
+    "#CBCBCB"
+  ],
+  "good": "#0B7686",
+  "bad": "#C42B2B",
+  "neutral": "#1E62C8",
+  "maximum": "#1C1E21",
+  "center": "#AEB3B9",
+  "minimum": "#FAFAF7",
+  "foreground": "#1C1E21",
+  "foregroundNeutralSecondary": "#545A62",
+  "background": "#FAFAF7",
+  "backgroundLight": "#FAFAF7",
+  "secondaryBackground": "#FAFAF7",
+  "tableAccent": "#1C1E21",
+  "hyperlink": "#8C5A00",
+  "visitedHyperlink": "#8C5A00",
+  "textClasses": {
+    "callout": {
+      "fontFace": "Consolas",
+      "fontSize": 21,
+      "color": "#1C1E21"
+    },
+    "title": {
+      "fontFace": "Consolas",
+      "fontSize": 10,
+      "color": "#1C1E21"
+    },
+    "header": {
+      "fontFace": "Consolas",
+      "fontSize": 9,
+      "color": "#1C1E21"
+    },
+    "label": {
+      "fontFace": "Consolas",
+      "fontSize": 9,
+      "color": "#1C1E21"
+    },
+    "largeTitle": {
+      "fontFace": "Consolas",
+      "fontSize": 13,
+      "color": "#1C1E21"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#FAFAF7"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "show": false,
+            "color": {
+              "solid": {
+                "color": "#C9CCC4"
+              }
+            },
+            "radius": 0
+          }
+        ],
+        "dropShadow": [
+          {
+            "show": false
+          }
+        ],
+        "visualHeader": [
+          {
+            "show": false
+          }
+        ],
+        "title": [
+          {
+            "show": true,
+            "fontFamily": "Consolas",
+            "fontSize": 10,
+            "fontColor": {
+              "solid": {
+                "color": "#1C1E21"
+              }
+            },
+            "bold": false,
+            "alignment": "left"
+          }
+        ],
+        "subTitle": [
+          {
+            "show": true,
+            "fontFamily": "Consolas",
+            "fontSize": 9,
+            "fontColor": {
+              "solid": {
+                "color": "#545A62"
+              }
+            }
+          }
+        ],
+        "labels": [
+          {
+            "show": true,
+            "fontFamily": "Consolas",
+            "fontSize": 9,
+            "color": {
+              "solid": {
+                "color": "#1C1E21"
+              }
+            }
+          }
+        ],
+        "categoryAxis": [
+          {
+            "show": true,
+            "gridlineShow": false,
+            "showAxisTitle": false,
+            "fontFamily": "Consolas",
+            "fontSize": 9,
+            "labelColor": {
+              "solid": {
+                "color": "#545A62"
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "show": false,
+            "gridlineShow": false,
+            "gridlineColor": {
+              "solid": {
+                "color": "#FAFAF7"
+              }
+            },
+            "showAxisTitle": false,
+            "fontFamily": "Consolas",
+            "fontSize": 9,
+            "labelColor": {
+              "solid": {
+                "color": "#545A62"
+              }
+            }
+          }
+        ],
+        "legend": [
+          {
+            "show": false,
+            "fontFamily": "Consolas",
+            "fontSize": 9
+          }
+        ]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [
+          {
+            "color": {
+              "solid": {
+                "color": "#FAFAF7"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "outspace": [
+          {
+            "color": {
+              "solid": {
+                "color": "#FAFAF7"
+              }
+            },
+            "transparency": 0
+          }
+        ]
+      }
+    }
+  }
+}

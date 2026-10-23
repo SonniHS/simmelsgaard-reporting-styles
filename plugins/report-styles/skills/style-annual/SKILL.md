@@ -16,6 +16,10 @@ The key-figures spread of a calm annual report: one focal band for the message, 
 numerals, the brand colour on the actuals and a gold accent for the numbered callouts. Same numbers and same layout
 as every style; see [report-styles](../report-styles/SKILL.md).
 
+**Not IBCS-compliant.** It keeps a core of the IBCS notation (scenarios, variances with impact colours, N/A,
+same unit same scale) and relaxes the IBCS rules listed below. Where IBCS compliance is required, use
+[style-ibcs](../style-ibcs/SKILL.md), and offer this style as an additional view.
+
 ## Choose it when
 
 - the page is published: an annual or half-year report, an investor update, a board pack read as a document;

@@ -16,6 +16,10 @@ A product-grade page: solid surfaces with a hairline edge, one radius, tight typ
 marks the actual (AC) and the one highlight, nothing else. Same numbers and same layout as every style; see
 [report-styles](../report-styles/SKILL.md).
 
+**Not IBCS-compliant.** It keeps a core of the IBCS notation (scenarios, variances with impact colours, N/A,
+same unit same scale) and relaxes the IBCS rules listed below. Where IBCS compliance is required, use
+[style-ibcs](../style-ibcs/SKILL.md), and offer this style as an additional view.
+
 ## Choose it when
 
 - the readers are marketing, sales, customer success, or an executive audience used to product dashboards;

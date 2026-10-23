@@ -15,6 +15,10 @@ A screen people glance at from across the room: very large figures, high contras
 IBCS notation stays (AC solid in front, PY lighter behind), and the numbers and the layout are the same as in every
 style; see [report-styles](../report-styles/SKILL.md).
 
+**Not IBCS-compliant.** It keeps a core of the IBCS notation (scenarios, variances with impact colours, N/A,
+same unit same scale) and relaxes the IBCS rules listed below. Where IBCS compliance is required, use
+[style-ibcs](../style-ibcs/SKILL.md), and offer this style as an additional view.
+
 ## Choose it when
 
 - the page runs on a wall display, a large monitor in a shared space, or a team TV;

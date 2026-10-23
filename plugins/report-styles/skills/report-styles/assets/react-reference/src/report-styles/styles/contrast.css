@@ -1,0 +1,20 @@
+/* Contrast: maximum legibility on the shared skeleton. 2 px borders, large type, no thin lines, a strong focus ring. */
+[data-style="contrast"] .rs-title { font-size: 24px; font-weight: 700; }
+[data-style="contrast"] .rs-head .rs-scope { font-size: 15px; color: var(--rs-color-text-primary); }
+[data-style="contrast"] .rs-message { font-weight: 700; line-height: 1.4; max-width: 60ch; }
+[data-style="contrast"] .rs-card, [data-style="contrast"] .rs-tile { border: 2px solid var(--rs-color-surface-edge); }
+[data-style="contrast"] .rs-tile .k-label { font-size: 16px; font-weight: 700; color: var(--rs-color-text-primary); }
+[data-style="contrast"] .rs-tile .k-value { font-weight: 700; }
+[data-style="contrast"] .rs-tile .k-var { font-size: 16px; }
+[data-style="contrast"] .rs-tile .k-dl, [data-style="contrast"] .rs-tile .k-ref { color: var(--rs-color-text-primary); font-size: 15px; }
+[data-style="contrast"] .rs-card h2 { font-size: 20px; font-weight: 700; }
+[data-style="contrast"] .rs-sub { color: var(--rs-color-text-primary); font-size: 15px; }
+[data-style="contrast"] .ct-legend { margin: -4px 0 12px; font-size: 15px; }
+[data-style="contrast"] .ct-key { display: inline-block; width: 14px; height: 14px; margin-right: 6px; vertical-align: -2px; border: 2px solid var(--rs-color-scenario-ac); }
+[data-style="contrast"] .ct-key.ac { background: var(--rs-color-scenario-ac); }
+[data-style="contrast"] .ct-key.py { margin-left: 12px; background: var(--rs-color-scenario-py); border-color: var(--rs-color-scenario-py); }
+[data-style="contrast"] svg text { font-size: 15px; }
+[data-style="contrast"] svg text.fig, [data-style="contrast"] svg text.strong { font-weight: 700; }
+[data-style="contrast"] .rs-seg button[aria-checked="true"] { outline: 2px solid var(--rs-color-accent-highlight); outline-offset: -4px; }
+[data-style="contrast"] :focus-visible { outline: 3px solid var(--rs-color-accent-highlight); outline-offset: 3px; }
+@media (max-width: 760px) { [data-style="contrast"] .rs-message { font-size: 19px; } }

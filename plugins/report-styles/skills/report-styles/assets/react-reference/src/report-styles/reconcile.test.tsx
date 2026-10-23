@@ -4,14 +4,14 @@ import { KeyFiguresPage } from "./KeyFiguresPage";
 import { StyleProvider } from "./StyleProvider";
 import { TopBar } from "./switches";
 import { SAMPLE } from "./sample";
-import { HR_FIXTURE, SERVICE_FIXTURE } from "./fixtures";
+import { HR_FIXTURE, SERVICE_FIXTURE, STRESS_FIXTURE } from "./fixtures";
 import { STYLE_IDS } from "./tokens.generated";
 import { buildKeyFigures, expectedTexts, sharedKeys } from "./viewModel";
 
 // The reconcile test: every number on every style's page, desktop and phone, is the view model's text, and every
 // style shows the shared set. The view model is what the IBCS page shows, so this is "every style vs IBCS".
 
-const DATA = { sample: SAMPLE, people: HR_FIXTURE, service: SERVICE_FIXTURE };
+const DATA = { sample: SAMPLE, people: HR_FIXTURE, service: SERVICE_FIXTURE, stress: STRESS_FIXTURE };
 
 const text = (n: ReactTestInstance | string): string => (typeof n === "string" ? n : n.children.map(text).join(""));
 
@@ -89,8 +89,8 @@ describe("switches", () => {
   });
 
   it("moves style and theme with the arrow keys, wrapping", () => {
-    const r = render("wallboard", false); // the last style: the arrow wraps to the first
-    expect(checked(r, "style")).toBe("wallboard");
+    const r = render("terminal", false); // the last style: the arrow wraps to the first
+    expect(checked(r, "style")).toBe("terminal");
     act(() => radios(r, "style").find((b) => b.props["aria-checked"])!.props.onKeyDown({ key: "ArrowRight", preventDefault() {} }));
     expect(checked(r, "style")).toBe("ibcs");
     act(() => radios(r, "theme").find((b) => b.props["aria-checked"])!.props.onKeyDown({ key: "ArrowLeft", preventDefault() {} }));

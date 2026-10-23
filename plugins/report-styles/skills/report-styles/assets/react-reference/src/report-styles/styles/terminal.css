@@ -1,0 +1,20 @@
+/* Terminal: a command-line page on the shared skeleton. Monospace everything, 1 px boxes, quiet colour. */
+[data-style="terminal"] .rs-title { font-size: var(--rs-typography-size-title); font-weight: 700; }
+[data-style="terminal"] .rs-title::before { content: "$ report "; color: var(--rs-color-accent-primary); }
+[data-style="terminal"] .rs-message { font-size: var(--rs-typography-size-message); font-weight: 400; line-height: 1.5; max-width: 90ch; }
+[data-style="terminal"] .rs-message::before { content: "> "; color: var(--rs-color-accent-primary); }
+[data-style="terminal"] .rs-card, [data-style="terminal"] .rs-tile { border: 1px solid var(--rs-color-surface-edge); border-radius: 0; }
+[data-style="terminal"] .rs-card h2::before { content: "## "; color: var(--rs-color-accent-primary); }
+[data-style="terminal"] .rs-card h2 { font-size: var(--rs-typography-size-title); }
+[data-style="terminal"] .rs-tile .k-label { text-transform: lowercase; }
+[data-style="terminal"] .rs-tile .k-value { font-weight: 700; letter-spacing: -0.02em; }
+[data-style="terminal"] .rs-tile .k-g { display: none; }
+[data-style="terminal"] .tm-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: var(--rs-typography-size-label); }
+[data-style="terminal"] .tm-table th, [data-style="terminal"] .tm-table td { padding: 5px 0 5px 10px; text-align: right; white-space: nowrap; border-bottom: 1px dashed var(--rs-color-surface-edge); }
+[data-style="terminal"] .tm-table th:first-child { padding-left: 0; text-align: left; font-weight: 400; white-space: normal; overflow-wrap: anywhere; }
+[data-style="terminal"] .tm-table thead th { color: var(--rs-color-text-secondary); font-weight: 400; border-bottom: 1px solid var(--rs-color-surface-edge); }
+[data-style="terminal"] .tm-table td.dim { color: var(--rs-color-text-secondary); }
+[data-style="terminal"] .tm-bar { text-align: left; width: 100%; }
+[data-style="terminal"] .tm-bar span { display: block; height: 6px; }
+[data-style="terminal"] .tm-bar .ac { background: var(--rs-color-scenario-ac); height: 8px; }
+[data-style="terminal"] .tm-bar .py { background: var(--rs-color-scenario-py); margin-top: 2px; height: 3px; }

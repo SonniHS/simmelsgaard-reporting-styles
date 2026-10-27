@@ -51,6 +51,7 @@ truncated axes. A share of a whole is a 100 % stacked bar with labels.
 ## Assets
 
 - `assets/graphic.tokens.json` — DTCG export.
+- `assets/DESIGN.md` — the style as a [DESIGN.md](https://github.com/google-labs-code/design.md), for any agent or design tool that reads one.
 - `assets/power-bi/graphic-pbi-theme-<light|dark>[-cvd].json` — report themes (Georgia titles: Power BI has no
   web fonts).
 - `assets/deneb/graphic-<light|dark>.overrides.json` — for the `ibcs-deneb` sync script

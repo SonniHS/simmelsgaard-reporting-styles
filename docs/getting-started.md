@@ -72,3 +72,10 @@ Import `style-graphic/assets/power-bi/graphic-pbi-theme-dark.json` and re-colour
 
 Only the paths in the style's `meta.brandSlot` change; `build_styles.py` re-checks contrast, impact colours and the
 notation in both modes and fails, naming the rule, when the brand breaks one.
+
+## 7. Outside Claude Code
+
+Every style ships `style-<id>/assets/DESIGN.md`, generated from the same tokens. Copy it to the root of another
+project and any agent or design tool that reads [DESIGN.md](https://github.com/google-labs-code/design.md) builds in
+that style: colours for both themes, type, radii, spacing, the shared layout, and the notation rules as do's and
+don'ts. It describes the look; the numbers still need the view model and the reconcile test to be proven.

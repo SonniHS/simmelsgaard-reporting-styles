@@ -54,6 +54,7 @@ run `report-styles/scripts/build_styles.py`; it re-checks contrast and the notat
 ## Assets
 
 - `assets/annual.tokens.json` — DTCG export.
+- `assets/DESIGN.md` — the style as a [DESIGN.md](https://github.com/google-labs-code/design.md), for any agent or design tool that reads one.
 - `assets/power-bi/annual-pbi-theme-<light|dark>[-cvd].json` — report themes (Segoe UI Light figures: Power BI has
   no web fonts).
 - `assets/deneb/annual-<light|dark>.overrides.json` — for the `ibcs-deneb` sync script

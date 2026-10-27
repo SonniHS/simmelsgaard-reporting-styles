@@ -332,9 +332,11 @@ def design_md(style: dict) -> str:
     colors: dict[str, str] = {}
     for mode in MODES:
         c, pre = style["color"][mode], "" if mode == "light" else "dark-"
+        opaque = lambda v: c["surface"]["page"] if v == "transparent" else v  # noqa: E731
         for name, v in (("primary", c["accent"]["primary"]), ("secondary", c["text"]["secondary"]),
                         ("tertiary", c["accent"]["highlight"]), ("neutral", c["surface"]["page"]),
-                        ("surface", c["surface"]["panel"]), ("surface-tile", c["surface"]["tile"]),
+                        # a transparent card or tile shows the page, so that is the colour its text sits on
+                        ("surface", opaque(c["surface"]["panel"])), ("surface-tile", opaque(c["surface"]["tile"])),
                         ("on-surface", c["text"]["primary"]), ("on-primary", c["text"]["onAccent"]),
                         ("outline", c["surface"]["edge"]), ("error", c["impact"]["bad"]),
                         ("scenario-ac", c["scenario"]["ac"]), ("scenario-py", c["scenario"]["py"]),
@@ -362,7 +364,21 @@ def design_md(style: dict) -> str:
         "variance-good": {"textColor": "{colors.impact-good}", "typography": "{typography.figure-md}"},
         "variance-bad": {"textColor": "{colors.impact-bad}", "typography": "{typography.figure-md}"},
         "variance-neutral": {"textColor": "{colors.impact-neutral}", "typography": "{typography.figure-md}"},
+        "variance-good-cvd": {"textColor": "{colors.impact-good-cvd}", "typography": "{typography.figure-md}"},
+        "variance-bad-cvd": {"textColor": "{colors.error}", "typography": "{typography.figure-md}"},
+        "page": {"backgroundColor": "{colors.neutral}", "textColor": "{colors.on-surface}", "typography": "{typography.body-md}"},
+        "card-subtitle": {"textColor": "{colors.secondary}", "typography": "{typography.label-sm}"},
+        "divider": {"backgroundColor": "{colors.outline}", "height": "1px"},
+        "highlight": {"backgroundColor": "{colors.tertiary}", "width": "3px"},  # a mark beside a row, never behind text
+        "mark-pl": {"backgroundColor": "{colors.scenario-pl}", "rounded": "{rounded.mark}"},
+        "mark-fc": {"backgroundColor": "{colors.scenario-fc}", "rounded": "{rounded.mark}"},
+        "chart-axis": {"backgroundColor": "{colors.chart-axis}", "height": "1px"},
+        "chart-grid": {"backgroundColor": "{colors.chart-grid}", "height": "1px"},
+        "chart-label": {"textColor": "{colors.chart-label}", "typography": "{typography.label-md}"},
     }
+    # the dark theme as a variant of every component (the format's way to give one component several states)
+    comps |= {f"{k}-dark": {p: v.replace("{colors.", "{colors.dark-") for p, v in props.items() if v.startswith("{colors.")}
+              for k, props in list(comps.items()) if any(v.startswith("{colors.") for v in props.values())}
 
     y = ["---", "version: alpha", f"name: {q(m['label'] + ' · ' + m['persona'])}", f"description: {q(m['summary'])}", "colors:"]
     y += [f"  {k}: {q(v)}" for k, v in colors.items()]
@@ -421,7 +437,10 @@ def design_md(style: dict) -> str:
         "- **card:** a title, a subtitle naming unit and scenarios, then the chart.",
         "- **mark-ac / mark-py:** columns and bars; all marks of one unit share one scale across the page.",
         "- **variance-*:** a ΔPY or ΔPY% figure in its impact tone.",
-        "- **switch / switch-selected:** style and theme switches; the selection is shown by fill, not weight.", "",
+        "- **switch / switch-selected:** style and theme switches; the selection is shown by fill, not weight.",
+        "- **mark-pl / mark-fc:** plan outlined, forecast hatched, in the scenario ink.",
+        "- **chart-axis / chart-grid / chart-label:** the chart furniture; gridlines only where the style allows them.",
+        "- **…-dark:** every component again with the dark theme's colours.", "",
         "## Do's and Don'ts", "",
         "- Do write a relative variance against the signed reference; show N/A when the reference is zero, negative or "
         "rounds to less than half a unit.",

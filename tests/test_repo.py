@@ -35,7 +35,8 @@ PRIVATE_DIRS = r"(?:vault|packages|apps|specs|erp-demo|design/tokens)/"
 
 ZERO_GUID = "00000000-0000-0000-0000-000000000000"
 LEAK_PATTERNS = [
-    ("e-mail address", re.compile(r"[\w.+-]+@[\w-]+\.[\w.-]+"),
+    # the domain must end in a letter TLD, so a pinned package (name.md@0.4.0) is not taken for an address
+    ("e-mail address", re.compile(r"[\w.+-]+@[\w-]+(?:\.[\w-]+)*\.[A-Za-z]{2,}\b"),
      lambda m: m.split("@")[1].startswith("example.") or m.startswith("noreply@anthropic")),
     ("GUID", re.compile(r"\b[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\b"),
      lambda m: m == ZERO_GUID),

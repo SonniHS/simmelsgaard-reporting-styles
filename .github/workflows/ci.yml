@@ -74,6 +74,32 @@ jobs:
         env:
           REPORT_STYLES_BROWSER: chromium
 
+  design-md:
+    name: DESIGN.md lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      # Google's linter for the DESIGN.md format, pinned. It exits 0 on warnings, so read its summary:
+      # every style's DESIGN.md must have no errors and no warnings (broken references, orphaned tokens, contrast).
+      - name: Lint every style's DESIGN.md
+        run: |
+          status=0
+          for f in plugins/report-styles/skills/style-*/assets/DESIGN.md; do
+            out=$(npx -y @google/design.md@0.4.0 lint "$f") || status=1
+            n=$(echo "$out" | jq '.summary.errors + .summary.warnings')
+            echo "$f: $(echo "$out" | jq -c '.summary')"
+            if [ "$n" != "0" ]; then
+              echo "$out" | jq -r '.findings[] | select(.severity != "info") | "  \(.severity) \(.path // "-"): \(.message)"'
+              status=1
+            fi
+          done
+          exit $status
+
   validate:
     name: Claude Code plugin validation
     runs-on: ubuntu-latest

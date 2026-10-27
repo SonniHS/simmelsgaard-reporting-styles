@@ -137,6 +137,87 @@ components:
   variance-neutral:
     textColor: "{colors.impact-neutral}"
     typography: "{typography.figure-md}"
+  variance-good-cvd:
+    textColor: "{colors.impact-good-cvd}"
+    typography: "{typography.figure-md}"
+  variance-bad-cvd:
+    textColor: "{colors.error}"
+    typography: "{typography.figure-md}"
+  page:
+    backgroundColor: "{colors.neutral}"
+    textColor: "{colors.on-surface}"
+    typography: "{typography.body-md}"
+  card-subtitle:
+    textColor: "{colors.secondary}"
+    typography: "{typography.label-sm}"
+  divider:
+    backgroundColor: "{colors.outline}"
+    height: "1px"
+  highlight:
+    backgroundColor: "{colors.tertiary}"
+    width: "3px"
+  mark-pl:
+    backgroundColor: "{colors.scenario-pl}"
+    rounded: "{rounded.mark}"
+  mark-fc:
+    backgroundColor: "{colors.scenario-fc}"
+    rounded: "{rounded.mark}"
+  chart-axis:
+    backgroundColor: "{colors.chart-axis}"
+    height: "1px"
+  chart-grid:
+    backgroundColor: "{colors.chart-grid}"
+    height: "1px"
+  chart-label:
+    textColor: "{colors.chart-label}"
+    typography: "{typography.label-md}"
+  kpi-tile-dark:
+    backgroundColor: "{colors.dark-surface-tile}"
+    textColor: "{colors.dark-on-surface}"
+  card-dark:
+    backgroundColor: "{colors.dark-surface}"
+    textColor: "{colors.dark-on-surface}"
+  key-message-dark:
+    textColor: "{colors.dark-on-surface}"
+  switch-dark:
+    backgroundColor: "{colors.dark-surface}"
+    textColor: "{colors.dark-on-surface}"
+  switch-selected-dark:
+    backgroundColor: "{colors.dark-primary}"
+    textColor: "{colors.dark-on-primary}"
+  mark-ac-dark:
+    backgroundColor: "{colors.dark-scenario-ac}"
+  mark-py-dark:
+    backgroundColor: "{colors.dark-scenario-py}"
+  variance-good-dark:
+    textColor: "{colors.dark-impact-good}"
+  variance-bad-dark:
+    textColor: "{colors.dark-impact-bad}"
+  variance-neutral-dark:
+    textColor: "{colors.dark-impact-neutral}"
+  variance-good-cvd-dark:
+    textColor: "{colors.dark-impact-good-cvd}"
+  variance-bad-cvd-dark:
+    textColor: "{colors.dark-error}"
+  page-dark:
+    backgroundColor: "{colors.dark-neutral}"
+    textColor: "{colors.dark-on-surface}"
+  card-subtitle-dark:
+    textColor: "{colors.dark-secondary}"
+  divider-dark:
+    backgroundColor: "{colors.dark-outline}"
+  highlight-dark:
+    backgroundColor: "{colors.dark-tertiary}"
+  mark-pl-dark:
+    backgroundColor: "{colors.dark-scenario-pl}"
+  mark-fc-dark:
+    backgroundColor: "{colors.dark-scenario-fc}"
+  chart-axis-dark:
+    backgroundColor: "{colors.dark-chart-axis}"
+  chart-grid-dark:
+    backgroundColor: "{colors.dark-chart-grid}"
+  chart-label-dark:
+    textColor: "{colors.dark-chart-label}"
 ---
 
 # IBCS · for the CFO
@@ -184,6 +265,9 @@ Corner radii: key message 8 px, cards 8 px, tiles 8 px, controls 6 px, chart mar
 - **mark-ac / mark-py:** columns and bars; all marks of one unit share one scale across the page.
 - **variance-*:** a ΔPY or ΔPY% figure in its impact tone.
 - **switch / switch-selected:** style and theme switches; the selection is shown by fill, not weight.
+- **mark-pl / mark-fc:** plan outlined, forecast hatched, in the scenario ink.
+- **chart-axis / chart-grid / chart-label:** the chart furniture; gridlines only where the style allows them.
+- **…-dark:** every component again with the dark theme's colours.
 
 ## Do's and Don'ts
 

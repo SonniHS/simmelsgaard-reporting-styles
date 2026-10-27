@@ -5,6 +5,14 @@ All notable changes to this marketplace and its plugin. The format follows
 
 ## [Unreleased]
 
+### Added
+- CI lints every style's DESIGN.md with Google's linter (`@google/design.md` 0.4.0); any error or warning fails.
+
+### Changed
+- DESIGN.md: every token is used by a component. Added components for the page, card subtitle, divider, highlight,
+  PL and FC marks, the chart axis, grid and labels, and the CVD variances, and a `-dark` variant of every component.
+  A transparent card or tile names the page colour it shows, so contrast is checked against what is drawn.
+
 ## [1.4.0] - 2026-10-27
 
 ### Added

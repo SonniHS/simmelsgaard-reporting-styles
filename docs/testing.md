@@ -24,6 +24,8 @@ npm run check-previews -- --data people                                 # quarte
 npm run check-previews -- --data service                                # large counts, negative variances, a score
 npm run check-previews -- --data stress                                 # long names, six-digit values, 24 months
 cd - && python3 -m pytest -q tests                                      # repository: manifests, links, assets, leak scan
+for f in plugins/report-styles/skills/style-*/assets/DESIGN.md; do      # Google's DESIGN.md linter: no errors, no warnings
+  npx -y @google/design.md@0.4.0 lint "$f" | jq -c '.summary'; done
 ```
 
 `tests/test_repo.py` also runs the consumer tests when a checkout of simmelsgaard-reporting-skills is next to this
@@ -63,5 +65,6 @@ keyboard on the switches.
 ## CI
 
 `.github/workflows/ci.yml`: repository tests (with the consumer tests against simmelsgaard-reporting-skills), the
-components (typecheck, tests, previews, the browser check on all four pages at three widths), and `claude plugin validate --strict`
+components (typecheck, tests, previews, the browser check on all four pages at three widths), the DESIGN.md lint
+(`@google/design.md` 0.4.0 on every style; any error or warning fails the job), and `claude plugin validate --strict`
 for the marketplace and the plugin.

@@ -87,6 +87,7 @@ the list of IBCS rules the style relaxes.
 |---|---|
 | `tokens.generated.ts`, `styles/tokens-<id>.css` | the React components (`--rs-*` variables; colours scoped by `[data-style][data-theme]`, light again under `@media print`) |
 | `<id>.tokens.json` | a DTCG export of the style |
+| `DESIGN.md` | the style in the [DESIGN.md format](https://github.com/google-labs-code/design.md): tokens in the front matter (light, and `dark-*`), then overview, colours, type, layout, shapes, components, and do's and don'ts with every relaxed IBCS rule |
 | `power-bi/<id>-pbi-theme-<mode>[-cvd].json` | Power BI report themes, light and dark, each with a colour-blind-safe twin |
 | `deneb/<id>-<mode>.overrides.json` | the ibcs-deneb templates, through that skill's `sync_tokens.py --overrides` |
 

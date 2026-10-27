@@ -111,6 +111,14 @@ for (const width of WIDTHS) for (const theme of THEMES) {
         texts.forEach(({ t, b }) => {
           if (b.left < cb.left - 1 || b.right > cb.right + 1) clash.push(`"${t.textContent}" leaves its card`);
         });
+        // HTML text (tables, tiles) squeezed into a column narrower than a few characters, so it stacks letter by letter
+        card.querySelectorAll("th, td, p, span, div").forEach((el) => {
+          const own = [...el.childNodes].filter((n) => n.nodeType === 3).map((n) => n.textContent).join("").trim();
+          if (own.length < 2 || el.closest("svg")) return;
+          const cs = getComputedStyle(el), fs = parseFloat(cs.fontSize), b = el.getBoundingClientRect();
+          const w = b.width - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight), h = b.height - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+          if (w > 0 && w < Math.min(own.length, 5) * fs * 0.45 && h > 2.5 * fs) clash.push(`"${own}" squeezed to ${Math.round(w)} px`);
+        });
         for (let i = 0; i < texts.length; i++) for (let j = i + 1; j < texts.length; j++) {
           const a = texts[i].b, b = texts[j].b;
           const ox = Math.min(a.right, b.right) - Math.max(a.left, b.left), oy = Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top);

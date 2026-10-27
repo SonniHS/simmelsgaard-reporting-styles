@@ -15,7 +15,8 @@ import { selfCheck } from "./selfcheck";
 const params = new URLSearchParams(location.search);
 const which = params.get("data");
 const initial = which === "people" ? HR_FIXTURE : which === "service" ? SERVICE_FIXTURE : which === "stress" ? STRESS_FIXTURE : SAMPLE;
-const embed = params.get("embed") === "1";
+// embedded when the URL says so or when the page runs inside a frame (some hosts serve files without the query string)
+const embed = params.get("embed") === "1" || window.self !== window.top;
 const styles = (document.documentElement.dataset.styles ?? "ibcs,showcase,soft,graphic,annual,wallboard,contrast,terminal").split(",");
 
 // for scripts/check-previews.mjs: what the page must show, from the same view model the page draws

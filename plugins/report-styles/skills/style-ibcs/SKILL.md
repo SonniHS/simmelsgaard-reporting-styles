@@ -45,6 +45,7 @@ good #9CCB19, bad #FF4D4D, neutral #4D8DFF; PL outlined and FC hatched keep read
 ## Assets
 
 - `assets/ibcs.tokens.json` — DTCG export (generated from `report-styles/assets/tokens/ibcs.json`).
+- `assets/DESIGN.md` — the style as a [DESIGN.md](https://github.com/google-labs-code/design.md), for any agent or design tool that reads one.
 - `assets/power-bi/ibcs-pbi-theme-<light|dark>[-cvd].json` — report themes in this style's colours (the same
   screen-tuned impact colours as the web style).
 - `assets/deneb/ibcs-<light|dark>.overrides.json` — re-colours the `ibcs-deneb` templates to match.

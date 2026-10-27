@@ -22,7 +22,7 @@
 [data-style="graphic"] svg text.note { font-size: var(--rs-typography-size-label); }
 [data-style="graphic"] .ed-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
 [data-style="graphic"] .ed-table th, [data-style="graphic"] .ed-table td { padding: 8px 0 8px 10px; border-bottom: 1px solid var(--rs-color-surface-edge); text-align: right; white-space: nowrap; }
-[data-style="graphic"] .ed-table th:first-child { padding-left: 0; text-align: left; font-weight: 600; white-space: normal; overflow-wrap: anywhere; }
+[data-style="graphic"] .ed-table th:first-child { padding-left: 0; text-align: left; font-weight: 600; white-space: normal; overflow-wrap: anywhere; min-width: 9ch; }
 [data-style="graphic"] .ed-table thead th { font-size: var(--rs-typography-size-label); color: var(--rs-color-text-secondary); font-weight: 400; border-bottom: 1px solid var(--rs-color-text-primary); }
 [data-style="graphic"] .ed-table td .rs-n.tone-good, [data-style="graphic"] .ed-table td .rs-n.tone-bad { font-weight: 600; }
 [data-style="graphic"] .ed-table tr.ed-mark th { box-shadow: inset 3px 0 0 var(--rs-color-accent-highlight); padding-left: 10px; }

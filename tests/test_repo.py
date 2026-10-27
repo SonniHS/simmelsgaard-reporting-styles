@@ -239,6 +239,41 @@ class GeneratedAssets(unittest.TestCase):
                 self.assertEqual((t["good"], t["bad"], t["neutral"]), (imp["good"], imp["bad"], imp["neutral"]), theme.name)
                 self.assertEqual(t["dataColors"][:2], [tok["color"][mode]["scenario"]["ac"], tok["color"][mode]["scenario"]["py"]])
 
+    def test_design_md_follows_the_format(self):
+        """Each DESIGN.md against the rules of google-labs-code/design.md (alpha) that its linter enforces."""
+        order = ["Overview", "Colors", "Typography", "Layout", "Elevation & Depth", "Shapes", "Components", "Do's and Don'ts"]
+        dim, colour = re.compile(r"^-?\d+(\.\d+)?(px|em|rem)$"), re.compile(r"^(#[0-9A-Fa-f]{3,4}|#[0-9A-Fa-f]{6}|#[0-9A-Fa-f]{8}|transparent|rgba?\(.+\))$")
+        for sid in STYLES:
+            text = (SKILLS / f"style-{sid}" / "assets" / "DESIGN.md").read_text()
+            self.assertTrue(text.startswith("---\n"), sid)
+            front, body = text[4:].split("\n---\n", 1)
+            # the generator writes two-level maps only: "key: value" at indent 0, 2 or 4, values quoted as JSON
+            tree, path = {}, []
+            for line in front.splitlines():
+                depth = (len(line) - len(line.lstrip())) // 2
+                key, _, val = line.strip().partition(":")
+                path = path[:depth] + [key]
+                node = tree
+                for p in path[:-1]:
+                    node = node[p]
+                node[key] = json.loads(val) if val.strip().startswith('"') else (val.strip() or {})
+            self.assertEqual(tree["version"], "alpha", sid)
+            self.assertIn("primary", tree["colors"], sid)
+            for k, v in tree["colors"].items():
+                self.assertRegex(v, colour, f"{sid} colors.{k}")
+            for k, t in tree["typography"].items():
+                self.assertRegex(t["fontSize"], dim, f"{sid} typography.{k}")
+            for k, v in tree["rounded"].items():
+                self.assertRegex(v, dim, f"{sid} rounded.{k}")
+            for comp, props in tree["components"].items():
+                for p, v in props.items():
+                    for ref in re.findall(r"\{([^}]+)\}", v):
+                        g, _, name = ref.partition(".")
+                        self.assertIn(name, tree.get(g, {}), f"{sid} components.{comp}.{p} -> {ref}")
+            heads = re.findall(r"^## (.+)$", body, re.M)
+            self.assertEqual(heads, order, sid)
+            self.assertEqual("Not IBCS-compliant" in body, sid != "ibcs", sid)
+
 
 # ibcs_lint findings a style's theme is expected to raise: each is one of the style's documented relaxations.
 # Lint reports Showcase's amber/slate series under SI 2.2 (colour for series); the style's UN 3.2 covers it.

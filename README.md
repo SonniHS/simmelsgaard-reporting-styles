@@ -29,6 +29,9 @@ audiences:
   documents the IBCS rules it relaxes, with the rule id, and is not IBCS-compliant.
 - **Web apps and Power BI**: tested React + SVG components with self-hosted fonts; Power BI themes and re-coloured
   Deneb templates, generated from the same tokens.
+- **A DESIGN.md for every style** ([format](https://github.com/google-labs-code/design.md)): drop
+  `style-<id>/assets/DESIGN.md` into any project, and any agent or design tool that reads DESIGN.md gets the style's
+  tokens, layout and notation rules, without this plugin.
 
 ## Install
 

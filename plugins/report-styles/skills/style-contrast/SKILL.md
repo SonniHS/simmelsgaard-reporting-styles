@@ -44,6 +44,7 @@ same scale) and relaxes the IBCS rules listed below. Where IBCS compliance is re
 ## Assets
 
 - `assets/contrast.tokens.json` — DTCG export.
+- `assets/DESIGN.md` — the style as a [DESIGN.md](https://github.com/google-labs-code/design.md), for any agent or design tool that reads one.
 - `assets/power-bi/contrast-pbi-theme-<light|dark>[-cvd].json` — report themes (Segoe UI Bold titles).
 - `assets/deneb/contrast-<light|dark>.overrides.json` — for the `ibcs-deneb` sync script
   ([power-bi.md](../report-styles/references/power-bi.md)).

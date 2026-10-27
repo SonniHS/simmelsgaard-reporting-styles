@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Presentation styles for reports built on the IBCS® notation — IBCS (the only IBCS-compliant one), Showcase, Soft, Graphic, Annual, Wallboard, Contrast and Terminal — in light and dark, with the same numbers and one page layout in every style.",
-    "version": "1.3.0"
+    "version": "1.4.0"
   },
   "allowCrossMarketplaceDependenciesOn": [
     "simmelsgaard-reporting-skills"

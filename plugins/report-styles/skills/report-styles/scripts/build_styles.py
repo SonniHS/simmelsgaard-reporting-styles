@@ -16,6 +16,7 @@ Generated, never edited by hand:
   assets/react-reference/src/report-styles/styles/tokens-<id>.css   --rs-* variables: layout on
       [data-style], colours on [data-style][data-theme], the light set again under @media print
   ../style-<id>/assets/<id>.tokens.json                              DTCG export of the style
+  ../style-<id>/assets/DESIGN.md                                     the style as a DESIGN.md (google-labs-code/design.md)
   ../style-<id>/assets/power-bi/<id>-pbi-theme-<mode>[-cvd].json     Power BI report themes
   ../style-<id>/assets/deneb/<id>-<mode>.overrides.json              overrides for ibcs-deneb's sync_tokens.py
 Every style gets all four themes and both overrides files, IBCS included, so the Power BI assets are complete here.
@@ -317,6 +318,126 @@ def deneb_overrides(style: dict, mode: str) -> dict:
     return out
 
 
+CHART_TYPES = {"pie": "pie", "ring": "ring/donut", "gauge": "gauge", "funnel": "funnel", "radar": "radar",
+               "traffic-light": "traffic light", "pseudo-3d": "3-D", "waffle": "waffle", "pictogram": "pictogram"}
+
+
+def design_md(style: dict) -> str:
+    """The style as a DESIGN.md (google-labs-code/design.md, version alpha): tokens in the front matter, prose below."""
+    m, t, r, d, ch = style["meta"], style["typography"], style["radius"], style["density"], style["chart"]
+    ibcs = m["id"] == "ibcs"
+    q = lambda v: json.dumps(v, ensure_ascii=False)  # noqa: E731  JSON strings are valid YAML scalars
+    first = lambda stack: stack.split(",")[0].strip().strip('"')  # noqa: E731
+
+    colors: dict[str, str] = {}
+    for mode in MODES:
+        c, pre = style["color"][mode], "" if mode == "light" else "dark-"
+        for name, v in (("primary", c["accent"]["primary"]), ("secondary", c["text"]["secondary"]),
+                        ("tertiary", c["accent"]["highlight"]), ("neutral", c["surface"]["page"]),
+                        ("surface", c["surface"]["panel"]), ("surface-tile", c["surface"]["tile"]),
+                        ("on-surface", c["text"]["primary"]), ("on-primary", c["text"]["onAccent"]),
+                        ("outline", c["surface"]["edge"]), ("error", c["impact"]["bad"]),
+                        ("scenario-ac", c["scenario"]["ac"]), ("scenario-py", c["scenario"]["py"]),
+                        ("scenario-pl", c["scenario"]["pl"]), ("scenario-fc", c["scenario"]["fc"]),
+                        ("impact-good", c["impact"]["good"]), ("impact-bad", c["impact"]["bad"]),
+                        ("impact-neutral", c["impact"]["neutral"]), ("impact-good-cvd", c["impact"]["cvd"]["good"]),
+                        ("chart-axis", c["chart"]["axis"]), ("chart-grid", c["chart"]["grid"]), ("chart-label", c["chart"]["label"])):
+            if v != "none":
+                colors[pre + name] = v
+    w, s = t["weight"], t["size"]
+    typo = {"headline-display": ("display", s["hero"], w["display"], 1.15), "headline-md": ("display", s["message"], w["emphasis"], 1.3),
+            "title-md": ("display", s["title"], w["emphasis"], 1.3), "body-md": ("text", s["body"], w["regular"], 1.5),
+            "label-md": ("text", s["label"], w["regular"], 1.35), "label-sm": ("text", s["footnote"], w["regular"], 1.35),
+            "figure-lg": ("figures", s["figure"], w["display"], 1.1), "figure-md": ("figures", s["label"], w["regular"], 1.35)}
+    comps = {
+        "kpi-tile": {"backgroundColor": "{colors.surface-tile}", "textColor": "{colors.on-surface}", "typography": "{typography.figure-lg}",
+                     "rounded": "{rounded.tile}", "padding": f"{d['pad']}px"},
+        "card": {"backgroundColor": "{colors.surface}", "textColor": "{colors.on-surface}", "typography": "{typography.title-md}",
+                 "rounded": "{rounded.panel}", "padding": f"{d['pad']}px"},
+        "key-message": {"textColor": "{colors.on-surface}", "typography": "{typography.headline-md}", "rounded": "{rounded.hero}"},
+        "switch": {"backgroundColor": "{colors.surface}", "textColor": "{colors.on-surface}", "typography": "{typography.label-md}", "rounded": "{rounded.control}"},
+        "switch-selected": {"backgroundColor": "{colors.primary}", "textColor": "{colors.on-primary}"},
+        "mark-ac": {"backgroundColor": "{colors.scenario-ac}", "rounded": "{rounded.mark}"},
+        "mark-py": {"backgroundColor": "{colors.scenario-py}", "rounded": "{rounded.mark}"},
+        "variance-good": {"textColor": "{colors.impact-good}", "typography": "{typography.figure-md}"},
+        "variance-bad": {"textColor": "{colors.impact-bad}", "typography": "{typography.figure-md}"},
+        "variance-neutral": {"textColor": "{colors.impact-neutral}", "typography": "{typography.figure-md}"},
+    }
+
+    y = ["---", "version: alpha", f"name: {q(m['label'] + ' · ' + m['persona'])}", f"description: {q(m['summary'])}", "colors:"]
+    y += [f"  {k}: {q(v)}" for k, v in colors.items()]
+    y.append("typography:")
+    for k, (fam, size, weight, lh) in typo.items():
+        y += [f"  {k}:", f"    fontFamily: {q(first(t['family'][fam]))}", f"    fontSize: {size}px", f"    fontWeight: {weight}", f"    lineHeight: {lh}"]
+    y.append("rounded:")
+    y += [f"  {k}: {v}px" for k, v in r.items()]
+    y += ["spacing:", f"  gap: {d['gap']}px", f"  pad: {d['pad']}px", f"  tiles-per-row: {d['tilesPerRow']}", f"  max-visuals: {d['maxVisuals']}"]
+    y.append("components:")
+    for k, props in comps.items():
+        y.append(f"  {k}:")
+        y += [f"    {p}: {q(v)}" for p, v in props.items()]
+    y.append("---")
+
+    lc, dc = style["color"]["light"], style["color"]["dark"]
+    banned = ", ".join(CHART_TYPES.get(b, b) for b in ch["banned"])
+    body = [
+        f"# {m['label']} · {m['persona']}", "",
+        f"<!-- Generated by report-styles/scripts/build_styles.py from assets/tokens/{m['id']}.json; do not edit. -->", "",
+        "## Overview", "", m["summary"], "",
+        ("**The only report style that follows the IBCS® Standards.** Every other style reconciles to it."
+         if ibcs else
+         "**Not IBCS-compliant.** It keeps a core of the IBCS® notation (scenarios, variances with impact colours, N/A, "
+         "same unit same scale) and relaxes the rules listed under Do's and Don'ts. Where IBCS compliance is required, use the IBCS style."), "",
+        "Every style draws the same report page: a key message, four KPI tiles, a time card and a structure card, "
+        "in the same order and the same columns. Only the look changes; the numbers, their positions and the notation rules do not.", "",
+        "## Colors", "",
+        f"Tokens without a prefix are the light theme (the default for print and documents); `dark-*` is the dark theme. "
+        f"Text reaches WCAG {m.get('level', 'AA')} on every surface it sits on, checked by the build.", "",
+        f"- **Primary ({lc['accent']['primary']}):** the accent for the selected switch and focus; never a data colour.",
+        f"- **Neutral ({lc['surface']['page']}) and Surface ({lc['surface']['panel']}):** the page and the cards.",
+        f"- **Scenario AC ({lc['scenario']['ac']}) and PY ({lc['scenario']['py']}):** actuals solid and strong, previous year lighter. "
+        "PL is outlined and FC hatched in the same ink; scenarios are told apart by pattern, not hue.",
+        f"- **Impact good ({lc['impact']['good']}), bad ({lc['impact']['bad']}), neutral ({lc['impact']['neutral']}):** "
+        f"the tone of a variance only. `impact-good-cvd` ({lc['impact']['cvd']['good']}) replaces green in the colour-vision mode.",
+        f"- **Dark:** page {dc['surface']['page']}, AC {dc['scenario']['ac']}, PY {dc['scenario']['py']}.", "",
+        "## Typography", "",
+        f"Text in {first(t['family']['text'])}, headings in {first(t['family']['display'])}, figures in "
+        f"{first(t['family']['figures'])} with tabular numerals, so columns of numbers align. The key message is "
+        f"{s['message']} px; KPI values {s['figure']} px; chart labels {s['label']} px.", "",
+        "## Layout", "",
+        f"{d['tilesPerRow']} KPI tiles per row, then the time card and the structure card side by side from 1024 px and stacked below it "
+        f"(time first). Gap {d['gap']} px, card padding {d['pad']} px, at most {d['maxVisuals']} visuals on a page. "
+        "No horizontal scroll at any width.", "",
+        "## Elevation & Depth", "",
+        ("Cards and tiles lift off the page with one soft shadow in the light theme; the dark theme uses a border "
+         "instead. There is no further elevation: charts and tables stay flat."
+         if any("shadow" in x["what"] for x in ch.get("relaxes", [])) else
+         "Flat. Hierarchy comes from the page and card tones and from type weight, not from shadows."), "",
+        "## Shapes", "",
+        f"Corner radii: key message {r['hero']} px, cards {r['panel']} px, tiles {r['tile']} px, controls {r['control']} px, "
+        f"chart marks {r['mark']} px.", "",
+        "## Components", "",
+        "- **kpi-tile:** label, AC value, PY, ΔPY and ΔPY%. The value shrinks to fit its tile and is never cut.",
+        "- **card:** a title, a subtitle naming unit and scenarios, then the chart.",
+        "- **mark-ac / mark-py:** columns and bars; all marks of one unit share one scale across the page.",
+        "- **variance-*:** a ΔPY or ΔPY% figure in its impact tone.",
+        "- **switch / switch-selected:** style and theme switches; the selection is shown by fill, not weight.", "",
+        "## Do's and Don'ts", "",
+        "- Do write a relative variance against the signed reference; show N/A when the reference is zero, negative or "
+        "rounds to less than half a unit.",
+        "- Do let polarity choose the tone only: a variance shown as zero has no colour and no sign.",
+        "- Do draw the same unit at the same scale everywhere on the page.",
+        "- Do keep every number on the page equal to the view model; every style shows the same set.",
+        f"- Don't use these chart types: {banned}.",
+        "- Don't use the accent or a second hue to tell series apart.",
+    ]
+    if ch.get("relaxes"):
+        body += ["", ("Where the app around the report departs from the IBCS rules (the notation itself does not):"
+                      if ibcs else "Where this style departs from the IBCS rules:"), ""]
+        body += [f"- **{x['rule']}:** {x['what']} {x['why']}" + (f" Condition: {x['condition']}" if x.get("condition") else "") for x in ch["relaxes"]]
+    return "\n".join(y + [""] + body) + "\n"
+
+
 def ts_module(styles: dict) -> str:
     body = json.dumps(styles, indent=2, ensure_ascii=False)
     return ("// Generated by scripts/build_styles.py from assets/tokens/<id>.json; do not edit.\n"
@@ -332,6 +453,7 @@ def outputs(styles: dict) -> dict[Path, str]:
         out[REACT / "styles" / f"tokens-{sid}.css"] = css_vars(s)
         assets = SKILLS / f"style-{sid}" / "assets"
         out[assets / f"{sid}.tokens.json"] = dump(dtcg(s))
+        out[assets / "DESIGN.md"] = design_md(s)
         for mode in MODES:
             for cvd in (False, True):
                 out[assets / "power-bi" / f"{sid}-pbi-theme-{mode}{'-cvd' if cvd else ''}.json"] = dump(pbi_theme(s, mode, cvd))

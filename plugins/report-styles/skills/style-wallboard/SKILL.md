@@ -47,6 +47,7 @@ PY bar beneath, values at the bar end, ΔPY% as tinted chips at the right. No gr
 ## Assets
 
 - `assets/wallboard.tokens.json` — DTCG export.
+- `assets/DESIGN.md` — the style as a [DESIGN.md](https://github.com/google-labs-code/design.md), for any agent or design tool that reads one.
 - `assets/power-bi/wallboard-pbi-theme-<light|dark>[-cvd].json` — report themes (Segoe UI Semibold/Black).
 - `assets/deneb/wallboard-<light|dark>.overrides.json` — for the `ibcs-deneb` sync script
   ([power-bi.md](../report-styles/references/power-bi.md)).

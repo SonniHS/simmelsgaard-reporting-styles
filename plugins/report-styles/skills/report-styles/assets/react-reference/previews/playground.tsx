@@ -73,6 +73,7 @@ function Playground() {
   const [json, setJson] = useState(() => JSON.stringify(SAMPLE, null, 2));
   const [jsonError, setJsonError] = useState("");
   const [checks, setChecks] = useState<CheckResult[] | null>(null);
+  const [stalled, setStalled] = useState(false);
   const [frameH, setFrameH] = useState(900);
   const frame = useRef<HTMLIFrameElement>(null);
   const stage = useRef<HTMLDivElement>(null);
@@ -90,7 +91,7 @@ function Playground() {
   useEffect(() => {
     const on = (e: MessageEvent) => {
       if (e.source !== frame.current?.contentWindow) return;
-      if (e.data?.type === "rs:ready") { post({ type: "rs:set", style, theme, cvd }); if (validate(data).length === 0) post({ type: "rs:data", data }); }
+      if (e.data?.type === "rs:ready") { setStalled(false); post({ type: "rs:set", style, theme, cvd }); if (validate(data).length === 0) post({ type: "rs:data", data }); }
       if (e.data?.type === "rs:checks") {
         setChecks(e.data.results);
         setFrameH(e.data.height);
@@ -101,6 +102,8 @@ function Playground() {
     window.addEventListener("message", on);
     return () => window.removeEventListener("message", on);
   }, [data, style, theme, cvd, post]);
+  // a report that never answers (blocked frame, failed script) is reported instead of a silent blank
+  useEffect(() => { const t = window.setTimeout(() => setStalled((s) => s || checks === null), 8000); return () => window.clearTimeout(t); }, [checks]);
   useLayoutEffect(() => {
     const el = stage.current;
     if (!el) return;
@@ -176,18 +179,18 @@ function Playground() {
               ))}
 
               <h3>KPI tiles</h3>
-              <table className="pg-table"><thead><tr><th>label</th><th>unit</th><th>AC</th><th>PY</th><th>dec</th><th>kind</th><th>polarity</th></tr></thead>
-                <tbody>{data.kpis.map((k, i) => (
-                  <tr key={k.key}>
-                    <td><input value={k.label} aria-label="KPI label" onChange={(e) => update((d) => { d.kpis[i]!.label = e.target.value; })} /></td>
-                    <td><input className="pg-short" value={k.unit} aria-label="KPI unit" onChange={(e) => update((d) => { d.kpis[i]!.unit = e.target.value; })} /></td>
-                    <td><NumIn label="KPI AC" value={k.ac} onChange={(v) => update((d) => { d.kpis[i]!.ac = v; })} /></td>
-                    <td><NumIn label="KPI PY" value={k.py} onChange={(v) => update((d) => { d.kpis[i]!.py = v; })} /></td>
-                    <td><NumIn label="KPI decimals" value={k.decimals} onChange={(v) => update((d) => { d.kpis[i]!.decimals = Math.round(v); })} /></td>
-                    <td><select value={k.kind} aria-label="KPI kind" onChange={(e) => update((d) => { d.kpis[i]!.kind = e.target.value as Kind; })}>{KINDS.map((x) => <option key={x}>{x}</option>)}</select></td>
-                    <td><select value={k.polarity} aria-label="KPI polarity" onChange={(e) => update((d) => { d.kpis[i]!.polarity = Number(e.target.value) as Polarity; })}>{POLARITIES.map((x) => <option key={x.v} value={x.v}>{x.label}</option>)}</select></td>
-                  </tr>
-                ))}</tbody></table>
+              <div className="pg-kpis">{data.kpis.map((k, i) => (
+                <fieldset key={k.key} className="pg-kpi">
+                  <legend>Tile {i + 1}</legend>
+                  <label className="pg-wide">label<input value={k.label} onChange={(e) => update((d) => { d.kpis[i]!.label = e.target.value; })} /></label>
+                  <label>unit<input value={k.unit} onChange={(e) => update((d) => { d.kpis[i]!.unit = e.target.value; })} /></label>
+                  <label>AC<NumIn label="AC" value={k.ac} onChange={(v) => update((d) => { d.kpis[i]!.ac = v; })} /></label>
+                  <label>PY<NumIn label="PY" value={k.py} onChange={(v) => update((d) => { d.kpis[i]!.py = v; })} /></label>
+                  <label>decimals<NumIn label="decimals" value={k.decimals} onChange={(v) => update((d) => { d.kpis[i]!.decimals = Math.round(v); })} /></label>
+                  <label>kind<select value={k.kind} onChange={(e) => update((d) => { d.kpis[i]!.kind = e.target.value as Kind; })}>{KINDS.map((x) => <option key={x}>{x}</option>)}</select></label>
+                  <label className="pg-wide">direction<select value={k.polarity} onChange={(e) => update((d) => { d.kpis[i]!.polarity = Number(e.target.value) as Polarity; })}>{POLARITIES.map((x) => <option key={x.v} value={x.v}>{x.label}</option>)}</select></label>
+                </fieldset>
+              ))}</div>
 
               {(["time", "structure"] as const).map((side) => {
                 const m = data[side];
@@ -238,7 +241,7 @@ function Playground() {
 
         <section>
           <h2>Checks</h2>
-          {!checks ? <p className="pg-dim">Waiting for the report…</p> : (
+          {!checks ? <p className={stalled ? "pg-error" : "pg-dim"}>{stalled ? "The report did not start in its frame. Open it from the repository instead (docs/playground.md)." : "Waiting for the report…"}</p> : (
             <ul className="pg-checks">
               {checks.map((c) => (
                 <li key={c.id} className={c.ok ? "ok" : "fail"}>

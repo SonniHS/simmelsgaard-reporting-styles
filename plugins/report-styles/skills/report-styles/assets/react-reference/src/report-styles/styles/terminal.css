@@ -11,7 +11,7 @@
 [data-style="terminal"] .rs-tile .k-g { display: none; }
 [data-style="terminal"] .tm-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: var(--rs-typography-size-label); }
 [data-style="terminal"] .tm-table th, [data-style="terminal"] .tm-table td { padding: 5px 0 5px 10px; text-align: right; white-space: nowrap; border-bottom: 1px dashed var(--rs-color-surface-edge); }
-[data-style="terminal"] .tm-table th:first-child { padding-left: 0; text-align: left; font-weight: 400; white-space: normal; overflow-wrap: anywhere; }
+[data-style="terminal"] .tm-table th:first-child { padding-left: 0; text-align: left; font-weight: 400; white-space: normal; overflow-wrap: anywhere; min-width: 9ch; }
 [data-style="terminal"] .tm-table thead th { color: var(--rs-color-text-secondary); font-weight: 400; border-bottom: 1px solid var(--rs-color-surface-edge); }
 [data-style="terminal"] .tm-table td.dim { color: var(--rs-color-text-secondary); }
 [data-style="terminal"] .tm-bar { text-align: left; width: 100%; }
